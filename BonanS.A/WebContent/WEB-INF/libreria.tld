@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.0</jspversion>
+	<shortname>Ejemplos de Custom Tags</shortname>
+	<!-- definicion de las etiquetas -->
+	
+	
+	
+	<tag>
+		<name>cboCategoriaVehiculo</name>
+		<tagclass>etiquetas.cboCategoriaVehiculo</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Categoria de vehiculo</info>
+		<attribute>
+			<name>idCatVeh</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	
+	
+	<tag>
+		<name>cboEstado</name>
+		<tagclass>etiquetas.cboEstado</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Estado de Entidades</info>
+		<attribute>
+			<name>idEstado</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	
+  <tag>
+		<name>cboEstadoTrabajo</name>
+		<tagclass>etiquetas.cboEstadoTrabajo</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Estado de Entidades</info>
+		<attribute>
+			<name>idEstadoTrabajo</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	
+	  <tag>
+		<name>CboTipoEmpleado</name>
+		<tagclass>etiquetas.CboTipoEmpleado</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Tipo de Empleados</info>
+		<attribute>
+			<name>idTipoEmpleado</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	  <tag>
+		<name>CboTipoCliente</name>
+		<tagclass>etiquetas.CboTipoCliente</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Tipo de Clientes</info>
+		<attribute>
+			<name>idTipoCliente</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	
+	<tag>
+		<name>CboTipoEstablecimiento</name>
+		<tagclass>etiquetas.CboTipoEstablecimiento</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Tipo de Establecimientos</info>
+		<attribute>
+			<name>idTipoEstablec</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>	
+	
+	
+<tag>
+		<name>CboDepartamento</name>
+		<tagclass>etiquetas.CboDepartamento</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Departamentos</info>
+		<attribute>
+			<name>codubigeo</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>
+
+
+<tag>
+		<name>CboTipoEmpleado</name>
+		<tagclass>etiquetas.CboTipoEmpleado</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo tipos de empleados</info>
+		<attribute>
+			<name>idTipoEmpleado</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>
+	
+	</taglib>

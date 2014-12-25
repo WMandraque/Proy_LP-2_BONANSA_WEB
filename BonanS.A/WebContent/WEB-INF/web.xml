@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>BonanS.A</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>gestionaUsuario</servlet-name>
+    <servlet-class>servlets.SvGestionaUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaUsuario</servlet-name>
+    <url-pattern>/gestionaUsuario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>gestionaVehiculo</servlet-name>
+    <servlet-class>servlets.SvGestionaVehiculo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaVehiculo</servlet-name>
+    <url-pattern>/gestionaVehiculo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>gestionaLog</servlet-name>
+    <servlet-class>servlets.SvGestionaLog</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaLog</servlet-name>
+    <url-pattern>/gestionaLog</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ajax</servlet-name>
+    <servlet-class>servlets.SvAccionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ajax</servlet-name>
+    <url-pattern>/ajax</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>gestionaUbigeo</servlet-name>
+    <servlet-class>servlets.SvGestionaUbigeo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaUbigeo</servlet-name>
+    <url-pattern>/gestionaUbigeo</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>gestionaCliente</servlet-name>
+    <servlet-class>servlets.SvGestionaCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaCliente</servlet-name>
+    <url-pattern>/gestionaCliente</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
