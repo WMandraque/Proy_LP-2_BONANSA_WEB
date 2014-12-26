@@ -47,6 +47,37 @@ public class ServicioFoto {
 	}
 	
 	
+public InputStream getFotoEmpleado(String idEmpleado){
+		
+		InputStream is=null;
+		
+		try {
+			
+		
+			con=MySQLConexion.getConexion();
+			String sql="select fotoEmpleado from tb_empleado WHERE idEmpleado=?";
+			pst=con.prepareStatement(sql);
+			pst.setString(1, idEmpleado.trim());
+			ResultSet rs=pst.executeQuery();
+			if(rs.next()){
+				is=rs.getBinaryStream(1);
+			}
+			
+			rs.close();
+			
+		} catch (Exception e) {
+			System.out.println("Error al obtener la fotoVehiculoDAO: "+e);
+		}finally{
+			try {
+				con.close();
+				pst.close();
+			} catch (Exception e2) {
+				System.out.println("Error al cerrar conexiones: "+e2);
+			}
+		}
+		
+		return is;
+	}
 	
 	
 	

@@ -23,6 +23,7 @@
         <link href="css/generics.css" rel="stylesheet">
         <link href="css/app.css" rel="stylesheet">
         <link href="css/icons2.css" rel="stylesheet">
+
     </head>
 <body id="skin-blur-violate">
         <header id="header" class="media">
@@ -72,7 +73,7 @@
                     <!-- Profile Menu -->
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
-                            <img class="profile-pic animated" src="img/profile-pic.jpg" alt="">
+                            <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
                         </a>
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
@@ -100,11 +101,11 @@
                     <nav id="wrapper">
                     <ul class="menu">
                     
-						<li class="item1"><a href="mpAdministrador.jsp">Inicio</a></li>
+						<a href="mpAdministrador.jsp">Inicio</a>
 						
         				<li class="item2"><a href="#">Mantenimiento Clientes</a>
 						    <ul>
-                				<li class="subitem1"><a href="#">Registrar Cliente</a></li>
+                				<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
                 				<li class="subitem2"><a href="#">Actualizar Cliente</a></li>
                 				<li class="subitem3"><a href="#">Listar Cliente</a></li>
             				</ul>
@@ -113,21 +114,28 @@
         				
         				<li class="item3"><a href="#">Mantenimiento Empleados</a>
 						    <ul>
-                				<li class="subitem1"><a href="#">Registrar Empleado</a></li>
-                				<li class="subitem2"><a href="#">Actualizar Empleado</a></li>
-                				<li class="subitem3"><a href="mpAdministrador.jsp">Listar Empleado</a></li>
+                				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
+                				<li class="subitem2"><a href="">Actualizar Empleado</a></li>
+                				<li class="subitem3"><a href="#">Listar Empleado</a></li>
             				</ul>
         				</li>
         				
         				
         				<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
 						    <ul>
-                				<li class="subitem1"><a href="#">Registrar Vehiculo</a></li>
-                				<li class="subitem2"><a href="#">Actualizar Vehiculo</a></li>
-                				<li class="subitem3"><a href="#">ListarVe hiculo</a></li>
+                				<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar Vehiculo</a></li>
+                				<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar Vehiculo</a></li>
+                				<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar Vehiculo</a></li>
+                				<li class="subitem3"><a href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
             				</ul>
         				</li>
         				
+        				
+        				 <li class="item4"><a href="#">Registro de acciones</a>
+						    <ul>
+                				<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado de logs</a></li>
+            				</ul>
+        				</li>
         				
         				
         			
@@ -137,10 +145,12 @@
         	</aside>
         	
         <section id="content" class="container">
+        
                 
-
+                <div class="block-area" id="required">
                 <!--Titulo  -->
-                <h1 class="page-title">Registro de Acciones</h1>
+                 <h3 class="block-title">Registro de acciones</h3>
+                </div>
                 
 
                 
@@ -150,17 +160,26 @@
                     
        <!-- FORMULARIO  -->             
        <form action="gestionaVehiculo" method="post">
+       <fieldset>
+       <legend class="block-title" style="color: white;">Listad de logs</legend>
                    
-                                    <display:table 
+                      <display:table 
                                     class="table table-bordered table-hover tile"
 									name="${sessionScope.listadoLogs}" 
 									uid="models" 
 								    cellspacing="1"
-									cellpadding="5" pagesize="15">
-
+									cellpadding="5" pagesize="7" export="true">
+                   <display:setProperty name="export.pdf.filename" value="listadoLogs"></display:setProperty>
+					
+					<display:column title="Codigo" property="codigo"/>
+					<display:column title="Usuario" property="usuario"/>
+					<display:column title="Descripcion" property="descripcion"/>
+					<display:column title="Tipo" property="tipo"/>
+					<display:column title="Fecha" property="fecha" format="{0,date,dd/MM/yyyy}"/>
+					<display:column title="Hora" property="hora"/>
 				
 									
-								</display:table>
+					</display:table>
                   
                    
              </fieldset>

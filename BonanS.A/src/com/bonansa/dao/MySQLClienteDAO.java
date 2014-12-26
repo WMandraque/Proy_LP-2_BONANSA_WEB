@@ -40,7 +40,7 @@ public class MySQLClienteDAO implements ClienteDAO {
 			cst.setString(8, clienteX.getCelularCliente());
 			cst.setString(9, clienteX.getCorreoCliente());
 			cst.setString(10, clienteX.getNumDocumento());
-			cst.setString(11, "EMP009");
+			cst.setString(11, idEmpleadoR);
 			cst.registerOutParameter(12, java.sql.Types.VARCHAR);
 
 
@@ -90,7 +90,7 @@ try {
 			cst.setString(11, clienteX.getRazSocCliente());
 			cst.setString(12, clienteX.getCiiuCliente());
 			cst.setString(13, clienteX.getCargoContacCliente());
-			cst.setString(14, "EMP009");
+			cst.setString(14, idEmpleadoR);
 			cst.registerOutParameter(15, java.sql.Types.VARCHAR);
 
 

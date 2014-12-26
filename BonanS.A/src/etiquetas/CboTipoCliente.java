@@ -43,7 +43,7 @@ public class CboTipoCliente extends TagSupport{
 		try {
 			
 			JspWriter out=pageContext.getOut();
-			String writterInicial="<select class='select'name='cboTipoCliente'id='cboTipoCliente' >";
+			String writterInicial="<select class='select'name='cboTipoCliente' id='cboTipoCliente' >";
 			out.println(writterInicial);
 			writterCuerpo();
 		} catch (Exception e) {

@@ -72,10 +72,8 @@
 	<div class="side-widgets overflow">
 		<!-- Profile Menu -->
 		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-			<a href="" data-toggle="dropdown"> <img
-				class="profile-pic animated"
-				src="gestionaVehiculo?operacion=fotoVehiculo&idVehiculo=VEH0016"
-				height="100">
+			<a href="" data-toggle="dropdown"> 
+                            <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
 			</a>
 			<ul class="dropdown-menu profile-menu">
 				<li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i
@@ -165,15 +163,12 @@
 
 
 	<!--Espacio para el formulario  -->
-	<div class="block-area" id="required">
-
+	    <div class="block-area" id="required">
 		<!-- FORMULARIO  -->
-		<form action="gestionaCliente" method="post">
-			<input type="hidden" name="operacion" value="registrar">
-			<fieldset>
-
-				<legend class="block-title" style="color: white;">Registrar
-					empleado</legend>
+		<form action="gestionaEmpleado" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="operacion" value="registrar">
+		<fieldset>
+		<legend class="block-title" style="color: white;">Registrar empleado</legend>
 
 
 				<div class="block-area">
@@ -185,7 +180,7 @@
 
 
 
-	<div class="row">
+	                 <div class="row">
 
 
 						<div class="col-md-3 m-b-15">
@@ -235,9 +230,11 @@
 														<h1 class="block-title">FOTO DEL EMPLEADO</h1>
 															<div class="col-sm-12">
 																<div class="fileupload fileupload-new" data-provides="fileupload">
-																	<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.propiedadintelectual.cl/img/not_found.png" alt=""/>
+																	<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+																	<img src="http://www.propiedadintelectual.cl/img/not_found.png" alt=""/>
 																	</div>
-																	<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+																	<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
+																	</div>
 																	<div>
 																		<span class="btn btn-light-grey btn-file">
 																			 <span class="fileupload-new">
@@ -257,6 +254,14 @@
 								</div>
 								
 
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Num DNI</label> <input
+									type="text" id="txtNumDocum" name="txtNumDocum"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;"
+									placeholder="ingresar Numero Dni" required="requerid">
+							</div>
 						
 							<div class="col-md-3 m-b-15">
 								<label style="font-size: 12px;">Nombre</label> <input
@@ -332,7 +337,7 @@
 
 								<label style="font-size: 12px;">Direccion</label> <input
 									type="text" id="txtDireccion" name="txtDireccion"
-									class="input-sm form-control mask-date_time">
+									class="input-sm form-control mask-date_time" placeholder="ingresar direccion" required="requerid">
 
 							</div>
 
@@ -363,20 +368,47 @@
 									style="font-size: 16px;" placeholder="ingresar correo"
 									required="requerid">
 							</div>
+							
+							
+						<div id="divEmpleadoConductor">
+						
+						
+						    <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Num Licencia de conducir</label> <input
+									type="text" id="txtNumLicenciaConducir" name="txtNumLicenciaConducir"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" placeholder="ingresar Num de licencia"
+									>
+							</div>
+						
+						   <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Tipo de licencia de conducir</label> 
+						        <libreria:CboClaseLicenciaConductor idClaselic="0"/>
+							</div>
+							
+						   <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Categoria de licencia de conducir</label> 
+						        <libreria:CboCategoriaLicenciaCodunductor idCategorialic="0"/>
+							</div>
+							
+						</div>
 
-
+                        <hr class="whiter m-t-20" />
+						<!--Botones  -->
+						<div class="block-area">
+							<input class="btn btn-sm" type="submit" value="REGISTRAR">
+							<input class="btn btn-sm" type="reset" value="LIMPIAR">
+						</div>
 						
 
 			</div>
 
 					
 
-					</div>
-
-				
-			</fieldset>
-		</form>
-		<!--FIN DEL FORMULARIO  -->
+	</div>		
+	</fieldset>
+	</form>
+	<!--FIN DEL FORMULARIO  -->
 	</div>
 	<!-- Fin del contenedor del form --> <!--Chat  -->
 	<div class="chat">

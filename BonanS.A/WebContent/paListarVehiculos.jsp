@@ -77,7 +77,8 @@
                     <!-- Profile Menu -->
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
-                           <img class="profile-pic animated" src="gestionaVehiculo?operacion=fotoVehiculo&idVehiculo=VEH0016"  height="100">                        </a>
+                            <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
+                                                </a>
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                             <li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>

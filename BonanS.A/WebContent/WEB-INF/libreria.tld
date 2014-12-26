@@ -109,5 +109,28 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 </tag>
-	
+
+<tag>
+		<name>CboClaseLicenciaConductor</name>
+		<tagclass>etiquetas.CboClaseLicenciaConductor</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo tipos de clase de licencia de conductor</info>
+		<attribute>
+			<name>idClaselic</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>
+
+<tag>
+		<name>CboCategoriaLicenciaCodunductor</name>
+		<tagclass>etiquetas.CboCategoriaLicenciaConductor</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo tipos de categoria de licencia de conductor</info>
+		<attribute>
+			<name>idCategorialic</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>	
 	</taglib>

@@ -24,6 +24,9 @@
         <link href="css/generics.css" rel="stylesheet">
         <link href="css/app.css" rel="stylesheet">
         <link href="css/icons2.css" rel="stylesheet">
+        
+        <script src="js/mylibs/validaciones.js"></script>
+        
     </head>
 <body id="skin-blur-violate">
         <header id="header" class="media">
@@ -73,7 +76,7 @@
                     <!-- Profile Menu -->
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
-                             <img class="profile-pic animated" src="gestionaVehiculo?operacion=fotoVehiculo&idVehiculo=VEH0016"  height="100">                        </a>
+                            <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                             <li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
@@ -175,7 +178,7 @@
 		                      
 		                      	<div class="col-md-3 m-b-15">
 		                            <label  style="font-size: 15px;">ID Vehiculo</label>
-		                            <input type="text" class="input-sm form-control mask-date_time" style="text-align:center;" value=">>AUTOGENERADO<<" readonly="readonly="readonly">
+		                            <input type="text" class="input-sm form-control" style="text-align:center;" value=">>AUTOGENERADO<<" readonly="readonly="readonly">
 		                        </div>
 		                        
         
@@ -219,7 +222,7 @@
 		                        
 		                        <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Placa del Vehiculo</label>
-		                            <input type="text" id="txtPlacaVehiculo" name="txtPlacaVehiculo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar placa" required="requerid"
+		                            <input type="text" id="txtPlacaVehiculo" name="txtPlacaVehiculo" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar placa" required="requerid"
 		                                    maxlength="20">
                                </div> 
 		                   
@@ -232,63 +235,63 @@
                                   
                                 <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Marca del Vehiculo</label>
-		                            <input type="text" id="txtMarcaVehiculo" name="txtMarcaVehiculo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar marca" required="requerid">
+		                            <input type="text" id="txtMarcaVehiculo" name="txtMarcaVehiculo" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar marca" required="requerid">
                                </div>  
                                
                                <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Modelo del Vehiculo</label>
-		                            <input type="text" id="txtModeloVehiculo" name="txtModeloVehiculo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar modelo" required="requerid">
+		                            <input type="text" id="txtModeloVehiculo" name="txtModeloVehiculo" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar modelo" required="requerid">
                                </div>  
                                
                                
                                <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Numero de Asientos</label>
-		                            <input type="text" id="txtNumAsiento" name="txtNumAsiento" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar N° de asientos" required="requerid">
+		                            <input type="text" id="txtNumAsiento" name="txtNumAsiento" class="input-sm form-control mask-numAsiento" style="font-size: 16px;" placeholder="ingresar N° de asientos" required="requerid">
                                </div> 
                                
                                 <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Año de Fabricacion</label>
-		                            <input type="text" id="txtAñoFabricacion" name="txtAñoFabricacion" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar año de fabricacion" required="requerid">
+		                            <input type="text" id="txtAñoFabricacion" name="txtAñoFabricacion" class="input-sm form-control mask-year" style="font-size: 16px;" placeholder="ingresar año de fabricacion" required="requerid">
                                </div> 
                                
                                
                                <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Nro Serie de Motor</label>
-		                            <input type="text" id="txtNumSerieMotor" name="txtNumSerieMotor" class="input-sm form-control mask-phone"  style="font-size: 16px;" placeholder="ingresar N° de serie" required="requerid">
+		                            <input type="text" id="txtNumSerieMotor" name="txtNumSerieMotor" class="input-sm form-control"  style="font-size: 16px;" placeholder="ingresar N° de serie" required="requerid">
                                </div> 
                                
                                
                                <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Largo del Vehiculo</label>
-		                            <input type="text" id="txtLargo" name="txtLargo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar N° de pasajeros" required="requerid">
+		                            <input type="text" id="txtLargo" name="txtLargo" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar N° de pasajeros" required="requerid">
                                </div> 
                                
                                  <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Ancho del Vehiculo</label>
-		                            <input type="text" id="txtAncho" name="txtAncho" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar ancho" required="requerid">
+		                            <input type="text" id="txtAncho" name="txtAncho" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar ancho" required="requerid">
                                </div> 
                                
                                
                                  <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Altura del Vehiculo</label>
-		                            <input type="text" id="txtAltura" name="txtAltura" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar altura" required="requerid">
+		                            <input type="text" id="txtAltura" name="txtAltura" class="input-sm form-control mask-altura" style="font-size: 16px;" placeholder="ingresar altura" required="requerid">
                                </div> 
                                
                                  <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Carga Bruta</label>
-		                            <input type="text" id="txtCargaBruta" name="txtCargaBruta" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar carga bruta" required="requerid">
+		                            <input type="text" id="txtCargaBruta" name="txtCargaBruta" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar carga bruta" required="requerid">
                                </div> 
                                
                                
                                <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Carga Util</label>
-		                            <input type="text" id="txtCargaUtil" name="txtCargaUtil" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar carga util" required="requerid">
+		                            <input type="text" id="txtCargaUtil" name="txtCargaUtil" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar carga util" required="requerid">
                                </div> 
                                
                                
                                <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">Carga Neta</label>
-		                            <input type="text" id="txtCargaNeta" name="txtCargaNeta" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar carga neta" required="requerid">
+		                            <input type="text" id="txtCargaNeta" name="txtCargaNeta" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar carga neta" required="requerid">
                                </div>
                                
                               

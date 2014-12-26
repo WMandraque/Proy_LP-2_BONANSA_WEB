@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bonansa.beans.ClienteDTO;
 import com.bonansa.services.ClienteService;
@@ -68,15 +69,14 @@ public class SvGestionaCliente extends HttpServlet {
 			String ciiuCliente=request.getParameter("txtCIUU");
 			String cargoContacCliente=request.getParameter("txtCargo");
 			
-			
+			HttpSession sesionX=request.getSession();
+			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
 
-			
 		
-
             ClienteDTO clienteJuridico=new ClienteDTO(idTipoCliente, nomCliente, apePatCliente, apeMatCliente, fecNacCliente, sexoCliente, telefonoCliente, celularCliente, correoCliente, numDocumento, razSocCliente, ciiuCliente, cargoContacCliente);			
 			
             
-            int r=sCliente.registrarClienteJuridico(clienteJuridico, "");
+            int r=sCliente.registrarClienteJuridico(clienteJuridico, ip_idEmpleadoR);
             
             if (r>0) {
 				
@@ -105,13 +105,13 @@ public class SvGestionaCliente extends HttpServlet {
 			String correoCliente=request.getParameter("txtCorreo");
 			String numDni=request.getParameter("txtNumDNI");
 
+			HttpSession sesionX=request.getSession();
+			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
 			
-		
-			System.out.println(numDni);
 			ClienteDTO clienteNatural=new ClienteDTO(idTipoCliente, nomCliente, apePatCliente, apeMatCliente, fecNacCliente, sexoCliente, telefonoCliente, celularCliente, correoCliente, numDni);
 		
 			
-			int r=sCliente.registrarClienteNatural(clienteNatural, "");
+			int r=sCliente.registrarClienteNatural(clienteNatural, ip_idEmpleadoR);
 			
 			if (r>0) {
 				

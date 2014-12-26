@@ -3,6 +3,7 @@ package com.bonansa.dao;
 import java.io.Serializable;
 
 import com.bonansa.interfaces.ClienteDAO;
+import com.bonansa.interfaces.EmpleadoDAO;
 import com.bonansa.interfaces.LogDAO;
 import com.bonansa.interfaces.UsuarioDAO;
 import com.bonansa.interfaces.VehiculoDAO;
@@ -27,6 +28,7 @@ public abstract class DAOFactory implements Serializable {
 	public abstract VehiculoDAO getVehiculoDAO();
 	public abstract LogDAO  getLogDAO();
 	public abstract ClienteDAO getClienteDAO();
+	public abstract EmpleadoDAO getEmpleadoDAO();
 	
 	//Metodo estatico que va a retornar la herencia hacia una clase hija
 	public static DAOFactory obtenerDAOFactory(int bd){

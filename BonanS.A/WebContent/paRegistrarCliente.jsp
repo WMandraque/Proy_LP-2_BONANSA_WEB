@@ -33,7 +33,8 @@
 	src="js/mylibs/paRegistrarCliente.js"></script>
 <script language="javascript" type="text/javascript"
 	src="js/mylibs/gestionaUbigeo.js"></script>
-
+   
+<script src="js/mylibs/validaciones.js"></script>
 
 </head>
 <body id="skin-blur-violate">
@@ -70,11 +71,9 @@
 
 	<div class="side-widgets overflow">
 		<!-- Profile Menu -->
-		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-			<a href="" data-toggle="dropdown"> <img
-				class="profile-pic animated"
-				src="gestionaVehiculo?operacion=fotoVehiculo&idVehiculo=VEH0016"
-				height="100">
+		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">                                                                                                       
+			<a href="" data-toggle="dropdown">                             <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
+
 			</a>
 			<ul class="dropdown-menu profile-menu">
 				<li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i
@@ -254,7 +253,7 @@
 							<div class="col-md-3 m-b-15">
 								<label style="font-size: 12px;">Fecha de nacimiento</label> <input
 									type="text" id="txtFechaNac" name="txtFechaNac"
-									class="input-sm form-control mask-phone"
+									class="input-sm form-control mask-date"
 									style="font-size: 16px;"
 									placeholder="ingresar fecha de nacimiento" required="requerid">
 							</div>
@@ -280,7 +279,7 @@
 							<div class="col-md-3 m-b-15">
 								<label style="font-size: 12px;">Celular</label> <input
 									type="text" id="txtCelular" name="txtCelular"
-									class="input-sm form-control mask-phone"
+									class="input-sm form-control mask-cel"
 									style="font-size: 16px;" placeholder="ingresar Num. celular"
 									required="requerid">
 							</div>
@@ -335,12 +334,11 @@
 										class="input-sm form-control mask-phone"
 										style="font-size: 16px;" placeholder="ingresar correo">
 								</div>
-
-							</div>
+								
 
 						</div>
 
-
+                               
 
 						<br>
 						<hr class="whiter m-t-20" />
@@ -629,6 +627,9 @@
 	<script src="js/functions.js"></script>
 	<script src="js/depmain.js"></script>
 
+        
+        
+    
 
 </body>
 </html>

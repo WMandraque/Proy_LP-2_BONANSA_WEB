@@ -22,6 +22,7 @@ $('#cboTipoEmpleado').change(function(){
  
 				$('#tituloEA').show(); //muestro mediante id
 				
+				 $('#divEmpleadoConductor').hide(); //ocultamos mediante id
 				 $('#tituloER').hide(); //ocultamos mediante id
 				 $('#tituloEC').hide(); ///ocultamos mediante id
 				 $('#tituloEE').hide(); //ocultamos mediante id
@@ -29,6 +30,7 @@ $('#cboTipoEmpleado').change(function(){
 		  }else if(idTipoEmpleado==2){
 				$('#tituloER').show(); //muestro mediante id
 				
+				 $('#divEmpleadoConductor').hide(); //ocultamos mediante id
 				 $('#tituloEA').hide(); //ocultamos mediante id
 				 $('#tituloEC').hide(); ///ocultamos mediante id
 				 $('#tituloEE').hide(); //ocultamos mediante id
@@ -36,7 +38,9 @@ $('#cboTipoEmpleado').change(function(){
 			    
 		  }else if(idTipoEmpleado==3){
 				$('#tituloEC').show(); //muestro mediante id
+				$('#divEmpleadoConductor').show(); //ocultamos mediante id
 				
+
 				 $('#tituloER').hide(); //ocultamos mediante id
 				 $('#tituloEA').hide(); ///ocultamos mediante id
 				 $('#tituloEE').hide(); //ocultamos mediante id
@@ -44,9 +48,9 @@ $('#cboTipoEmpleado').change(function(){
 			   
 		  
 		  }else if(idTipoEmpleado==4){
-			  alert(idTipoEmpleado);
 				$('#tituloEE').show(); //muestro mediante id
 				
+				 $('#divEmpleadoConductor').hide(); //ocultamos mediante id
 				 $('#tituloER').hide(); //ocultamos mediante id
 				 $('#tituloEC').hide(); ///ocultamos mediante id
 				 $('#tituloEA').hide(); //ocultamos mediante id
@@ -64,6 +68,7 @@ $('#cboTipoEmpleado').change(function(){
 		 $('#tituloER').hide(); //ocultamos mediante id
 		 $('#tituloEA').hide(); ///ocultamos mediante id
 		 $('#tituloEE').hide(); //ocultamos mediante id
+		 $('#divEmpleadoConductor').hide(); //ocultamos mediante id
 
 
 	 

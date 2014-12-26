@@ -49,15 +49,23 @@
     <servlet-name>gestionaUbigeo</servlet-name>
     <url-pattern>/gestionaUbigeo</url-pattern>
   </servlet-mapping>
-  
-  
-   <servlet>
+  <servlet>
     <servlet-name>gestionaCliente</servlet-name>
     <servlet-class>servlets.SvGestionaCliente</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>gestionaCliente</servlet-name>
     <url-pattern>/gestionaCliente</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>gestionaEmpleado</servlet-name>
+    <servlet-class>servlets.SvGestionaEmpleado</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaEmpleado</servlet-name>
+    <url-pattern>/gestionaEmpleado</url-pattern>
   </servlet-mapping>
   
 </web-app>
