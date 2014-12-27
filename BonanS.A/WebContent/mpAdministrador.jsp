@@ -112,8 +112,8 @@
         				<li class="item3"><a href="#">Mantenimiento Empleados</a>
 						    <ul>
                 				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-                				<li class="subitem2"><a href="">Actualizar Empleado</a></li>
-                				<li class="subitem3"><a href="#">Listar Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
             				</ul>
         				</li>
         				

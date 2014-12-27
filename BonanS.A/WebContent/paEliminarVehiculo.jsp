@@ -83,17 +83,13 @@
                              <li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                         </ul>
                         
-<%--                         <h4 class="m-0" style="color: orange;">Usuario:</h4>
-                        <h4 class="m-0">${sessionScope.idEmpleado}</h4>
-                        <br> --%>
-                        
                         <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
                         <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
+ 
                         <br>
                         
                         <h5 class="m-0" style="color: orange;">Tipo:</h5>
                         <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
-             
                          
                     </div>
                     <div class="s-widget m-b-25">
@@ -108,7 +104,7 @@
 						    <ul>
                 				<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
                 				<li class="subitem2"><a href="#">Actualizar Cliente</a></li>
-                				<li class="subitem3"><a href="#">Listar Cliente</a></li>
+                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
             				</ul>
         				</li>
         				
@@ -116,7 +112,7 @@
         				<li class="item3"><a href="#">Mantenimiento Empleados</a>
 						    <ul>
                 				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-                				<li class="subitem2"><a href="">Actualizar Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
                 				<li class="subitem3"><a href="#">Listar Empleado</a></li>
             				</ul>
         				</li>

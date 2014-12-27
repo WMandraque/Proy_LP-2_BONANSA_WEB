@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -86,16 +88,14 @@
 					class="icon right">&#61815;</i></li>
 			</ul>
 
-			<%--                         <h4 class="m-0" style="color: orange;">Usuario:</h4>
-                        <h4 class="m-0">${sessionScope.idEmpleado}</h4>
-                        <br> --%>
 
-			<h4 class="m-0" style="color: orange;">Nombre completo:</h4>
-			<h4 class="m-0">${sessionScope.nombreCompleto}</h4>
-			<br>
-
-			<h4 class="m-0" style="color: orange;">Tipo:</h4>
-			<h4 class="m-0">${sessionScope.tipoEmpleado}</h4>
+                        <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
+                        <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
+ 
+                        <br>
+                        
+                        <h5 class="m-0" style="color: orange;">Tipo:</h5>
+                        <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
 
 
 		</div>
@@ -119,11 +119,11 @@
 
 			<li class="item3"><a href="#">Mantenimiento Empleados</a>
 				<ul>
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
-							Empleado</a></li>
-					<li class="subitem2"><a href="">Actualizar Empleado</a></li>
-					<li class="subitem3"><a href="#">Listar Empleado</a></li>
-				</ul></li>
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">RegistrarEmpleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+                	<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+				</ul>
+			</li>
 
 
 			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
@@ -403,7 +403,14 @@
 
 			</div>
 
-					
+	                   <c:set var="mensaje" value="${requestScope.mensaje}"/>
+				      <c:if test="${mensaje!=null}">
+				                      <div class="block-area" >
+									       <div class="alert alert-success" style="font-size: 20px;">
+									        <center>${mensaje}</center>
+									       </div>
+				                   </div>
+				      </c:if> 				
 
 	</div>		
 	</fieldset>

@@ -87,13 +87,13 @@
                         </ul>
                         
 
-                        
-                        <!-- Datos del empleado  -->
-                        <h4 class="m-0" style="color: orange;">Usuario:</h4>
-                        <h4 class="m-0">${sessionScope.usuario}</h4>
+                        <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
+                        <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
+ 
                         <br>
-                        <h4 class="m-0" style="color: orange;">Tipo:</h4>
-                         <h4 class="m-0">${sessionScope.tipoEmpleado}</h4>
+                        
+                        <h5 class="m-0" style="color: orange;">Tipo:</h5>
+                        <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
              
                          
                     </div>
@@ -121,8 +121,8 @@
         				<li class="item3"><a href="#">Mantenimiento Empleados</a>
 						    <ul>
                 				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-                				<li class="subitem2"><a href="">Actualizar Empleado</a></li>
-                				<li class="subitem3"><a href="#">Listar Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
             				</ul>
         				</li>
         				

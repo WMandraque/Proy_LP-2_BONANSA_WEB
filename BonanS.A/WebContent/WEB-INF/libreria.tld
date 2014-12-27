@@ -132,5 +132,18 @@
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
-</tag>	
+</tag>
+
+<tag>
+		<name>CboSexo</name>
+		<tagclass>etiquetas.cboSexo</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo tipos Sexo</info>
+		<attribute>
+			<name>idSexo</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>
+	
 	</taglib>

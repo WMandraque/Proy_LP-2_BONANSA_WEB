@@ -1,6 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,15 +14,17 @@ import javax.servlet.http.HttpSession;
 
 import com.bonansa.beans.ClienteDTO;
 import com.bonansa.services.ClienteService;
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class SvGestionaCliente
  */
 @WebServlet("/SvGestionaCliente")
 public class SvGestionaCliente extends HttpServlet {
+	Gson obJson=new Gson();
 	private static final long serialVersionUID = 1L;
 
-	
+	private List<String> listaDireccion=new ArrayList<String>();
 	
 	ClienteService sCliente=new ClienteService();
 	
@@ -29,10 +34,10 @@ public class SvGestionaCliente extends HttpServlet {
 			
 			
 			String operacion=request.getParameter("operacion");
-			int tipoCliente=Integer.parseInt(request.getParameter("cboTipoCliente"));
+			//int tipoCliente=Integer.parseInt(request.getParameter("cboTipoCliente"));
 			
-			String registrar=operacion+tipoCliente;
-			
+			//String registrar=operacion+tipoCliente;
+			String registrar=operacion;
 			switch (registrar) {
 			
 			case "registrar1":
@@ -40,6 +45,9 @@ public class SvGestionaCliente extends HttpServlet {
 				break;
 			case "registrar2":
 				this.registrarClienteNatural(request, response);
+				break;
+			case "registrar3":
+				this.agregarDireccion(request, response);
 				break;
 			}
 			
@@ -119,7 +127,7 @@ public class SvGestionaCliente extends HttpServlet {
 			}
 			
 
-
+			
 			
 			
 			
@@ -131,6 +139,34 @@ public class SvGestionaCliente extends HttpServlet {
 		
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	private void agregarDireccion(HttpServletRequest request,HttpServletResponse response)
+	{
+		HttpSession misession=request.getSession();
+		if(misession.getAttribute("listaDirecciones")==null)
+		{
+			misession.setAttribute("listaDirecciones", listaDireccion);
+		}
+		else
+		{
+			listaDireccion=(List<String>)misession.getAttribute("listaDirecciones");
+		}
+		String direccionEnviada=request.getParameter("txtDireccion");
+		listaDireccion.add(direccionEnviada); //<ADD
+		misession.setAttribute("listaDirecciones", listaDireccion);
+		String json=obJson.toJson(listaDireccion);
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			out.println(json);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		
+		
+	}
 
 }

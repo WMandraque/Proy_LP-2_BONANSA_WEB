@@ -34,8 +34,8 @@
 <script language="javascript" type="text/javascript"
 	src="js/mylibs/gestionaUbigeo.js"></script>
    
-<script src="js/mylibs/validaciones.js"></script>
-
+<!-- <script src="js/mylibs/validaciones.js"></script>
+ -->
 </head>
 <body id="skin-blur-violate">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
@@ -86,17 +86,13 @@
 					class="icon right">&#61815;</i></li>
 			</ul>
 
-			<%--                         <h4 class="m-0" style="color: orange;">Usuario:</h4>
-                        <h4 class="m-0">${sessionScope.idEmpleado}</h4>
-                        <br> --%>
-
-			<h4 class="m-0" style="color: orange;">Nombre completo:</h4>
-			<h4 class="m-0">${sessionScope.nombreCompleto}</h4>
-			<br>
-
-			<h4 class="m-0" style="color: orange;">Tipo:</h4>
-			<h4 class="m-0">${sessionScope.tipoEmpleado}</h4>
-
+                        <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
+                        <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
+ 
+                        <br>
+                        
+                        <h5 class="m-0" style="color: orange;">Tipo:</h5>
+                        <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
 
 		</div>
 		<div class="s-widget m-b-25">
@@ -121,8 +117,8 @@
 				<ul>
 					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
 							Empleado</a></li>
-					<li class="subitem2"><a href="">Actualizar Empleado</a></li>
-					<li class="subitem3"><a href="#">Listar Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
 				</ul></li>
 
 
@@ -260,11 +256,8 @@
 
 
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Sexo</label> <select
-									class="select" name="cboSexo" id="cboSexo">
-									<option value="M">MASCULINO</option>
-									<option value="F">FEMENINO</option>
-								</select>
+								<label style="font-size: 12px;">Sexo</label>
+								<libreria:CboSexo idSexo=""/> 
 							</div>
 
 							<div class="col-md-3 m-b-15">

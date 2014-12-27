@@ -72,17 +72,22 @@
          
         	<aside id="sidebar">
         	
-                <div class="side-widgets overflow">
-                    <!-- Profile Menu -->
-                    <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-                        <a href="" data-toggle="dropdown">
+               <div class="side-widgets overflow">
+		<!-- Profile Menu -->
+		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+			<a href="" data-toggle="dropdown"> 
                             <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
-                        <ul class="dropdown-menu profile-menu">
-                            <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                            <li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                            <li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                            <li><a href="">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        </ul>
+			</a>
+			<ul class="dropdown-menu profile-menu">
+				<li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i
+					class="icon right">&#61815;</i></li>
+				<li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i
+					class="icon right">&#61815;</i></li>
+				<li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i
+					class="icon right">&#61815;</i></li>
+				<li><a href="">Desconectar</a> <i class="icon left">&#61903;</i><i
+					class="icon right">&#61815;</i></li>
+			</ul>
                         
 
                         <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
@@ -92,7 +97,6 @@
                         
                         <h5 class="m-0" style="color: orange;">Tipo:</h5>
                         <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
-                        
              
                          
                     </div>
@@ -116,8 +120,8 @@
         				<li class="item3"><a href="#">Mantenimiento Empleados</a>
 						    <ul>
                 				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-                				<li class="subitem2"><a href="">Actualizar Empleado</a></li>
-                				<li class="subitem3"><a href="#">Listar Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
             				</ul>
         				</li>
         				
