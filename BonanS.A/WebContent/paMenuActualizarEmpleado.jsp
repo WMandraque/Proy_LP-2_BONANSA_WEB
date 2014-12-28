@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,7 +16,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Registrar empleado</title>
+<title>Actualizar Empleado</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -28,16 +28,6 @@
 <link href="css/generics.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
-
-<script language="javascript" type="text/javascript"
-	src="js/jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/paRegistrarEmpleado.js"></script>
-
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/gestionaUbigeo.js"></script>
-
-
 </head>
 <body id="skin-blur-violate">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
@@ -74,8 +64,9 @@
 	<div class="side-widgets overflow">
 		<!-- Profile Menu -->
 		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-			<a href="" data-toggle="dropdown"> 
-                            <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
+			<a href="" data-toggle="dropdown"> <img
+				class="profile-pic animated"
+				src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
 			</a>
 			<ul class="dropdown-menu profile-menu">
 				<li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i
@@ -84,26 +75,23 @@
 					class="icon right">&#61815;</i></li>
 				<li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i
 					class="icon right">&#61815;</i></li>
-				<li><a href="">Desconectar</a> <i class="icon left">&#61903;</i><i
-					class="icon right">&#61815;</i></li>
+				<li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i
+					class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
 			</ul>
 
+			<h5 class="m-0" style="color: orange;">Nombre completo:</h5>
+			<h5 class="m-0">${sessionScope.nombreCompleto}</h5>
 
-                        <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
-                        <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
- 
-                        <br>
-                        
-                        <h5 class="m-0" style="color: orange;">Tipo:</h5>
-                        <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
+			<br>
 
+			<h5 class="m-0" style="color: orange;">Tipo:</h5>
+			<h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
 
 		</div>
 		<div class="s-widget m-b-25">
 			<div id="sidebar-calendar"></div>
 		</div>
 		<nav id="wrapper">
-
 		<ul class="menu">
 
 			<a href="mpAdministrador.jsp">Inicio</a>
@@ -121,9 +109,8 @@
 				<ul>
 					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">RegistrarEmpleado</a></li>
 					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-                	<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
-				</ul>
-			</li>
+					<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+				</ul></li>
 
 
 			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
@@ -132,12 +119,11 @@
 							Vehiculo</a></li>
 					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
 							Vehiculo</a></li>
-					<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar
+					<li class="subitem3"><a href="paEliminarVehiculo.jsp">Eliminar
 							Vehiculo</a></li>
-					<li class="subitem3"><a
+					<li class="subitem4"><a
 						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
 				</ul></li>
-
 
 			<li class="item4"><a href="#">Registro de acciones</a>
 				<ul>
@@ -156,263 +142,38 @@
 	<div class="block-area" id="required">
 
 		<!--Titulo  -->
-		<h3 class="block-title">Matenimiento de empleado</h3>
+		<h3 class="block-title">Matenimiento de Empleados</h3>
 	</div>
 
 
-
-
 	<!--Espacio para el formulario  -->
-	    <div class="block-area" id="required">
+	<div class="block-area" id="required">
+
 		<!-- FORMULARIO  -->
-		<form action="gestionaEmpleado" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="operacion" value="registrar">
-		<fieldset>
-		<legend class="block-title" style="color: white;">Registrar empleado</legend>
+		<form action="">
+
+			<fieldset>
+				<legend class="block-title" style="color: white;">Seleccionar tipo de empleado a actualizar</legend>
+				
 
 
-				<div class="block-area">
-					<!--Contenedor de datos generales  -->
+                     <center>
+						<a href="paActualizarEmpleado.jsp"><img src="img/images-doc/thumbnail.png" class="img-thumbnail m-r-10 m-b-10" alt=""></a>
+                        <a href="paActualizarEmpleadoConductor.jsp"><img src="img/images-doc/thumbnail.png" class="img-thumbnail m-r-10 m-b-10" alt=""></a>
+					 </center>
+                   
 
 
-					<h3 class="block-title">Datos generales</h3>
-					<br> <br>
+               
 
 
-
-	                 <div class="row">
-
-
-						<div class="col-md-3 m-b-15">
-							<label style="font-size: 15px;">ID Empleado</label> <input
-								type="text" class="input-sm form-control mask-date_time"
-								style="text-align: center;" value=">>AUTOGENERADO<<" readonly="
-								readonly="readonly">
-						</div>
-
-						<div class="col-md-3 m-b-15">
-							<label style="font-size: 15px;">Tipo de empleado</label>
-							<libreria:CboTipoEmpleado idTipoEmpleado=""/>
-
-						</div>
-
-					</div>
-
-					<!--  -->
-
-					<br>
-					<hr class="whiter m-t-20" />
-					<br> <br>
-
-				<div id="contenedor">
+			
 
 
-						<div class="row" id="tituloEA">
-							<h3 class="block-title">Datos del Empleado Administrador</h3>
-						</div>
+			</fieldset>
+		</form>
+		<!--FIN DEL FORMULARIO  -->
 
-						<div class="row" id="tituloER">
-							<h3 class="block-title">Datos del Empleado Recepcionista</h3>
-						</div>
-						
-						<div class="row" id="tituloEC">
-							<h3 class="block-title">Datos del Empleado Conductor</h3>
-						</div>
-						
-						<div class="row" id="tituloEE">
-							<h3 class="block-title">Datos del Empleado Estibador</h3>
-						</div>
-
-						<br> <br>
-		                 <div class="col-md-3 m-b-29">
-														
-														<center>
-														<h1 class="block-title">FOTO DEL EMPLEADO</h1>
-															<div class="col-sm-12">
-																<div class="fileupload fileupload-new" data-provides="fileupload">
-																	<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-																	<img src="http://www.propiedadintelectual.cl/img/not_found.png" alt=""/>
-																	</div>
-																	<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
-																	</div>
-																	<div>
-																		<span class="btn btn-light-grey btn-file">
-																			 <span class="fileupload-new">
-																				<i class="icon-picture"></i> Seleccione Imagen
-																			</span> 
-																			<span class="fileupload-exists"><i class="icon-picture"></i> Cambiar</span>
-																			<input type="file" name="txtFoto">
-																		</span>
-																		<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
-																			<i class="icon-remove"></i> Remover
-																		</a>
-																	</div>
-																</div>
-															</div>
-														</center>
-														
-								</div>
-								
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Num DNI</label> <input
-									type="text" id="txtNumDocum" name="txtNumDocum"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar Numero Dni" required="requerid">
-							</div>
-						
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Nombre</label> <input
-									type="text" id="txtNombre" name="txtNombre"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar nombre"
-									required="requerid" maxlength="20">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">A paterno</label> <input
-									type="text" id="txtApePa" name="txtApePa"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar apellido paterno" required="requerid"
-									maxlength="20">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">A materno</label> <input
-									type="text" id="txtApeMa" name="txtApeMa"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar apellido materno" required="requerid">
-							</div>
-							
-			                <div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Sexo</label>
-								<libreria:CboSexo idSexo=" "/> 
-							</div>
-							
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Fecha de nacimiento</label> <input
-									type="text" id="txtFechaNac" name="txtFechaNac"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar fecha de nacimiento" required="requerid">
-							</div>
-							
-							
-							<div class="col-md-3 m-b-15">
-
-								<label style="font-size: 12px;">Departamento</label>
-								<libreria:CboDepartamento codubigeo="" />
-
-							</div>
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Provincia</label> <select
-									id="cboPronvincia" name="cboPronvincia"
-									class="input-sm form-control mask-phone">
-									<option value="">SELECCIONE</option>
-								</select>
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Distrito</label> <select
-									id="cboDistrito" name="cboDistrito"
-									class="input-sm form-control mask-phone">
-									<option value="">SELECCIONE</option>
-								</select>
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-
-								<label style="font-size: 12px;">Direccion</label> <input
-									type="text" id="txtDireccion" name="txtDireccion"
-									class="input-sm form-control mask-date_time" placeholder="ingresar direccion" required="requerid">
-
-							</div>
-
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Telefono</label> <input
-									type="text" id="txtFono" name="txtFono"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar Num. fono"
-									required="requerid">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Celular</label> <input
-									type="text" id="txtCelular" name="txtCelular"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar Num. celular"
-									required="requerid">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Correo</label> <input
-									type="text" id="txtCorreo" name="txtCorreo"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar correo"
-									required="requerid">
-							</div>
-							
-							
-						<div id="divEmpleadoConductor">
-						
-						
-						    <div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Num Licencia de conducir</label> <input
-									type="text" id="txtNumLicenciaConducir" name="txtNumLicenciaConducir"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar Num de licencia"
-									>
-							</div>
-						
-						   <div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Tipo de licencia de conducir</label> 
-						        <libreria:CboClaseLicenciaConductor idClaselic="0"/>
-							</div>
-							
-						   <div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Categoria de licencia de conducir</label> 
-						        <libreria:CboCategoriaLicenciaCodunductor idCategorialic="0"/>
-							</div>
-							
-						</div>
-
-                        <hr class="whiter m-t-20" />
-						<!--Botones  -->
-						<div class="block-area">
-							<input class="btn btn-sm" type="submit" value="REGISTRAR">
-							<input class="btn btn-sm" type="reset" value="LIMPIAR">
-						</div>
-						
-
-			</div>
-
-	                   <c:set var="mensaje" value="${requestScope.mensaje}"/>
-				      <c:if test="${mensaje!=null}">
-				                      <div class="block-area" >
-									       <div class="alert alert-success" style="font-size: 20px;">
-									        <center>${mensaje}</center>
-									       </div>
-				                   </div>
-				      </c:if> 				
-
-	</div>		
-	</fieldset>
-	</form>
-	<!--FIN DEL FORMULARIO  -->
 	</div>
 	<!-- Fin del contenedor del form --> <!--Chat  -->
 	<div class="chat">

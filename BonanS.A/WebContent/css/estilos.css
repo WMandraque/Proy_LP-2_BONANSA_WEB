@@ -1,0 +1,48 @@
+.cabecera {
+  color: #FFFFFF;
+  font-family: Eurostile, Arial;
+  font-size: 35px;
+  font-weight: Regular;
+}
+
+.titulos{
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: Bold;
+}
+
+
+.letras{
+  font-family: Arial;
+  font-size: 15px;
+  color:red;
+  font-weight: Bold;
+}
+
+
+	
+
+.botones{
+font-size:10px;
+font-family:Arial;
+font-weight:bold;
+color:white;
+background:#0F6BAF;
+border:0px;
+width:100px;
+    height:20px;
+}
+
+.button {
+width:100px;
+background:#09C;
+color:#fff;
+font-family: Tahoma, Geneva, sans-serif;
+height:30px;
+border-radius: 15px;
+border: 1p solid #999;
+}
+.button:hover {
+background:#fff;
+color:#09C;
+}

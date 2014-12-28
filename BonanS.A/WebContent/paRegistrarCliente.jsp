@@ -257,7 +257,7 @@
 
 							<div class="col-md-3 m-b-15">
 								<label style="font-size: 12px;">Sexo</label>
-								<libreria:CboSexo idSexo=""/> 
+								<libreria:CboSexo idSexo=" "/> 
 							</div>
 
 							<div class="col-md-3 m-b-15">
