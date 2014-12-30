@@ -173,8 +173,8 @@
      <div class="block-area" id="required">
                     
        <!-- FORMULARIO  -->             
-       <form action="gestionaVehiculo" method="post" enctype="multipart/form-data">
-         <input type="hidden" name="operacion" value="actualizar">          
+       <form action="gestionaEmpleado" method="post" enctype="multipart/form-data">
+         <input type="hidden" name="operacion" value="actualizarEC">          
          <fieldset>
                    
          <legend class="block-title" style="color: white;">Actualizar Empleado Conductor</legend>
@@ -195,7 +195,7 @@
 		                   <div class="row">
 		                   	  <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">ID EMPLEADO</label>
-		                            <input type="text" name="txtIdVeh" id="txtIdVeh" class="input-sm form-control mask-date_time" placeholder="ingresar codigo" value="${x.idEmpleado}">
+		                            <input type="text" name="txtIdEmpleado" id="txtIdVeh" class="input-sm form-control mask-date_time" placeholder="ingresar codigo" value="${x.idEmpleado}">
 		                        </div>
 		                        
 		                        
@@ -273,7 +273,7 @@
                                
                                 <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">FECHA DE NACIMIENTO</label>
-		                            <input type="text" id="txtApeMa" name="txtApeMa" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar a. materno" required="requerid" value="${x.fecnacEmpleado}">
+		                            <input type="text" id="txtFecNac" name="txtFecNac" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar fecha de nacimiento" required="requerid" value="${x.fecnacEmpleado}">
                                </div> 
                                
                                
@@ -307,7 +307,7 @@
                                
                                 <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">LICENCIA CONDUCIR</label>
-		                            <input type="text" id="txtEmail" name="txtEmail" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar e-mail" required="requerid" value="${x.licenCondEmpleado}">
+		                            <input type="text" id="txtLicenCond" name="txtLicenCond" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar e-mail" required="requerid" value="${x.licenCondEmpleado}">
                                </div> 
                                
                                

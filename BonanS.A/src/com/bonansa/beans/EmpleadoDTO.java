@@ -36,6 +36,37 @@ public class EmpleadoDTO {
 	
 	
 	
+	public EmpleadoDTO(String idEmpleado, String numDocumento,
+			String nomEmpleado, String apepaEmpleado, String apemaEmpleado,
+			String sexoEmpleado, String fecnacEmpleado,
+			String domicilioEmpleado, String ubigeoEmpleado,
+			String fonoEmpleado, String celularEmpleado, String emailEmpleado,
+			byte[] fotoEmpleado,  String licenCondEmpleado, int idClaselic, 
+			int idCategorialic, String idEstadoTrabajo, String idEstado
+			) {
+		super();
+		this.idEmpleado = idEmpleado;
+		this.numDocumento = numDocumento;
+		this.nomEmpleado = nomEmpleado;
+		this.apepaEmpleado = apepaEmpleado;
+		this.apemaEmpleado = apemaEmpleado;
+		this.sexoEmpleado = sexoEmpleado;
+		this.fecnacEmpleado = fecnacEmpleado;
+		this.domicilioEmpleado = domicilioEmpleado;
+		this.ubigeoEmpleado = ubigeoEmpleado;
+		this.fonoEmpleado = fonoEmpleado;
+		this.celularEmpleado = celularEmpleado;
+		this.emailEmpleado = emailEmpleado;
+		this.fotoEmpleado = fotoEmpleado;
+		this.licenCondEmpleado = licenCondEmpleado;
+		this.idClaselic = idClaselic;
+		this.idCategorialic = idCategorialic;
+		this.idEstadoTrabajo = idEstadoTrabajo;
+		this.idEstado = idEstado;
+
+	}
+
+
 	//CONSTRUCTOR PARA ACTUALIZAR EMPLEADO
 	public EmpleadoDTO(String idEmpleado,
 			String numDocumento, String nomEmpleado, String apepaEmpleado,

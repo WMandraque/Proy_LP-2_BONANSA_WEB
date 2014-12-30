@@ -72,13 +72,14 @@ public class SvGestionaEmpleado extends HttpServlet {
 			else
 			{
 				empleadoX=sEmpleado.buscarEmpleadoConductor(idEmpleado);
-				System.out.println("Clase de licencia: "+empleadoX.getIdClaselic());
 			}
 		
 			request.setAttribute("empleadoX", empleadoX);
+			System.out.println(empleadoX.getIdEstado()+" "+empleadoX.getIdEstadoTrabajo());
 			
 			if (tipo.equals("A")&&tipoEmpleado.equals("ADMINISTRADOR")||tipoEmpleado.equals("REPCECIONISTA")||tipoEmpleado.equals("ESTIBADOR")) {
 				request.getRequestDispatcher("paActualizarEmpleado.jsp").forward(request, response);
+				
 			}
 			else if (tipo.equals("A")&&tipoEmpleado.equals("CONDUCTOR"))
 			{
@@ -99,7 +100,7 @@ public class SvGestionaEmpleado extends HttpServlet {
 		InputStream is=null;
 		try {
 			    String idEmpleado=request.getParameter("idEmpleado");
-			    System.out.println(idEmpleado);
+			   
 				is=sFoto.getFotoEmpleado(idEmpleado);
 			     
 				if(is!=null){
@@ -127,6 +128,7 @@ public class SvGestionaEmpleado extends HttpServlet {
 
 	private void registrarEmpleadoConductor(HttpServletRequest request, HttpServletResponse response) {
        try {
+			HttpSession sesionX=request.getSession();
 			
 			int idTipoEmpleado=Integer.parseInt(request.getParameter("cboTipoEmpleado"));
 			String numDocumento=request.getParameter("txtNumDocum");
@@ -143,35 +145,7 @@ public class SvGestionaEmpleado extends HttpServlet {
 			int    idClaselic=Integer.parseInt(request.getParameter("cboClaseLicenciaConductor"));
 			int    idCategorialic=Integer.parseInt(request.getParameter("cboCategoriaLicenciaConductor"));
 			String licenCondEmpleado=request.getParameter("txtNumLicenciaConducir");
-			
-			
-			InputStream inputStream = null; 
-	        byte[] fotoEmpleado = null;
-	        
-	        Part filePart = request.getPart("txtFoto");
-	        if (filePart != null) {
-	            
-	            inputStream = filePart.getInputStream();
-	            
-	           
-	            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-	            byte[] tmp = new byte[4096];
-	            int ret = 0;
-
-	            while((ret = inputStream.read(tmp)) > 0)
-	            {
-	                bos.write(tmp, 0, ret);
-	            }
-
-	            fotoEmpleado = bos.toByteArray();
-	            
-	        }
-	      
-			
-			
-			
-			HttpSession sesionX=request.getSession();
-			
+			byte[] fotoEmpleado=generarBytes(request, response, "txtFoto").toByteArray();
 			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
 			
 			EmpleadoDTO empleado=new EmpleadoDTO(idTipoEmpleado, numDocumento, nomEmpleado, apepaEmpleado, apemaEmpleado, sexoEmpleado, fecnacEmpleado, domicilioEmpleado, ubigeoEmpleado, fonoEmpleado, celularEmpleado, emailEmpleado, fotoEmpleado, idClaselic, idCategorialic, licenCondEmpleado);
@@ -193,6 +167,8 @@ public class SvGestionaEmpleado extends HttpServlet {
 		
 		try {
 			
+			HttpSession sesionX=request.getSession();
+			
 			int idTipoEmpleado=Integer.parseInt(request.getParameter("cboTipoEmpleado"));
 			String numDocumento=request.getParameter("txtNumDocum");
 			String nomEmpleado=request.getParameter("txtNombre");
@@ -205,42 +181,8 @@ public class SvGestionaEmpleado extends HttpServlet {
 			String fonoEmpleado=request.getParameter("txtFono");
 			String celularEmpleado=request.getParameter("txtCelular"); 
 			String emailEmpleado=request.getParameter("txtCorreo");
-			
-			
-			InputStream inputStream = null; 
-	        byte[] fotoEmpleado = null;
-	        
-	        Part filePart = request.getPart("txtFoto");
-	        if (filePart != null) {
-	            
-	             
-	          
-	            inputStream = filePart.getInputStream();
-	            
-	           
-	            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-	            byte[] tmp = new byte[4096];
-	            int ret = 0;
-
-	            while((ret = inputStream.read(tmp)) > 0)
-	            {
-	                bos.write(tmp, 0, ret);
-	            }
-
-	            fotoEmpleado = bos.toByteArray();
-	            
-	        }
-	      
-			
-			
-			
-			HttpSession sesionX=request.getSession();
-			
+			byte[] fotoEmpleado=generarBytes(request, response, "txtFoto").toByteArray();
 			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
-			
-			
-			
-			
 			
 			
 			EmpleadoDTO empleado=new EmpleadoDTO(idTipoEmpleado, numDocumento, nomEmpleado, apepaEmpleado, apemaEmpleado, sexoEmpleado, fecnacEmpleado, domicilioEmpleado, ubigeoEmpleado, fonoEmpleado, celularEmpleado, emailEmpleado, fotoEmpleado);
@@ -258,7 +200,74 @@ public class SvGestionaEmpleado extends HttpServlet {
 	}
 	
 	
-private void actualizarEmpleadoConductor(HttpServletRequest request,HttpServletResponse response) {
+private void actualizarEmpleadoConductor(HttpServletRequest request,HttpServletResponse response) 
+{
+	
+	try {
+		
+		//Capturamos parametros
+		HttpSession sesionX=request.getSession();
+		
+		String idEmpleado=request.getParameter("txtIdEmpleado");
+		String numDocumento=request.getParameter("txtNumDocumento");
+		String nomEmpleado=request.getParameter("txtNombre");
+		String apepaEmpleado=request.getParameter("txtApePa");
+		String apemaEmpleado=request.getParameter("txtApeMa");
+		String sexoEmpleado=request.getParameter("cboSexo");
+		String fecnacEmpleado=request.getParameter("txtFecNac");
+		String domicilioEmpleado=request.getParameter("txtDireccion");
+		String ubigeoEmpleado=request.getParameter("txtUbigeo");
+		String fonoEmpleado=request.getParameter("txtFono");
+		String celularEmpleado=request.getParameter("txtCelular");
+		String emailEmpleado=request.getParameter("txtEmail");
+        byte[] fotoEmpleado=generarBytes(request, response, "txtFoto").toByteArray();
+        String licenCondEmpleado=request.getParameter("txtLicenCond");
+        int idClaselic=Integer.parseInt(request.getParameter("cboClaseLicenciaConductor"));
+        int idCategorialic=Integer.parseInt(request.getParameter("cboCategoriaLicenciaConductor"));
+		String idEstadoTrabajo=request.getParameter("cboEstadoTrabajo");
+		String idEstado=request.getParameter("cboEstado");
+
+		String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
+
+
+		EmpleadoDTO empleado=new EmpleadoDTO(
+											idEmpleado, 
+											numDocumento, 
+											nomEmpleado, 
+											apepaEmpleado, 
+											apemaEmpleado, 
+											sexoEmpleado, 
+											fecnacEmpleado, 
+											domicilioEmpleado, 
+											ubigeoEmpleado, 
+											fonoEmpleado, 
+											celularEmpleado, 
+											emailEmpleado,
+											fotoEmpleado,
+											licenCondEmpleado,
+											idClaselic,
+											idCategorialic,
+											idEstadoTrabajo,
+											idEstado
+											); 
+		
+		
+	int r=sEmpleado.actualizarEmpleadoConductor(empleado, ip_idEmpleadoR);
+	
+	
+	if (r>0) 
+	{
+	    request.setAttribute("mensaje", "Empleado Conductor actualizado correctamente");	
+	}
+	else
+	{
+		request.setAttribute("mensaje", "Error al actualizar empleado conductor");	
+	}	
+	request.getRequestDispatcher("paActualizarEmpleadoConductor.jsp").forward(request, response);	
+	
+	} catch (Exception e) {
+		System.out.println("Error al actualizarEmpleadoConductor SvGestionaEmpleado: "+e);
+	}
 		
 		
 	}
@@ -269,9 +278,9 @@ private void actualizarEmpleadoConductor(HttpServletRequest request,HttpServletR
 		try {
 			
 			//Capturamos parametros
+			HttpSession sesionX=request.getSession();
 			
 			String idEmpleado=request.getParameter("txtIdEmpleado");
-			System.out.println("Pasa x aquisito");
 			String numDocumento=request.getParameter("txtNumDocumento");
 			String nomEmpleado=request.getParameter("txtNombre");
 			String apepaEmpleado=request.getParameter("txtApePa");
@@ -283,35 +292,10 @@ private void actualizarEmpleadoConductor(HttpServletRequest request,HttpServletR
 			String fonoEmpleado=request.getParameter("txtFono");
 			String celularEmpleado=request.getParameter("txtCelular");
 			String emailEmpleado=request.getParameter("txtEmail");
-			
-	
-			InputStream inputStream = null; 
-	        byte[] fotoEmpleado = null;
-	        
-	        Part filePart = request.getPart("txtFoto");
-	        if (filePart != null) {
-	            
-	             
-	          
-	            inputStream = filePart.getInputStream();
-	            
-	           
-	            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-	            byte[] tmp = new byte[4096];
-	            int ret = 0;
-
-	            while((ret = inputStream.read(tmp)) > 0)
-	            {
-	                bos.write(tmp, 0, ret);
-	            }
-
-	            fotoEmpleado = bos.toByteArray();
-	            
-	        }
-	        
+            byte[] fotoEmpleado=generarBytes(request, response, "txtFoto").toByteArray();
 			String idEstadoTrabajo=request.getParameter("cboEstadoTrabajo");
 			String idEstado=request.getParameter("cboEstado");
-			HttpSession sesionX=request.getSession();
+
 			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
 			
 
@@ -336,12 +320,17 @@ private void actualizarEmpleadoConductor(HttpServletRequest request,HttpServletR
 			
 		int r=sEmpleado.actualizarEmpleado(empleado, ip_idEmpleadoR);
 		
-		request.setAttribute("mensaje", "Empleado registrado correctamente");
-		if (r>0) {
-			request.getRequestDispatcher("paActualizarEmpleado.jsp").forward(request, response);
+		
+		if (r>0) 
+		{
+		    request.setAttribute("mensaje", "Empleado actualizado correctamente");	
 		}
-			
-			
+		else
+		{
+			request.setAttribute("mensaje", "Error al actualizar empleado");	
+		}	
+		request.getRequestDispatcher("paActualizarEmpleado.jsp").forward(request, response);	
+		
 		} catch (Exception e) {
 			System.out.println("Error al actualizarEmpleado SvGestionaEmpleado: "+e);
 		}
@@ -353,15 +342,42 @@ private void actualizarEmpleadoConductor(HttpServletRequest request,HttpServletR
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			System.out.println("Llego al listado");
 			ArrayList<EmpleadoDTO> listadoEmpleados=sEmpleado.listarEmpleado();
-			System.out.println("Tmaño de lista: "+listadoEmpleados.size());
 			HttpSession sesionX=request.getSession();
 			sesionX.setAttribute("listadoEmpleados", listadoEmpleados);
 			request.getRequestDispatcher("paListarEmpleado.jsp").forward(request, response);
 		} catch (Exception e) {
 			System.out.println("Error al listarEmpleados SvGestionaEmpleado: "+e);
 		}
+	}
+
+	
+	
+	
+	private ByteArrayOutputStream generarBytes(HttpServletRequest request,HttpServletResponse response, String input){
+		
+		ByteArrayOutputStream bos=null;
+		try {
+			
+			InputStream inputStream = null; 
+	        Part filePart = request.getPart(input);
+	        if (filePart != null) {
+	            inputStream = filePart.getInputStream();
+	            bos = new ByteArrayOutputStream();
+	            byte[] tmp = new byte[4096];
+	            int ret = 0;
+
+	            while((ret = inputStream.read(tmp)) > 0)
+	            {
+	                bos.write(tmp, 0, ret);
+	            }   
+	        }
+			
+		} catch (Exception e) {
+			System.out.println("Error al generarBytes de las fotos: "+e);
+		}
+
+		return bos;
 	}
 
 

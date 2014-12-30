@@ -35,5 +35,9 @@ public class EmpleadoService {
 	public EmpleadoDTO buscarEmpleadoConductor(String idEmpleado) {
 		return dao.buscarEmpleadoConductor(idEmpleado);
 	}
+	
+	public int actualizarEmpleadoConductor(EmpleadoDTO empleado,String idEmpleadoR){ 
+	return dao.actualizarEmpleadoConductor(empleado, idEmpleadoR);
+	}
 
 }

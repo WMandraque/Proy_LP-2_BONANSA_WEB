@@ -115,7 +115,7 @@ public class cboEstadoTrabajo extends TagSupport {
 			}
 			else{
 				
-				crs=sEntidades.listadoEntidades("select*From tb_estado where idEstado!="+getIdEstadoTrabajo());
+				crs=sEntidades.listadoEntidades("select*From tb_estadoTrabajo where idEstadoTrabajo!="+getIdEstadoTrabajo());
 				while(crs.next()){
 					String idEstadoTrabajo=crs.getString(1);
 					String descEstado=crs.getString(2);

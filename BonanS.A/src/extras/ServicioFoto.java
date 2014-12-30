@@ -63,10 +63,10 @@ public InputStream getFotoEmpleado(String idEmpleado){
 				is=rs.getBinaryStream(1);
 			}
 			
-			rs.close();
+			
 			
 		} catch (Exception e) {
-			System.out.println("Error al obtener la fotoVehiculoDAO: "+e);
+			System.out.println("Error al obtener EmpleadoDAO: "+e);
 		}finally{
 			try {
 				con.close();
