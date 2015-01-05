@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@taglib uri="WEB-INF/libreria.tld" prefix="libreria" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %> <!-- Definimos la etiqueta  -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
         <meta name="descripcion" content="Violate Responsive Admin Template">
         <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-        <title>Eliminar Vehiculo</title>
+        <title>Listar Usuarios</title>
             
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/animate.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
             
             <div class="media-body">
                 <div class="media" id="top-menu">
-                    
+                   
                     
                     <div id="time" class="pull-right">
                         <span id="hours"></span>
@@ -61,13 +61,15 @@
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
                             <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
-                           </a>
+                                                </a>
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                             <li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                             <li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                             <li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                         </ul>
+                        
+
                         
                         <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
                         <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
@@ -76,21 +78,26 @@
                         
                         <h5 class="m-0" style="color: orange;">Tipo:</h5>
                         <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
+             
                          
                     </div>
                     <div class="s-widget m-b-25">
                         <div id="sidebar-calendar"></div>
                     </div>
                     <nav id="wrapper">
-                    <ul class="menu">
                     
+                    
+                    
+                    
+                     <ul class="menu">
+    
 						<a href="mpAdministrador.jsp">Inicio</a>
 						
         				<li class="item2"><a href="#">Mantenimiento Clientes</a>
 						    <ul>
                 				<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
                 				<li class="subitem2"><a href="#">Actualizar Cliente</a></li>
-                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+                				<li class="subitem3"><a href="#">Listar Cliente</a></li>
             				</ul>
         				</li>
         				
@@ -99,7 +106,7 @@
 						    <ul>
                 				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
 					            <li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-                                <li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
+					            <li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
                 				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
             				</ul>
         				</li>
@@ -146,7 +153,7 @@
                 <div class="block-area" id="required">
 
                 <!--Titulo  -->
-                 <h3 class="block-title">Matenimiento de vehiculo</h3>
+                 <h3 class="block-title">Mantenimiento de usuario</h3>
                 </div>
                 
                 
@@ -162,195 +169,64 @@
      <div class="block-area" id="required">
                     
        <!-- FORMULARIO  -->             
-       <form action="gestionaVehiculo" method="post" enctype="multipart/form-data">
-         <input type="hidden" name="operacion" value="eliminar">          
+       <form action="gestionaUsuario" method="post">
+       
+       
+     
+                   
          <fieldset>
                    
-         <legend class="block-title" style="color: white;">Eliminar vehiculo</legend>
-                   
-                 
-                   
-                   
-                
-                   
-                   <!--Contenedor de datos generales  -->
-                <div class="block-area" id="input-masking">
-                
-                <div class="block-area" id="input-masking">
-                   
-		         <h3 class="block-title">Datos  Generales del Vehiculo</h3>
-		
-		         </div> 
-		         
-		         
-		         <br>
-		         <br>
-		         <br>
-		         <br>		         
-		         
-		         
-		         <c:set var="x" value="${requestScope.vehiculoX}"></c:set>
-     
-     
-		                   
-		            <div class="block-area">
-		                   <div class="row">
-		                   	  <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ID Vehiculo</label>
-		                            <input type="text" name="txtIdVeh" id="txtIdVeh" class="input-sm form-control mask-date_time" placeholder="ingresar codigo" required="requerid" value="${x.idVeh}">
-		                        </div>
-		                        
-		                        
-		                       <div class="col-md-3 m-b-15">
-                                   <br>
-		                           <input type="button" class="btn" value="Buscar vehiculo" onclick="location='gestionaVehiculo?operacion=listar'">
-		                        </div>
-		                        
-		                   </div>
-		            </div>
-		            
-		            
-		          
-		             <hr class="whiter m-t-20" />
-		                    
-		                    
-		             <div class="block-area">
-		             <div class="row">
-		             
-		             <div class="col-md-3 m-b-29">
-														
-														<center>
-														<h1 class="block-title">FOTO DEL VEHICULO</h1>
-															<div class="col-sm-12">
-																<div class="fileupload fileupload-new" data-provides="fileupload">
-																	<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="gestionaVehiculo?operacion=fotoVehiculo&idVehiculo=${x.idVeh}">
+         <legend class="block-title" style="color: white;">Listado de usuarios</legend>
+                         
+         
+												<table class="table table-bordered table-hover tile" id="sample_1" style="table-layout:auto;font-size:12px;">
+													<thead style="background-color:#C9FCC6;">
+														 <tr>
+														    <th>Codigo</th>
+															<th>Rol</th>
+															<th>Estado</th>
+															<th>Operacion</th>
+														</tr>
+													</thead>
+													       
+                                                    <c:forEach var="lista" items="${sessionScope.listadoUsuarios}">
+                  
+                                                                          <tr>
+														                  <td>${lista.idEmpleado}</td>
+														                  <td>${lista.descRol}</td>
+														                  <td>${lista.descEstado}</td>
+														     
+														                 
+															<td class="center">
+																<div class="visible-md visible-lg hidden-sm hidden-xs">
+																	<div class="btn-group">
+																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#">
+																			<i ></i> <span >Seleccione</span>
+																		</a>
+																		<ul role="menu" class="dropdown-menu pull-right">
+																			<li role="presentation">
+																				<a role="menuitem" tabindex="-1" href="gestionaUsuario?operacion=buscar&tipo=A&idEmpleado=${lista.idEmpleado}"
+">
+																					Actualizar
+																				</a>
+																			</li>
+																			<li role="presentation">
+																				<a role="menuitem" tabindex="-1" href="gestionaUsuario?operacion=buscar&tipo=E&idEmpleado=${lista.idEmpleado}">
+																					 Eliminar
+																				</a>
+																			</li>
+																		</ul>
 																	</div>
-																	<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 																</div>
-															</div>
-														</center>
+															</td>
+														</tr>
 														
-								</div>
-								
-								<div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Placa del Vehiculo</label>
-		                            <input type="text" id="txtPlacaVehiculo" name="txtPlacaVehiculo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar placa" required="requerid"
-		                                    maxlength="20" value="${x.placaVeh}" readonly="readonly">
-                               </div> 
-		                   
-		                   
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">Categoria del Vehiculo</label>
-		                           <libreria:cboCategoriaVehiculo idCatVeh="${x.idCategoriaVeh}"/>
-		                        </div>
-                                  
-                                  
-                                <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Marca del Vehiculo</label>
-		                            <input type="text" id="txtMarcaVehiculo" name="txtMarcaVehiculo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar marca" required="requerid" value="${x.marcaVeh}" readonly="readonly">
-                               </div>  
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Modelo del Vehiculo</label>
-		                            <input type="text" id="txtModeloVehiculo" name="txtModeloVehiculo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar modelo" required="requerid" value="${x.modeloVeh}" readonly="readonly">
-                               </div>  
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Numero de Asientos</label>
-		                            <input type="text" id="txtNumAsiento" name="txtNumAsiento" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar N° de asientos" required="requerid" value="${x.numAsientosVeh}" readonly="readonly">
-                               </div> 
-                               
-                                <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Año de Fabricacion</label>
-		                            <input type="text" id="txtAñoFabricacion" name="txtAñoFabricacion" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar año de fabricacion" required="requerid" value="${x.anhoFabricVeh}" readonly="readonly">
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Nro Serie de Motor</label>
-		                            <input type="text" id="txtNumSerieMotor" name="txtNumSerieMotor" class="input-sm form-control mask-phone"  style="font-size: 16px;" placeholder="ingresar N° de serie" required="requerid" value="${x.numSerieMotorVeh}" readonly="readonly">
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Largo del Vehiculo</label>
-		                            <input type="text" id="txtLargo" name="txtLargo" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar largo del vehiculo" required="requerid" value="${x.largoVeh}" readonly="readonly">
-                               </div> 
-                               
-                                 <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Ancho del Vehiculo</label>
-		                            <input type="text" id="txtAncho" name="txtAncho" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar ancho" required="requerid" value="${x.anchoVeh}" readonly="readonly">
-                               </div> 
-                               
-                               
-                                 <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Altura del Vehiculo</label>
-		                            <input type="text" id="txtAltura" name="txtAltura" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar altura" required="requerid" value="${x.alturaVeh}" readonly="readonly">
-                               </div> 
-                               
-                                 <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Carga Bruta</label>
-		                            <input type="text" id="txtCargaBruta" name="txtCargaBruta" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar carga bruta" required="requerid" value="${x.cargaBrutaVeh}" readonly="readonly">
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Carga Util</label>
-		                            <input type="text" id="txtCargaUtil" name="txtCargaUtil" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar carga util" required="requerid" value="${x.cargaUtilVeh }" readonly="readonly">
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Carga Neta</label>
-		                            <input type="text" id="txtCargaNeta" name="txtCargaNeta" class="input-sm form-control mask-phone" style="font-size: 16px;" placeholder="ingresar carga neta" required="requerid" value="${x.cargaNetaVeh}" readonly="readonly">
-                               </div>
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Estado</label>
-		                            <libreria:cboEstado idEstado="${x.idEstado}"/>
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Estado Trabajo</label>
-		                            <libreria:cboEstadoTrabajo idEstadoTrabajo="${x.idEstadoTrabajo}"/>
-                               </div>  
-                               
-                               
-             
-					<c:set var="mensaje" value="${requestScope.mensaje}"/>
-				      <c:if test="${mensaje!=null}">
-				                      <div class="block-area" >
-									       <div class="alert alert-success" style="font-size: 20px;">
-									        <center>${mensaje}</center>
-									       </div>
-				                   </div>
-				      </c:if>
-                               
-             </div>
-                 
-                 </div>
-                 
-                 <hr class="whiter m-t-20" />
-                   <!--Botones  -->
-		                   <div class="block-area" id="input-masking">
-		                        <input class="btn btn-sm" type="submit" value="ELIMINAR">
-		                        <input class="btn btn-sm" type="reset" value="LIMPIAR">
-		                   </div>
-                 
-                   </div>
+														
+													</c:forEach>
+	   </table>
+	   
                    
-                   
-                   
-                   
-
-                   
-             </fieldset>
-             
-
-                   
+        </fieldset>     
          </form><!--FIN DEL FORMULARIO  -->
                     
     </div><!-- Fin del contenedor del form -->

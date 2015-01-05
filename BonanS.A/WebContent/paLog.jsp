@@ -25,27 +25,15 @@
         <link href="css/icons2.css" rel="stylesheet">
 
     </head>
-<body id="skin-blur-violate">
+<body id="skin-blur-chrome">
         <header id="header" class="media">
             <a href="" id="menu-toggle"></a> 
             <a class="logo pull-left" href="Indice.jsp">Bonan S.A.</a>
             
             <div class="media-body">
                 <div class="media" id="top-menu">
-                    <div class="pull-left tm-icon">
-                        <a data-drawer="messages" class="drawer-toggle" href="">
-                            <i class="sa-top-message"></i>
-                            <i class="n-count animated">5</i>
-                            <span>Mensajesssssss</span>
-                        </a>
-                    </div>
-                    <div class="pull-left tm-icon">
-                        <a data-drawer="notifications" class="drawer-toggle" href="">
-                            <i class="sa-top-updates"></i>
-                            <i class="n-count animated">9</i>
-                            <span>Actualizaciones</span>
-                        </a>
-                    </div>
+                    
+                    
                     <div id="time" class="pull-right">
                         <span id="hours"></span>
                         :
@@ -54,9 +42,6 @@
                         <span id="sec"></span>
                     </div>
                     
-                    <div class="media-body">
-                        <input type="text" class="main-search">
-                    </div>
                 </div>
             </div>
         </header>
@@ -115,10 +100,25 @@
         				<li class="item3"><a href="#">Mantenimiento Empleados</a>
 						    <ul>
                 				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-                				<li class="subitem3"><a href="#">Listar Empleado</a></li>
+					            <li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+					            <li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
+                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
             				</ul>
         				</li>
+        				
+        				
+		 <li class="item3"><a href="#">Mantenimiento Usuario</a>
+				<ul>
+					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
+							Usuario</a></li>
+					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
+							Usuario</a></li>
+					<li class="subitem2"><a href="paEliminarUsuario.jsp">Eliminar
+							Usuario</a></li>
+					<li class="subitem3"><a
+						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
+				</ul>
+			</li>
         				
         				
         				<li class="item4"><a href="#">Mantenimiento Vehiculos</a>

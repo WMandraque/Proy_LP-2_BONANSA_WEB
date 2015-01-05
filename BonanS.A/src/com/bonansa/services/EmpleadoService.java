@@ -39,5 +39,11 @@ public class EmpleadoService {
 	public int actualizarEmpleadoConductor(EmpleadoDTO empleado,String idEmpleadoR){ 
 	return dao.actualizarEmpleadoConductor(empleado, idEmpleadoR);
 	}
+	
+	
+	public int eliminarEmpleado(String idEmpleado, String idEmpleadoR){
+		return dao.eliminarEmpleado(idEmpleado, idEmpleadoR);
+	}
+	
 
 }

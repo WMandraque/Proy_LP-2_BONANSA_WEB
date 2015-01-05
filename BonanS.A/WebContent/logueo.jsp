@@ -7,7 +7,7 @@
 
         <meta name="description" content="Violate Responsive Admin Template">
         <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
-
+        <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <title>Super Admin Responsive Template</title>
             
         <!-- CSS -->
@@ -17,7 +17,7 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/generics.css" rel="stylesheet"> 
     </head>
-    <body id="skin-blur-violate">
+    <body id="skin-blur-chrome">
         <section id="login">
             <header>
                 <h1>BONANSA</h1>
@@ -40,11 +40,21 @@
                         Remember Me
                     </label>
                 </div>
+                
+                <c:set var="mensaje" value="${requestScope.mensaje}"/>
+				      <c:if test="${mensaje!=null}">
+				                      <div class="block-area" >
+									       <div class="alert alert-success" style="font-size: 20px;">
+									        <center>${mensaje}</center>
+									       </div>
+				                   </div>
+				      </c:if> 
+				      
                 <input class="btn btn-sm" type="submit" value="Ingresar">
                 
                 <small>
-                    <a class="box-switcher" data-switch="box-register" href="">Don't have an Account?</a> or
-                    <a class="box-switcher" data-switch="box-reset" href="">Forgot Password?</a>
+                    
+                    <a class="box-switcher" data-switch="box-reset" href="">Olvidastes la contraseña?</a>
                 </small>
             </form>
             

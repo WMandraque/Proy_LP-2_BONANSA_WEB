@@ -146,4 +146,16 @@
 		</attribute>
 </tag>
 	
+<tag>
+		<name>CboRolUsuario</name>
+		<tagclass>etiquetas.CboRolUsuario</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Combo Rol de usuario</info>
+		<attribute>
+			<name>idRol</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>	
+	
 	</taglib>

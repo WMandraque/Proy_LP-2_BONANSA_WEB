@@ -3,94 +3,154 @@ package com.bonansa.beans;
 public class UsuarioDTO {
 	
 	private String idEmpleado;
-	private String clave; 
-	private String idTipoEmpleado; 
+	private String clave;
+	private String idRol;
 	private String idEstado;
+	private String descRol; 
+	private String descEstado;
 	private String nomEmpleado;
 	private String apepaEmpleado;
 	private String apemaEmpleado;
-	private String nomCargo;
 	
-	public UsuarioDTO(String idEmpleado, String clave, String idTipoEmpleado,
-			String idEstado, String nomEmpleado, String apepaEmpleado,
-			String apemaEmpleado, String nomCargo) {
+
+	
+    //Contructor para obtener al usuario
+	public UsuarioDTO(String idEmpleado, String clave, String descRol,
+			String descEstado, String nomEmpleado, String apepaEmpleado,
+			String apemaEmpleado) {
 		super();
 		this.idEmpleado = idEmpleado;
 		this.clave = clave;
-		this.idTipoEmpleado = idTipoEmpleado;
-		this.idEstado = idEstado;
+		this.descRol = descRol;
+		this.descEstado = descEstado;
 		this.nomEmpleado = nomEmpleado;
 		this.apepaEmpleado = apepaEmpleado;
 		this.apemaEmpleado = apemaEmpleado;
-		this.nomCargo = nomCargo;
+	}
+	
+	
+	//Constructor para registrarEmpleado
+	public UsuarioDTO(String idEmpleado, String clave, String idRol) {
+		super();
+		this.idEmpleado = idEmpleado;
+		this.clave = clave;
+		this.idRol = idRol;
+	}
+	
+	
+    //Constructor para las vistasListarUsuario!!
+	public UsuarioDTO(String idEmpleado, String clave, String descRol, String descEstado) 
+	{
+		
+		this.idEmpleado = idEmpleado;
+		this.clave = clave;
+		this.descRol = descRol;
+		this.descEstado = descEstado;
+	}
+	
+	
+
+
+
+	public UsuarioDTO(){
 	}
 
+
+	public String getIdRol() {
+		return idRol;
+	}
+
+	public void setIdRol(String idRol) {
+		this.idRol = idRol;
+	}
 	public String getIdEmpleado() {
 		return idEmpleado;
 	}
+
 
 	public String getClave() {
 		return clave;
 	}
 
-	public String getIdTipoEmpleado() {
-		return idTipoEmpleado;
+
+	public String getDescRol() {
+		return descRol;
 	}
 
-	public String getIdEstado() {
-		return idEstado;
+
+	public String getDescEstado() {
+		return descEstado;
 	}
+
 
 	public String getNomEmpleado() {
 		return nomEmpleado;
 	}
 
+
 	public String getApepaEmpleado() {
 		return apepaEmpleado;
 	}
+
 
 	public String getApemaEmpleado() {
 		return apemaEmpleado;
 	}
 
-	public String getNomCargo() {
-		return nomCargo;
-	}
 
 	public void setIdEmpleado(String idEmpleado) {
 		this.idEmpleado = idEmpleado;
 	}
 
+
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
 
-	public void setIdTipoEmpleado(String idTipoEmpleado) {
-		this.idTipoEmpleado = idTipoEmpleado;
+
+	public void setDescRol(String descRol) {
+		this.descRol = descRol;
 	}
 
-	public void setIdEstado(String idEstado) {
-		this.idEstado = idEstado;
+
+	public void setDescEstado(String descEstado) {
+		this.descEstado = descEstado;
 	}
+
 
 	public void setNomEmpleado(String nomEmpleado) {
 		this.nomEmpleado = nomEmpleado;
 	}
 
+
 	public void setApepaEmpleado(String apepaEmpleado) {
 		this.apepaEmpleado = apepaEmpleado;
 	}
+
 
 	public void setApemaEmpleado(String apemaEmpleado) {
 		this.apemaEmpleado = apemaEmpleado;
 	}
 
-	public void setNomCargo(String nomCargo) {
-		this.nomCargo = nomCargo;
+
+
+	public String getIdEstado() {
+		return idEstado;
+	}
+
+
+
+	public void setIdEstado(String idEstado) {
+		this.idEstado = idEstado;
 	}
 	
 	
 	
+	
+	
+	
+	
+
 	
 	
 

@@ -86,9 +86,9 @@
 		<nav id="wrapper">
 		<ul class="menu">
 
-			<a href="mpAdministrador.jsp">Inicio</a>
+			<a href="mpRecepcionista.jsp">Inicio</a>
 
-			<li class="item2"><a href="#">Mantenimiento Clientes</a>
+			<li class="item2"><a href="#">Servicio de Recojo</a>
 				<ul>
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar
 							Cliente</a></li>
@@ -98,7 +98,7 @@
 				</ul></li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Empleados</a>
+			<li class="item3"><a href="#">Control de Ruta</a>
 				<ul>
 					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
 							Empleado</a></li>
@@ -111,7 +111,7 @@
 				</ul></li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Usuario</a>
+			<li class="item3"><a href="#">Control de Gatos</a>
 				<ul>
 
 					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
@@ -126,24 +126,7 @@
 				</ul>
 			</li>
 
-			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
-							Vehiculo</a></li>
-					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
-							Vehiculo</a></li>
-					<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar
-							Vehiculo</a></li>
-					<li class="subitem3"><a
-						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
-				</ul></li>
-
-
-			<li class="item4"><a href="#">Registro de acciones</a>
-				<ul>
-					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
-							de logs</a></li>
-				</ul></li>
+			
 
 
 

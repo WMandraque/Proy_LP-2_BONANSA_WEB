@@ -3,12 +3,15 @@ package com.bonansa.dao;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLType;
+import java.util.ArrayList;
 
 import utils.MySQLConexion;
 
 import com.bonansa.beans.ClienteDTO;
+import com.bonansa.beans.EmpleadoDTO;
 import com.bonansa.interfaces.ClienteDAO;
 import com.sun.xml.internal.ws.wsdl.writer.document.Types;
 
@@ -116,6 +119,43 @@ try {
 			}
 		}
 		return r;
+	}
+	@Override
+	public ArrayList<ClienteDTO> listarCliente() {
+		ArrayList<ClienteDTO> listadoClientes=new ArrayList<ClienteDTO>();
+		try {
+			con=MySQLConexion.getConexion();
+			String qSql="select*From vistaListaClientes";
+			pst=con.prepareStatement(qSql);
+			ResultSet rs=pst.executeQuery();
+			while(rs.next()){
+				listadoClientes.add(new ClienteDTO
+						                         (
+						                          rs.getString(1), 
+						                          rs.getString(2), 
+						                          rs.getString(3), 
+						                          rs.getString(4), 
+						                          rs.getString(5), 
+						                          rs.getString(6), 
+						                          rs.getString(7), 
+						                          rs.getString(8), 
+						                          rs.getString(9))
+				                    );
+			}
+			
+		
+		} catch (Exception e) {
+			System.out.println("Error al listarClientesDAO: "+e);
+		}finally{
+			try {
+				if(con!=null){con.close();}
+				if(pst!=null){pst.close();}
+			} catch (Exception e2) {
+				System.out.println("Error al cerrar conexiones: "+e2);
+			}
+		}
+
+		return listadoClientes;
 	}
 
 }

@@ -335,4 +335,40 @@ public class MySQLEmpleadoDAO implements EmpleadoDAO {
 	return r;
 	}
 
+	@Override
+	public int eliminarEmpleado(String idEmpleado, String idEmpleadoR) 
+	{ 
+			int r=0;
+
+			try {
+				con=MySQLConexion.getConexion();
+				con.setAutoCommit(false);
+
+				String qSql="{Call usp_eliminarEmpleado(?, ?)}";
+				cst=con.prepareCall(qSql);
+				cst.setString(1, idEmpleado);
+				cst.setString(2, idEmpleadoR);
+				
+				r=cst.executeUpdate();
+				
+				con.commit();
+				
+			} catch (Exception e) {
+				System.out.println("Error al eliminarEmpleadoDAO: "+e);
+				try {
+					con.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}finally{
+				try {
+					if(con!=null){con.close();}
+					if(cst!=null){cst.close();}
+				} catch (Exception e2) {
+					System.out.println("Error al cerrar conexiones: "+e2);
+				}
+			}
+			return r;
+	}
+
 }

@@ -36,7 +36,7 @@ public class ServicioEntidades {
 			crs.populate(rs);
 			
 		} catch (Exception e) {
-			System.out.println("Error al listar categoria de vehiculoDAO: "+e);
+			System.out.println("Error al listar Entidades: "+e);
 		}finally{
 			try {
 				if(con!=null){con.close();}

@@ -41,6 +41,7 @@ public class SvGestionaEmpleado extends HttpServlet {
 	        
 	   else if(operacion.equals("actualizar")){this.actualizarEmpleado(request, response);}
 	   else if(operacion.equals("actualizarEC")){this.actualizarEmpleadoConductor(request, response);}
+	   else if(operacion.equals("eliminar")){this.eliminarEmpleado(request, response);}
 	        
 	   else if(operacion.equals("buscar")){this.buscar(request, response);}
 	   else if(operacion.equals("mostrarFoto")){this.mostrarFoto(request, response);}
@@ -56,15 +57,44 @@ public class SvGestionaEmpleado extends HttpServlet {
 
 	
 
+	private void eliminarEmpleado(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			
+			String idEmpleado=request.getParameter("txtIdEmpleado");
+			HttpSession sesionX=request.getSession();
+			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
+
+			int r=sEmpleado.eliminarEmpleado(idEmpleado, ip_idEmpleadoR);
+			
+			if (r>0){
+				request.setAttribute("mensaje", "Empleado eliminado correctamente: "+idEmpleado);
+			}
+			else
+			{
+				request.setAttribute("mensaje", "Error al eliminar empleado: "+idEmpleado);	
+			}
+			request.getRequestDispatcher("paMenuEliminarEmpleado.jsp").forward(request, response);
+			
+		} catch (Exception e) {
+			System.out.println("Error al eliminiarEmpleado SvGestionaEmpleado: "+e);
+		}
+		
+	}
+
+
+
+
+
 	private void buscar(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			
 			String idEmpleado=request.getParameter("idEmpleado");
 			String tipo=request.getParameter("tipo");
 			String tipoEmpleado=request.getParameter("tipoEmpleado");
-			
 			EmpleadoDTO empleadoX=null;
-			if (tipoEmpleado.equals("ADMINISTRADOR")||tipoEmpleado.equals("REPCECIONISTA")||tipoEmpleado.equals("ESTIBADOR")) 
+			
+			if (tipoEmpleado.equals("ADMINISTRADOR")||tipoEmpleado.equals("RECEPCIONISTA")||tipoEmpleado.equals("ESTIBADOR")) 
 			{
 				empleadoX=sEmpleado.buscarEmpleado(idEmpleado);	
 				
@@ -75,15 +105,23 @@ public class SvGestionaEmpleado extends HttpServlet {
 			}
 		
 			request.setAttribute("empleadoX", empleadoX);
-			System.out.println(empleadoX.getIdEstado()+" "+empleadoX.getIdEstadoTrabajo());
 			
-			if (tipo.equals("A")&&tipoEmpleado.equals("ADMINISTRADOR")||tipoEmpleado.equals("REPCECIONISTA")||tipoEmpleado.equals("ESTIBADOR")) {
+			if (tipo.equals("A")&&(tipoEmpleado.equals("ADMINISTRADOR")||tipoEmpleado.equals("RECEPCIONISTA")||tipoEmpleado.equals("ESTIBADOR"))) 
+			{
 				request.getRequestDispatcher("paActualizarEmpleado.jsp").forward(request, response);
-				
 			}
 			else if (tipo.equals("A")&&tipoEmpleado.equals("CONDUCTOR"))
 			{
 				request.getRequestDispatcher("paActualizarEmpleadoConductor.jsp").forward(request, response);
+			}
+			else if(tipo.equals("E")&&(tipoEmpleado.equals("ADMINISTRADOR")||tipoEmpleado.equals("RECEPCIONISTA")||tipoEmpleado.equals("ESTIBADOR"))) 
+			{
+				request.getRequestDispatcher("paEliminarEmpleado.jsp").forward(request, response);
+				
+			}
+			else if(tipo.equals("E")&&tipoEmpleado.equals("CONDUCTOR"))
+			{
+				request.getRequestDispatcher("paEliminarEmpleadoConductor.jsp").forward(request, response);
 			}
 			
 		} catch (Exception e) {
@@ -152,8 +190,9 @@ public class SvGestionaEmpleado extends HttpServlet {
 			
 			int r=sEmpleado.registrarEmpleadoConductor(empleado, ip_idEmpleadoR);
 			
-			if (r>0) {
-				
+			if (r>0) 
+			{
+				request.setAttribute("mensaje", "Empleado registrado correctamente");
 				request.getRequestDispatcher("mpAdRegistrarEmpleado.jsp").forward(request, response);
 			}
 			

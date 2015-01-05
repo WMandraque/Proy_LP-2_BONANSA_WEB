@@ -16,7 +16,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Actualizar Empleado</title>
+<title>Eliminar Empleado</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -98,9 +98,9 @@
 					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
 					<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
-				</ul>
-			</li>
-			
+				</ul></li>
+				
+				
 		 <li class="item3"><a href="#">Mantenimiento Usuario</a>
 				<ul>
 					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
@@ -155,18 +155,29 @@
 		<form action="">
 
 			<fieldset>
-				<legend class="block-title" style="color: white;">Seleccionar tipo de empleado a actualizar</legend>
+				<legend class="block-title" style="color: white;">Seleccionar tipo de empleado a eliminar</legend>
 				
 
 
                      <center>
-						<a href="paActualizarEmpleado.jsp">Empleado</a> <br>
-                        <a href="paActualizarEmpleadoConductor.jsp">Empleado Conductor</a>
+						<a href="paEliminarEmpleado.jsp">Empleado</a> <br>
+                        <a href="paEliminarEmpleadoConductor.jsp">Empleado Conductor</a>
 					 </center>
                    
 
 
-               
+                                              
+                               
+                      <c:set var="mensaje" value="${requestScope.mensaje}"/>
+				      <c:if test="${mensaje!=null}">
+				                      <div class="block-area" >
+									       <div class="alert alert-success" style="font-size: 20px;">
+									        <center>${mensaje}</center>
+									       </div>
+				                   </div>
+				      </c:if> 
+             
+		                        
 
 
 			

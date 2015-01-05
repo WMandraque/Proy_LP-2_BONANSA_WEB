@@ -11,6 +11,7 @@ public interface EmpleadoDAO {
 	int registrarEmpleadoConductor(EmpleadoDTO empleado, String idEmpleadoR);
 	int actualizarEmpleado(EmpleadoDTO empleado, String idEmpleadoR);
 	int actualizarEmpleadoConductor(EmpleadoDTO empleado, String idEmpleadoR);
+	int eliminarEmpleado(String idEmpleado, String idEmpleadoR);
 	ArrayList<EmpleadoDTO> listarEmpleado();
 	EmpleadoDTO buscarEmpleado(String idEmpleado);
 	EmpleadoDTO buscarEmpleadoConductor(String idEmpleado);

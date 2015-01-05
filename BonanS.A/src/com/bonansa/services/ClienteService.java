@@ -1,5 +1,7 @@
 package com.bonansa.services;
 
+import java.util.ArrayList;
+
 import com.bonansa.beans.ClienteDTO;
 import com.bonansa.dao.DAOFactory;
 import com.bonansa.interfaces.ClienteDAO;
@@ -17,6 +19,10 @@ public class ClienteService {
 	
 	public int registrarClienteJuridico(ClienteDTO clienteX, String idEmpleadoR) {
 		return dao.registrarClienteJuridico(clienteX, idEmpleadoR);
+	}
+	
+	public ArrayList<ClienteDTO> listarCliente() {
+		return dao.listarCliente();
 	}
 	
 	

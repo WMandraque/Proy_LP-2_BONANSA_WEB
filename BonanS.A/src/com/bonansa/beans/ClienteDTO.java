@@ -21,6 +21,10 @@ public class ClienteDTO {
 	private String ciiuCliente; 
 	private String cargoContacCliente;
 	
+	//Atributos extras para realizar los listados en vistas!!
+	private String descEstado;
+	private String descTipoCliente;
+	
 	//Constructor para registrar cliente NATURAL
 	public ClienteDTO(int idTipoCliente, String nomCliente,
 			String apePatCliente, String apeMatCliente, String fecNacCliente,
@@ -41,16 +45,6 @@ public class ClienteDTO {
 	
 	
 	//Constructor para el cliente juridico
-
-
-
-	
-	
-	public String getNumDocumento() {
-		return numDocumento;
-	}
-
-
 	public ClienteDTO(int idTipoCliente, String nomCliente,
 			String apePatCliente, String apeMatCliente, String fecNacCliente,
 			String sexoCliente, String telefonoCliente, String celularCliente,
@@ -70,6 +64,24 @@ public class ClienteDTO {
 		this.razSocCliente = razSocCliente;
 		this.ciiuCliente = ciiuCliente;
 		this.cargoContacCliente = cargoContacCliente;
+	}
+	
+	
+	//Contructor para realizar los listados en vistas
+	public ClienteDTO(String idCliente, String descTipoCliente, String nomCliente,
+			String apePatCliente, String apeMatCliente, String telefonoCliente,
+			String celularCliente, String correoCliente, String descEstado) 
+	{
+		super();
+		this.idCliente = idCliente;
+		this.nomCliente = nomCliente;
+		this.apePatCliente = apePatCliente;
+		this.apeMatCliente = apeMatCliente;
+		this.telefonoCliente = telefonoCliente;
+		this.celularCliente = celularCliente;
+		this.correoCliente = correoCliente;
+		this.descEstado = descEstado;
+		this.descTipoCliente = descTipoCliente;
 	}
 
 
@@ -219,6 +231,31 @@ public class ClienteDTO {
 		this.idEstado = idEstado;
 	}
 
+
+
+	public String getNumDocumento() {
+		return numDocumento;
+	}
+
+
+	public String getDescEstado() {
+		return descEstado;
+	}
+
+
+	public String getDescTipoCliente() {
+		return descTipoCliente;
+	}
+
+
+	public void setDescEstado(String descEstado) {
+		this.descEstado = descEstado;
+	}
+
+
+	public void setDescTipoCliente(String descTipoCliente) {
+		this.descTipoCliente = descTipoCliente;
+	}
 
 
 	

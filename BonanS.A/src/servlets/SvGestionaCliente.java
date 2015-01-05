@@ -49,12 +49,28 @@ public class SvGestionaCliente extends HttpServlet {
 			case "registrar3":
 				this.agregarDireccion(request, response);
 				break;
+			case "listar":
+				this.listarClientes(request, response);
 			}
 			
 			
 		} catch (Exception e) {
 			System.out.println("Error el el service SvGestionaCliente: "+e);
 		}
+		
+	}
+
+
+	private void listarClientes(HttpServletRequest request, HttpServletResponse response) 
+	{
+				try {
+					ArrayList<ClienteDTO> listadoClientes=sCliente.listarCliente();
+					HttpSession sesionX=request.getSession();
+					sesionX.setAttribute("listadoClientes", listadoClientes);
+					request.getRequestDispatcher("paListarClientes.jsp").forward(request, response);
+				} catch (Exception e) {
+					System.out.println("Error al listar Clientes SvGestionaCliente: "+e);
+				}
 		
 	}
 
