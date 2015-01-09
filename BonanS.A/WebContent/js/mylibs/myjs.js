@@ -1,65 +1,61 @@
 /*$(document).ready(function(){ 
-	 listarDirecciones();
 	 agregarDireccion();
   });
    
    
    
-   function listarDirecciones(){
+   function agregarDireccion(){
 	   
-	   $("#btnAgregar").click(func);
+	   $('#btnAgregar').click(function(){
+		   
+		if ($("#cboTipoEstablecimiento option:selected").text() == "Sin Asignar"| $("#cboDistrito option:selected").text() == "SELECCIONE") 
+		{
+       	} 
+		else 
+		{
+		   
+		   direcCliente=document.getElementById("txtDireccion").value;
+		   idTipoEstablec=$("#cboTipoEstablecimiento").val();
+		   descTipoEstablecimiento=$("#cboTipoEstablecimiento option:selected").text();
+		   ubigeo= $("#cboDistrito").val();
 	   
-	   $('#cboDepartamento').change(function(){
     		 $.ajax({
-                 url:'gestionaUbigeo?operacion=Provincia',
+                 url:'gestionaCliente?operacion=agregarDireccion',
                  type:'post',
                  datatype:'json',
-                 data: {coddepto: cboDepartamento.options[cboDepartamento.selectedIndex].value},
+                 data: "direcCliente="+direcCliente+"&ubigeo="+ubigeo+"&idTipoEstablec="+idTipoEstablec,
                  success:function(r){
-                 	
-                     var json = eval('('+r+')');
-                    
-                     
-                     var combo = document.getElementById("cboPronvincia");
-                     var combo2 = document.getElementById("cboDistrito");
-                     LimpiarCombo(combo);
-                     LimpiarCombo(combo2);
-                     //LimpiarCombo2(combo2);
-                     
-                     combo.options[0] = new Option('SELECCIONE', '');
-                        for(var i=0;i<json.length;i++){
-                                combo.options[combo.length] = new Option(json[i].provincia, json[i].codprov);
-                            }
-                        }
-                    });
+                	 $("#tabla").find("tr:gt(0)").remove();	
+                    var json = eval('('+r+')');
+                    for(var i=0;i<json.length;i++){
+                 
+                    	
+			       
+			                    cadena = "<tr>";
+			             		cadena = cadena + "<td>"
+			             				+ descTipoEstablecimiento + "</td>";
+			             		cadena = cadena + "<td>" + json[i].idTipoEstablec + "</td>";
+			             		cadena = cadena + "<td>" + json[i].codubigeoDirecCliente  + "</td>";
+			             		cadena = cadena + "<td>" + json[i].direcDirecCliente + "</td>";
+			             		 cadena = cadena + "<td><a class='elimina'>eee</a></td>"; 
+			             		$("#tabla").append(cadena);
+
+                    };
+                }
     	 });
-	   
-	   function agregarDireccion(){
-		   
-		   $('#cboDepartamento').change(function(){
-	    		 $.ajax({
-	                 url:'gestionaUbigeo?operacion=Provincia',
-	                 type:'post',
-	                 datatype:'json',
-	                 data: {coddepto: cboDepartamento.options[cboDepartamento.selectedIndex].value},
-	                 success:function(r){
-	                 	
-	                     var json = eval('('+r+')');
-	                    
-	                     
-	                     var combo = document.getElementById("cboPronvincia");
-	                     var combo2 = document.getElementById("cboDistrito");
-	                     LimpiarCombo(combo);
-	                     LimpiarCombo(combo2);
-	                     //LimpiarCombo2(combo2);
-	                     
-	                     combo.options[0] = new Option('SELECCIONE', '');
-	                        for(var i=0;i<json.length;i++){
-	                                combo.options[combo.length] = new Option(json[i].provincia, json[i].codprov);
-	                            }
-	                        }
-	                    });
-	    	 });
-	   
+	};
+	   });
    };
-   */
+   
+   function limpiarTabla(){
+
+	   $.ajax({
+           url:'gestionaCliente?operacion=limpiarDirecciones',
+           type:'post',
+           success:function(r){
+           	
+        	   $("#tabla").find("tr:gt(0)").remove();
+          }
+	 });
+   };
+*/

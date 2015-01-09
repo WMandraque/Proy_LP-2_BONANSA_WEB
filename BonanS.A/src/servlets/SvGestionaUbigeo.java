@@ -92,10 +92,6 @@ try {
 			String coddepto=request.getParameter("coddepto");
 			String codprov=request.getParameter("codprov");
 			
-			System.out.println("Llego al distrito!!");
-			System.out.println("Depa: "+coddepto);
-			System.out.println("PROV: "+codprov);
-			
 			ArrayList<DistritoDTO> listadoProvincia=new ArrayList<DistritoDTO>();
 			
 			crs=sEntidades.listadoEntidades("SELECT * FROM tb_ubigeo WHERE coddpto ="+coddepto+" AND codprov ="+codprov+" AND coddist<> 0");

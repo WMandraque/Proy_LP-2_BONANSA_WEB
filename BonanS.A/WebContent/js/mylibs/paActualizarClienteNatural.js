@@ -1,53 +1,12 @@
 
 
 $(document).ready(function() {
-	ocultaDivs();
-	gestionaTiposRegistroCliente();
 	agregarDireccion();
 	limpiarTabla();
 	fnc_limpiarCampos();
 });
 
-function gestionaTiposRegistroCliente() {
 
-	$('#cboTipoCliente').change(function() {
-
-		$('#contenedor').show();
-
-		var idTipoCliente = document.getElementById("cboTipoCliente").value;
-
-		if (idTipoCliente == '1') {
-			$('#divNatural').hide();
-			$('#tituloCN').hide();
-
-			$('#divJuridico').show(); // muestro mediante id
-			$('#tituloCJ').show();
-
-		} else if (idTipoCliente == '2') {
-			$('#divJuridico').hide(); // muestro mediante id
-			$('#tituloCJ').hide();
-
-			$('#divNatural').show();
-			$('#tituloCN').show();
-		} else if (idTipoCliente == '0') {
-			$('#divJuridico').hide();
-			$('#tituloCN').hide();
-			$('#tituloCJ').hide();
-			$('#contenedor').hide();
-		}
-
-	});
-
-}
-
-function ocultaDivs() {
-	$('#divNatural').hide();
-	$('#divJuridico').hide();
-	$('#tituloCN').hide();
-	$('#tituloCJ').hide();
-	$('#contenedor').hide();
-
-}
 
 function agregarDireccion() {
 
@@ -67,33 +26,30 @@ function agregarDireccion() {
 								| !(ultimoValor !== $("#txtDireccion").val())) {
 						} else {
 
-							direcCliente = document
-									.getElementById("txtDireccion").value;
+							direcCliente = document.getElementById("txtDireccion").value;
 							idTipoEstablec = $("#cboTipoEstablecimiento").val();
-							descTipoEstablecimiento = $(
-									"#cboTipoEstablecimiento option:selected")
-									.text();
+							descTipoEstablec = $("#cboTipoEstablecimiento option:selected").text();
 							ubigeo = $("#cboDistrito").val();
 
 							$
 									.ajax({
-										url : 'gestionaCliente?operacion=agregarDireccion&tipo=Insert',
+										url : 'gestionaCliente?operacion=agregarDireccion&tipo=Update',
 										type : 'post',
 										datatype : 'json',
-										data : "direcCliente=" + direcCliente
+										data :   "direcCliente=" + direcCliente  
 												+ "&ubigeo=" + ubigeo
-												+ "&idTipoEstablec="
-												+ idTipoEstablec,
+												+ "&idTipoEstablec="+ idTipoEstablec
+												+ "&descTipoEstablec="+ descTipoEstablec,
 										success : function(r) {
-											$("#tabla").find("tr:gt(0)")
-													.remove();
+											$("#tabla").find("tr:gt(0)").remove();
 											var json = eval('(' + r + ')');
 											for (var i = 0; i < json.length; i++) {
+											
 
 												cadena = "<tr>";
 												cadena = cadena
 														+ "<td>"
-														+ descTipoEstablecimiento
+														+ json[i].descTipoEstablec
 														+ "</td>";
 												cadena = cadena
 														+ "<td>"

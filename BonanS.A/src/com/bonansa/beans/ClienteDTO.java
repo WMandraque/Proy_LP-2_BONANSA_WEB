@@ -25,6 +25,41 @@ public class ClienteDTO {
 	private String descEstado;
 	private String descTipoCliente;
 	
+	//Atributos para las direcciones
+	private int idDirecCliente;
+	private String direcDirecCliente;
+	private String codubigeoDirecCliente;
+	private int idTipoEstablec;
+	private String descTipoEstablec;
+	
+
+
+	//Constructor para registrarlas direcciones
+	public ClienteDTO(String direcDirecCliente, String codubigeoDirecCliente,
+			int idTipoEstablec) {
+		super();
+		this.direcDirecCliente = direcDirecCliente;
+		this.codubigeoDirecCliente = codubigeoDirecCliente;
+		this.idTipoEstablec = idTipoEstablec;
+	}
+	
+	
+	
+
+    //Contructor para listar las direcciones del cliente
+	public ClienteDTO(int idDirecCliente, String idCliente,
+			String direcDirecCliente, String codubigeoDirecCliente,
+			int idTipoEstablec, String descTipoEstablec) {
+		super();
+		this.idDirecCliente = idDirecCliente;
+		this.idCliente = idCliente;
+		this.direcDirecCliente = direcDirecCliente;
+		this.codubigeoDirecCliente = codubigeoDirecCliente;
+		this.idTipoEstablec = idTipoEstablec;
+		this.descTipoEstablec = descTipoEstablec;
+	}
+
+
 	//Constructor para registrar cliente NATURAL
 	public ClienteDTO(int idTipoCliente, String nomCliente,
 			String apePatCliente, String apeMatCliente, String fecNacCliente,
@@ -43,7 +78,10 @@ public class ClienteDTO {
 		this.numDocumento = numDocumento;
 	}
 	
-	
+
+
+
+
 	//Constructor para el cliente juridico
 	public ClienteDTO(int idTipoCliente, String nomCliente,
 			String apePatCliente, String apeMatCliente, String fecNacCliente,
@@ -82,6 +120,102 @@ public class ClienteDTO {
 		this.correoCliente = correoCliente;
 		this.descEstado = descEstado;
 		this.descTipoCliente = descTipoCliente;
+	}
+	
+	
+	
+	//Contructor para devolver la busqueda de un cliente natural y para actualizar
+	public ClienteDTO(String idCliente, String nomCliente,
+			String apePatCliente, String apeMatCliente, String fecNacCliente,
+			String sexoCliente, String telefonoCliente, String celularCliente,
+			String correoCliente, String numDocumento, String idEstado) {
+		super();
+		this.idCliente = idCliente;
+		this.nomCliente = nomCliente;
+		this.apePatCliente = apePatCliente;
+		this.apeMatCliente = apeMatCliente;
+		this.fecNacCliente = fecNacCliente;
+		this.sexoCliente = sexoCliente;
+		this.telefonoCliente = telefonoCliente;
+		this.celularCliente = celularCliente;
+		this.correoCliente = correoCliente;
+		this.numDocumento = numDocumento;
+		this.idEstado = idEstado;
+	}
+	
+	
+
+	//Contructor para devolver la busqueda de un cliente juridico y para actualizar
+	public ClienteDTO(String idCliente, String nomCliente,
+			String apePatCliente, String apeMatCliente, String fecNacCliente,
+			String sexoCliente, String telefonoCliente, String celularCliente,
+			String correoCliente, String numDocumento, String idEstado,
+			String razSocCliente, String ciiuCliente, String cargoContacCliente) {
+		super();
+		this.idCliente = idCliente;
+		this.nomCliente = nomCliente;
+		this.apePatCliente = apePatCliente;
+		this.apeMatCliente = apeMatCliente;
+		this.fecNacCliente = fecNacCliente;
+		this.sexoCliente = sexoCliente;
+		this.telefonoCliente = telefonoCliente;
+		this.celularCliente = celularCliente;
+		this.correoCliente = correoCliente;
+		this.numDocumento = numDocumento;
+		this.idEstado = idEstado;
+		this.razSocCliente = razSocCliente;
+		this.ciiuCliente = ciiuCliente;
+		this.cargoContacCliente = cargoContacCliente;
+	}
+
+
+
+
+	public ClienteDTO() {
+
+	}
+
+
+
+
+
+	public int getIdDirecCliente() {
+		return idDirecCliente;
+	}
+
+
+	public String getDirecDirecCliente() {
+		return direcDirecCliente;
+	}
+
+
+	public String getCodubigeoDirecCliente() {
+		return codubigeoDirecCliente;
+	}
+
+
+	public int getIdTipoEstablec() {
+		return idTipoEstablec;
+	}
+
+
+	public void setIdDirecCliente(int idDirecCliente) {
+		this.idDirecCliente = idDirecCliente;
+	}
+
+
+	public void setDirecDirecCliente(String direcDirecCliente) {
+		this.direcDirecCliente = direcDirecCliente;
+	}
+
+
+	public void setCodubigeoDirecCliente(String codubigeoDirecCliente) {
+		this.codubigeoDirecCliente = codubigeoDirecCliente;
+	}
+
+
+	public void setIdTipoEstablec(int idTipoEstablec) {
+		this.idTipoEstablec = idTipoEstablec;
 	}
 
 
@@ -258,7 +392,22 @@ public class ClienteDTO {
 	}
 
 
-	
+
+
+
+	public String getDescTipoEstablec() {
+		return descTipoEstablec;
+	}
+
+
+
+
+	public void setDescTipoEstablec(String descTipoEstablec) {
+		this.descTipoEstablec = descTipoEstablec;
+	}
+
+
+
 	
 	
 	

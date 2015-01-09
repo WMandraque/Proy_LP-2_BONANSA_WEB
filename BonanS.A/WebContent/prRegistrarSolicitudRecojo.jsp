@@ -15,7 +15,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Registrar cliente</title>
+<title>Registrar Solicitud de Recojo</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -28,12 +28,8 @@
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
 
-<script language="javascript" type="text/javascript"
-	src="js/jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/paRegistrarCliente.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/gestionaUbigeo.js"></script>
+<script language="javascript" type="text/javascript"src="js/jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript"src="js/mylibs/paRegistrarOS.js"></script>
    
 
 </head>
@@ -91,31 +87,36 @@
 
 		<ul class="menu">
 
-			<a href="mpAdministrador.jsp">Inicio</a>
+			<a href="mpRecepcionista.jsp">Inicio</a>
 
-			<li class="item2"><a href="#">Mantenimiento Clientes</a>
+			<li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-			</ul>
+					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Solicitud de recojo</a></li>
+					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Cliente</a></li>
+					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
+				</ul>
 			</li>
 
 
-
-			<li class="item3"><a href="#">Mantenimiento Empleados</a>
+			<li class="item3"><a href="#">Control de Ruta</a>
 				<ul>
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-                    <li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar
+							Empleado</a></li>
+					<li class="subitem3"><a
+						href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
 				</ul></li>
-				
-				
-		 <li class="item3"><a href="#">Mantenimiento Usuario</a>
+
+
+			<li class="item3"><a href="#">Control de Gatos</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
+
+					<li class="subitem1"><a href="paRegistrarSolicitudServicio.jsp">Registrar
 							Usuario</a></li>
 					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>
@@ -123,28 +124,11 @@
 							Usuario</a></li>
 					<li class="subitem3"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
+
 				</ul>
 			</li>
 
-
-			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
-							Vehiculo</a></li>
-					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
-							Vehiculo</a></li>
-					<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar
-							Vehiculo</a></li>
-					<li class="subitem3"><a
-						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
-				</ul></li>
-
-
-			<li class="item4"><a href="#">Registro de acciones</a>
-				<ul>
-					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
-							de logs</a></li>
-				</ul></li>
+			
 
 
 
@@ -157,7 +141,7 @@
 	<div class="block-area" id="required">
 
 		<!--Titulo  -->
-		<h3 class="block-title">Matenimiento de cliente</h3>
+		<h3 class="block-title">Gestion de recojos</h3>
 	</div>
 
 
@@ -170,33 +154,17 @@
 		<form action="gestionaCliente" method="post">
 	    <input type="hidden" name="operacion" value="registrar">
 		<fieldset>
-
-				<legend class="block-title" style="color: white;">Registrar cliente</legend>
+		<legend class="block-title" style="color: white;">Registrar Solicitud de Recojo</legend>
 
 
 				<div class="block-area">
-					<!--Contenedor de datos generales  -->
-
-
-					<h3 class="block-title">Datos generales</h3>
-					<br> <br>
-
-
 
 					<div class="row">
-
-
 						<div class="col-md-3 m-b-15">
-							<label style="font-size: 15px;">ID Vehiculo</label> <input
+							<label style="font-size: 15px;">ID ORDEN DE RECOJO</label> <input
 								type="text" class="input-sm form-control mask-date_time"
 								style="text-align: center;" value=">>AUTOGENERADO<<" readonly="
 								readonly="readonly">
-						</div>
-
-						<div class="col-md-3 m-b-15">
-							<label style="font-size: 15px;">Tipo de Cliente</label>
-							<libreria:CboTipoCliente idTipoCliente="" />
-
 						</div>
                      </div>
 					</div>
@@ -205,196 +173,145 @@
 
 					<br>
 					<hr class="whiter m-t-20" />
-					<br> <br>
-
-					<div id="contenedor">
                     <div class="block-area">
-						<div  id="tituloCN">
-							<h3 class="block-title">Datos del cliente natural</h3>
-						</div>
-
-						<div  id="tituloCJ">
-							<h3 class="block-title">Datos del Contacto del cliente Juridico</h3>
-						</div>
+						
+							<h3 class="block-title">DESCRIPCION DEL TRASLADO</h3>
+						
+						
 						<br> <br>
 
 						<!--  -->
+						
+						<div class="row">
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">ID CLIENTE</label> <input
+									type="text" id="txtIdCliente" name="txtIdCliente"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" placeholder="ingresar ID CLIENTE"
+									required="requerid" maxlength="20"
+									value="${sessionScope.sSOR_idCliente}"
+									>
+							</div>
+							
+							
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">TIPO DE CLIENTE</label> <input
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" placeholder="ingresar tipo de cliente"
+									required="requerid" maxlength="20"
+									value="${sessionScope.sSOR_tipoCliente}"
+									>
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">NOMBRE COMPLETO</label> <input
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" placeholder="seleccionar cliente"
+									required="requerid" maxlength="20"
+									value="${sessionScope.sSOR_nombreCompleto}"
+									>
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+                                   <br>
+		                           <input type="button" class="btn" value="Buscar Cliente" onclick="location='gestionaOrdenRecojo?operacion=listarClientes'">
+		                        </div>
+                         </div>
 
 						<div class="row">
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Nombre</label> <input
-									type="text" id="txtNombre" name="txtNombre"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar nombre"
-									required="requerid" maxlength="20">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">A paterno</label> <input
-									type="text" id="txtApePa" name="txtApePa"
+								<label style="font-size: 12px;">DIRECCION DE RECOJO</label> <input
+									type="text" id="txtDireccionRecojo" name="txtDireccionRecojo"
 									class="input-sm form-control mask-phone"
 									style="font-size: 16px;"
-									placeholder="ingresar apellido paterno" required="requerid"
-									maxlength="20">
+									placeholder="ingresar direccion de recojo" required="requerid"
+									maxlength="20"
+									value="${sessionScope.s_txtDireccionRecojo}"
+									>
 							</div>
 
 
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">A materno</label> <input
-									type="text" id="txtApeMa" name="txtApeMa"
+								<label style="font-size: 12px;">FECHA DE RECOJO</label> <input
+									type="text" id="txtFechaRecojo" name="txtFechaRecojo"
 									class="input-sm form-control mask-phone"
 									style="font-size: 16px;"
-									placeholder="ingresar apellido materno" required="requerid">
+									placeholder="ingresar fecha de recojo" required="requerid"
+									value="${sessionScope.s_txtFechaRecojo}"
+									>
 							</div>
 
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Fecha de nacimiento</label> <input
-									type="text" id="txtFechaNac" name="txtFechaNac"
+								<label style="font-size: 12px;">HORA DE RECOJO</label> 
+								<input
+									type="text" id="txtHoraRecojo" name="txtHoraRecojo"
 									class="input-sm form-control mask-date"
 									style="font-size: 16px;"
-									placeholder="ingresar fecha de nacimiento" required="requerid">
+									placeholder="ingresar hora de recojo" required="requerid"
+									value="${sessionScope.s_txtHoraRecojo}"
+									>
 							</div>
 
 
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Sexo</label>
-								<libreria:CboSexo idSexo=" "/> 
-							</div>
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Telefono</label> <input
-									type="text" id="txtFono" name="txtFono"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar Num. fono"
-									required="requerid">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Celular</label> <input
-									type="text" id="txtCelular" name="txtCelular"
-									class="input-sm form-control mask-cel"
-									style="font-size: 16px;" placeholder="ingresar Num. celular"
-									required="requerid">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Correo</label> <input
-									type="text" id="txtCorreo" name="txtCorreo"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar correo"
-									required="requerid">
-							</div>
-
-
-							<div id="divNatural">
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Num DNI</label> <input
-										type="text" id="txtNumDNI" name="txtNumDNI"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-							</div>
-
-							<div id="divJuridico">
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Num RUC</label> <input
-										type="text" id="txtNumRUC" name="txtNumRUC"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Razon social</label> <input
-										type="text" id="txtRazonSocial" name="txtRazonSocial"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">CIUU</label> <input type="text"
-										id="txtCIUU" name="txtCIUU"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Cargo</label> <input
-										type="text" id="txtCargo" name="txtCargo"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-								
-
-						</div>
-            </div>
-            </div>
-            
-
-            
+					</div>	
+					</div>
+					
+			
+			<!-- DETALLE DE ORDEN DE RECOJO -->  
             <br>
 			<hr class="whiter m-t-20" /> 
 			<br><br>                  
             <div class="block-area">
-						<h3 class="block-title">Direccion del cliente</h3>
+						<h3 class="block-title">DETALLE DE ORDEN DE RECOJO</h3>
 						<br><br>   
 						<div class="row">
-
+						
+						
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">DESCRIPCION DE TRASLADO</label>
+								<input
+									type="text" id="txtDesTraslado" name="txtDesTraslado"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar descripcion de traslado"
+									>
+							</div>
+							
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Tipo de establecimiento</label>
-								<libreria:CboTipoEstablecimiento idTipoEstablec="" />
+								<label style="font-size: 12px;">CANTIDAD</label>
+								<input
+									type="text" id="txtCantidad" name="txtCantidad"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar cantidad"
+									>
 
 							</div>
 
 							<div class="col-md-3 m-b-15">
-
-								<label style="font-size: 12px;">Departamento</label>
-								<libreria:CboDepartamento codubigeo="" />
-
+								<label style="font-size: 12px;">TIPO UNIDAD DE MEDIDA</label>
+								<libreria:CboTipoUnidadMedida idTipoUnidadMedida="0"/>
 							</div>
-
+							
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Provincia</label> <select
-									id="cboPronvincia" name="cboPronvincia"
-									class="input-sm form-control mask-phone">
-									<option value="">SELECCIONE</option>
-								</select>
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Distrito</label> <select
-									id="cboDistrito" name="cboDistrito"
-									class="input-sm form-control mask-phone">
-									<option value="">SELECCIONE</option>
-								</select>
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-
-								<label style="font-size: 12px;">Direccion</label> <input
-									type="text" id="txtDireccion" name="txtDireccion"
-									class="input-sm form-control mask-date_time">
+								<label style="font-size: 12px;">PESO EN KG</label>
+								<input
+									type="text" id="txtPesoKg" name="txtPesoKg"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar peso en KG"
+									>
 
 							</div>
-
+						
 						</div>
 
 						<div class="row">
 
 
-							<input class="btn btn-sm" type="button" value="Agregar" id="btnAgregar"> 
-							<input class="btn btn-sm" type="button" value="Limpiar Tabla" id="btnLimpiarTabla">
-
-
-
-							<input class="btn btn-sm" type="button" value="Limpiar Campos" id="btnLimpiarCampos">
+							<input class="btn btn-sm" type="button" value="Agregar" id="btnAgregarDOR"> 
+							<input class="btn btn-sm" type="button" value="Limpiar Tabla" id="btnLimpiarTablaDOR">
+							<input class="btn btn-sm" type="button" value="Limpiar Campos" id="btnLimpiarCamposDOR">
 
 
 						</div>
@@ -404,10 +321,94 @@
 							<table id="tabla" class="table table-bordered table-hover tile">
 								<thead>
 									<tr>
-										<td>TIPO DE ESTABLECIMIENTO</td>
-										<td>ID TIPO DE ESTABLECIMIENTO</td>
-										<td>UBIGEO</td>
-										<td>DIRECCION</td>
+									    <td>DESCRIPCION DE TRASLADO</td>
+									    <td>CANTIDAD</td>
+										<td>DESCRIPCION DE UNIDAD DE MEDIDA</td>
+										<td>PESO EN KG</td>
+										<td>OPERACION</td>
+
+									</tr>
+
+								</thead>
+							</table>
+						</div>
+                        </div>		
+					
+            <!-- EQUIPO PERSONAL DE RECOJO -->
+            <br>
+			<hr class="whiter m-t-20" /> 
+			<br><br>                  
+            <div class="block-area">
+						<h3 class="block-title">EQUIPO DE PERSONAL DE RECOJO</h3>
+						<br><br>   
+						<div class="row">
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">ID EMPLEADO</label>
+								<input
+									type="text" id="txtIdEmpleado" name="txtIdEmpleado"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar idEmpleado"
+									value="${param.idEmpleado}"
+									>
+
+							</div>
+							
+							
+						 <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">DESCRIPCION DEL TIPO DE EMPLEADO</label>
+								<input
+								    id="txtDescTipoEmpleado" name="txtDescTipoEmpleado"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar tipo de empleado"
+									value="${param.tipoEmpleado}"
+									>
+
+							</div>
+							
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">NOMBRE COMPLETO DEL EMPLEADO</label>
+								<input
+								    id="txtNomCompletoEmp" name="txtNomCompletoEmp"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar idEmpleado"
+									value="${param.nombreCompleto}"
+									>
+
+							</div>
+							
+
+							
+							<div class="col-md-3 m-b-15">
+                                   <br>
+		                           <input type="button" class="btn"  id="btnBuscarEmpleado" name="btnBuscarEmpleado" value="Buscar Empleado" >
+		                        </div>
+
+						
+						</div>
+
+						<div class="row">
+
+
+							<input class="btn btn-sm" type="button" value="Agregar" id="btnAgregarPersonal"> 
+							<input class="btn btn-sm" type="button" value="Limpiar Tabla" id="btnLimpiarTablaEquipoPersonal">
+							<input class="btn btn-sm" type="button" value="Limpiar Campos" id="btnLimpiarCamposEquipoPersonal">
+
+
+						</div>
+
+						<br>
+						<div class="row">
+							<table id="tablaEquipoPersonal" class="table table-bordered table-hover tile">
+								<thead>
+									<tr>
+										<td>ID EMPLEADO</td>
+										<td>TIPO DE EMPLEADO</td>
+										<td>NOMBRE COMPLETO</td>
 										<td>OPERACION</td>
 
 									</tr>
@@ -416,17 +417,115 @@
 							</table>
 						</div>
                         </div>
+                        
+                        
+                        
+            <!-- Equipo de vehiculo -->  
+            <br>
+			<hr class="whiter m-t-20" /> 
+			<br><br>                  
+            <div class="block-area">
+						<h3 class="block-title">EQUIPO DE VEHICULO DE RECOJO</h3>
+						<br><br>   
+						<div class="row">
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">ID VEHICULO</label>
+								<input
+									type="text" id="txtIdVehiculo" name="txtIdVehiculo"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar idVehiculo"
+									value="${param.idVehiculo}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">PLACA DE VEHICULO</label>
+								<input
+									type="text" id="txtPlacaVehiculo" name="txtPlacaVehiculo"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar placa del vehiculo"
+									value="${param.placa}"
+									>
+
+							</div>
+							
+							
+						  <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">CATEGORIA DEL  VEHICULO</label>
+								<input
+								    type="text" id="txtCatVehiculo" name="txtCatVehiculo"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar categoria del vehiculo"
+									value="${param.descCategoriaVeh}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+                                   <br>
+		                           <input type="button" class="btn" value="Buscar Vehiculo" onclick="location='gestionaOrdenRecojo?operacion=listarVehiculos'">
+		                        </div>
+
+						
+						</div>
+
+						<div class="row">
+
+
+							<input class="btn btn-sm" type="button" value="Agregar" id="btnAgregarEquipoVehicular"> 
+							<input class="btn btn-sm" type="button" value="Limpiar Tabla" id="btnLimpiarTablaEquipoVehicular">
+							<input class="btn btn-sm" type="button" value="Limpiar Campos" id="btnLimpiarCamposEquipoVehicular">
+
+
+						</div>
+
+						<br>
+						<div class="row">
+							<table id="tablaEquipoVehicular" class="table table-bordered table-hover tile">
+								<thead>
+									<tr>
+										<td>ID VEHICULO</td>
+										<td>PLACA DE VEHICULO</td>
+										<td>CATEGORIA DEL VEHICULO</td>
+										<td>OPERACION</td>
+									</tr>
+									
+									
+									<c:if test="${sessionScope.listadoOR_EquiVehicular}>0">
+									<c:forEach items="${sessionScope.listadoOR_EquiVehicular}" var="lista">
+									<tr>
+										<td>${lista.idVehiculo}</td>
+										<td>${lista.placaVehiculo}</td>
+										<td>${lista.descCatVehiculo }</td>
+										<td><a class='eliminaEquipoVehicular' onclick='fn_eliminarEquipoVehicular()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>
+									</tr>
+									</c:forEach>
+									</c:if>
+
+								</thead>
+							</table>
+						</div>
+                        </div>
 
                       
-                        <br><br><br>
+                      
+                      
+                      <!-- OPERACIONES  -->
+                        <br><br><br><br><br><br>
 						<hr class="whiter m-t-20" />
+						<br><br><br><br><br><br>
 						<div class="block-area">
 							<input class="btn btn-sm" type="submit" value="REGISTRAR">
 							<input class="btn btn-sm" type="reset" value="LIMPIAR">
 						</div>
 
 					    
-					    </div>
+					    
                
                  <c:set var="mensaje" value="${requestScope.mensaje}"/>
 				      <c:if test="${mensaje!=null}">

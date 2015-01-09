@@ -15,7 +15,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Eliminar Usuario</title>
+<title>Actualizar cliente</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -28,15 +28,11 @@
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
 
-<script language="javascript" type="text/javascript"
-	src="js/jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/paRegistrarCliente.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/gestionaUbigeo.js"></script>
+<script language="javascript" type="text/javascript"src="js/jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/mylibs/paActualizarClienteNatural.js"></script>
+<script language="javascript" type="text/javascript"src="js/mylibs/gestionaUbigeo.js"></script>
    
-<!-- <script src="js/mylibs/validaciones.js"></script>
- -->
+
 </head>
 <body id="skin-blur-sunset">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
@@ -93,23 +89,15 @@
 		<ul class="menu">
 
 			<a href="mpAdministrador.jsp">Inicio</a>
-			
+
 			<li class="item2"><a href="#">Mantenimiento Clientes</a>
-			<ul>
+				<ul>
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
 					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-			</ul>
-			</li>
-			
-
-			<li class="item2"><a href="#">Mantenimiento de Usuario</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
 				</ul></li>
+
 
 
 			<li class="item3"><a href="#">Mantenimiento Empleados</a>
@@ -165,7 +153,7 @@
 	<div class="block-area" id="required">
 
 		<!--Titulo  -->
-		<h3 class="block-title">Matenimiento de Usuario</h3>
+		<h3 class="block-title">Matenimiento de cliente</h3>
 	</div>
 
 
@@ -175,72 +163,235 @@
 	<div class="block-area" id="required">
 
 		<!-- FORMULARIO  -->
-		<form action="gestionaUsuario" method="post">
-		<input type="hidden" name="operacion" value="eliminar">
-		<c:set var="x" value="${requestScope.usuarioX}"/>
-			<fieldset>
+		<form action="gestionaCliente" method="post">
+	    <input type="hidden" name="operacion" value="actualizar2">
+	    <c:set var="x" value="${requestScope.clienteX}"></c:set>
+		<fieldset>
 
-				<legend class="block-title" style="color: white;">Eliminar usuario</legend>
+				<legend class="block-title" style="color: white;">Actualizar cliente Natural</legend>
 
-
-				
 					<!--Contenedor de datos generales  -->
 
 
 					<h3 class="block-title">Datos generales</h3>
-					<br><br>
-					
+					<br> <br>
+
+
+
 					<div class="block-area">
 		                   <div class="row">
 		                   	  <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ID USUARIO</label>
-		                            <input type="text" name="txtIdUsuario" id="txtIdUsuario" class="input-sm form-control mask-date_time" placeholder="ingresar usuario" required="requerid" value="${x.idEmpleado}">
+		                            <label style="font-size: 12px;">ID CLIENTE</label>
+		                            <input type="text" name="txtIdCliente" id="txtIdCliente" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar codigo" value="${x.idCliente}">
 		                        </div>
 		                        
 		                        
 		                       <div class="col-md-3 m-b-15">
                                    <br>
-		                           <input type="button" class="btn" value="Buscar Usuario" onclick="location='gestionaUsuario?operacion=listar'">
+		                           <input type="button" class="btn" value="Buscar Cliente" onclick="location='gestionaCliente?operacion=listar'">
 		                        </div>
 		                        
 		                   </div>
 		            </div>
-		            
-		            
-	
-		          
-		             <hr class="whiter m-t-20" />
-		                    
-		                    
-		             <div class="block-area">
-		             <div class="row">
-		             
+				
 
+					<!--  -->
+
+					<br>
+					<hr class="whiter m-t-20" />
+					<br> <br>
+
+					 <div class="block-area">
+                   	 <h3 class="block-title">Datos del cliente natural</h3>
+					 <br><br>
+					 <div class="row">
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Nombre</label> <input
+									type="text" id="txtNombre" name="txtNombre"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" placeholder="ingresar nombre"
+									required="requerid" maxlength="20" value="${x.nomCliente}">
+							</div>
+
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">A paterno</label> <input
+									type="text" id="txtApePa" name="txtApePa"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;"
+									placeholder="ingresar apellido paterno" required="requerid"
+									maxlength="20" value="${x.apePatCliente}">
+							</div>
+
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">A materno</label> <input
+									type="text" id="txtApeMa" name="txtApeMa"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;"
+									placeholder="ingresar apellido materno" required="requerid" value="${x.apeMatCliente}">
+							</div>
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Fecha de nacimiento</label> <input
+									type="text" id="txtFechaNac" name="txtFechaNac"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="ingresar fecha de nacimiento" required="requerid" value="${x.fecNacCliente}">
+							</div>
+
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Sexo</label>
+								<libreria:CboSexo idSexo="${x.sexoCliente}"/> 
+							</div>
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Telefono</label> <input
+									type="text" id="txtFono" name="txtFono"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" placeholder="ingresar Num. fono"
+									required="requerid" value="${x.telefonoCliente}">
+							</div>
+
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Celular</label> <input
+									type="text" id="txtCelular" name="txtCelular"
+									class="input-sm form-control mask-cel"
+									style="font-size: 16px;" placeholder="ingresar Num. celular"
+									required="requerid" value="${x.celularCliente}">
+							</div>
+
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Correo</label> <input
+									type="text" id="txtCorreo" name="txtCorreo"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" placeholder="ingresar correo"
+									required="requerid" value="${x.correoCliente}">
+							</div>
+
+
+							
+
+								<div class="col-md-3 m-b-15">
+									<label style="font-size: 12px;">Num DNI</label> <input
+										type="text" id="txtNumDNI" name="txtNumDNI"
+										class="input-sm form-control mask-phone"
+										style="font-size: 16px;" placeholder="ingresar correo" value="${x.numDocumento}">
+								</div>
+								
 								
 								<div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ROL</label>
-		                            <libreria:CboRolUsuario idRol="${x.idRol}"/>
-                               </div> 
-		                   
-		                   
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">CONTRASEÑA</label>
-		                        <input type="password" id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;" placeholder="ingresar contraseña" required="requerid" maxlength="20"
-		                               value="${x.clave}" readonly="readonly"
-		                         >
-		                        </div>
-		                        
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">ESTADO</label>
-		                        <libreria:cboEstado idEstado="${x.idEstado}"/>
-		                        </div>
+									<label style="font-size: 12px;">ESTADO</label>
+									<libreria:cboEstado idEstado="${x.idEstado}"/>
+								</div>
+				</div>
+				</div>
+
+            <br>
+			<hr class="whiter m-t-20" /> 
+			<br><br>                  
+            <div class="block-area">
+						<h3 class="block-title">Direccion del cliente</h3>
+						<br><br>   
+						<div class="row">
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Tipo de establecimiento</label>
+								<libreria:CboTipoEstablecimiento idTipoEstablec="" />
+
+							</div>
+
+							<div class="col-md-3 m-b-15">
+
+								<label style="font-size: 12px;">Departamento</label>
+								<libreria:CboDepartamento codubigeo="" />
+
+							</div>
+
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Provincia</label> <select
+									id="cboPronvincia" name="cboPronvincia"
+									class="input-sm form-control mask-phone">
+									<option value="">SELECCIONE</option>
+								</select>
+							</div>
 
 
-                       </div>
-                       </div>
-                    
-                      <c:set var="mensaje" value="${requestScope.mensaje}"/>
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Distrito</label> <select
+									id="cboDistrito" name="cboDistrito"
+									class="input-sm form-control mask-phone">
+									<option value="">SELECCIONE</option>
+								</select>
+							</div>
+
+
+							<div class="col-md-3 m-b-15">
+
+								<label style="font-size: 12px;">Direccion</label> <input
+									type="text" id="txtDireccion" name="txtDireccion"
+									class="input-sm form-control mask-date_time">
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+
+							<input class="btn btn-sm" type="button" value="Agregar" id="btnAgregar"> 
+							<input class="btn btn-sm" type="button" value="Limpiar Tabla" id="btnLimpiarTabla">
+
+
+
+							<input class="btn btn-sm" type="button" value="Limpiar Campos" id="btnLimpiarCampos">
+
+
+						</div>
+
+						<br>
+						<div class="row">
+							<table id="tabla" class="table table-bordered table-hover tile">
+								<thead>
+									<tr>
+										<td>TIPO DE ESTABLECIMIENTO</td>
+										<td>ID TIPO DE ESTABLECIMIENTO</td>
+										<td>UBIGEO</td>
+										<td>DIRECCION</td>
+										<td>OPERACION</td>
+
+									</tr>
+								</thead>
+								<c:forEach var="lista" items="${sessionScope.listaDireccion}">
+								
+								<tr>
+								<td>${lista.descTipoEstablec}</td>
+								<td>${lista.idTipoEstablec}</td>
+								<td>${lista.codubigeoDirecCliente}</td>
+								<td>${lista.direcDirecCliente}</td>
+								<td><a class='elimina' onclick='fn_eliminar()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>
+								</tr>
+								
+								</c:forEach>
+							</table>
+						</div>
+
+
+                      
+
+						<hr class="whiter m-t-20" />
+						<!--Botones  -->
+						<div class="block-area">
+							<input class="btn btn-sm" type="submit" value="ACTUALIZAR">
+							<input class="btn btn-sm" type="reset" value="LIMPIAR">
+						</div>
+
+					  </div>
+               
+                 <c:set var="mensaje" value="${requestScope.mensaje}"/>
 				      <c:if test="${mensaje!=null}">
 				                      <div class="block-area" >
 									       <div class="alert alert-success" style="font-size: 20px;">
@@ -248,21 +399,12 @@
 									       </div>
 				                   </div>
 				      </c:if> 
-		            
-					
-						<hr class="whiter m-t-20" />
-						<!--Botones  -->
-						<div class="block-area">
-							<input class="btn btn-sm" type="submit" value="ELIMINAR">
-							<input class="btn btn-sm" type="reset" value="LIMPIAR">
-						</div>
-
-					
-
 			</fieldset>
 		</form>
 		<!--FIN DEL FORMULARIO  -->
 	</div>
+	
+	
 	<!-- Fin del contenedor del form --> <!--Chat  -->
 	<div class="chat">
 

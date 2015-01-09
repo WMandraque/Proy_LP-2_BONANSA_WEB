@@ -26,7 +26,7 @@
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
 </head>
-<body id="skin-blur-chrome">
+<body id="skin-blur-sunset">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
 	<a class="logo pull-left" href="Indice.jsp">Bonan S.A.</a>
 
@@ -88,14 +88,15 @@
 
 			<a href="mpRecepcionista.jsp">Inicio</a>
 
-			<li class="item2"><a href="#">Servicio de Recojo</a>
+			<li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar
-							Cliente</a></li>
-					<li class="subitem2"><a href="#">Actualizar Cliente</a></li>
-					<li class="subitem3"><a
-						href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-				</ul></li>
+					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Solicitud de recojo</a></li>
+					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Cliente</a></li>
+					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
+				</ul>
+			</li>
 
 
 			<li class="item3"><a href="#">Control de Ruta</a>
@@ -114,7 +115,7 @@
 			<li class="item3"><a href="#">Control de Gatos</a>
 				<ul>
 
-					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
+					<li class="subitem1"><a href="paRegistrarSolicitudServicio.jsp">Registrar
 							Usuario</a></li>
 					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>

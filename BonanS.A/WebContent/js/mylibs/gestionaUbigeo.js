@@ -87,9 +87,9 @@
          * $("#span_cantidad").html(cantidad); };
          */
 
-        function fn_agregar() {
+       /* function fn_agregar() {
         	
-        	/* $("#registrarDireccion").click(function(){ */
+        	 $("#registrarDireccion").click(function(){ 
 
         	var ultimoValor = "";
         	var valorEntrante = $("#txtDireccion").val();
@@ -107,17 +107,17 @@
         		cadena = cadena + "<td>" + $("#cboTipoEstablecimiento").val() + "</td>";
         		cadena = cadena + "<td>" + $("#cboDistrito").val() + "</td>";
         		cadena = cadena + "<td>" + $("#txtDireccion").val() + "</td>";
-        		/* cadena = cadena + "<td><a class='elimina'>eee</a></td>"; */
+        		 cadena = cadena + "<td><a class='elimina'>eee</a></td>"; 
         		$("#tabla").append(cadena);
-        		/*
+        		
         		 * aqui puedes enviar un conunto de tados ajax para agregar al usuairo
         		 * $.post("agregar.php", {ide_usu: $("#valor_ide").val(), nom_usu:
         		 * $("#valor_uno").val()});
-        		 */
-        		/*
+        		 
+        		
         		 * fn_dar_eliminar(); fn_cantidad(); alert("Usuario agregado");
-        		 */
-        		/* }); */
+        		 
+        		 }); 
         	}
 
         };
@@ -146,7 +146,7 @@
             
 
 
-        /*
+        
          * function fn_dar_eliminar(){ $("a.elimina").click(function(){ id =
          * $(this).parents("tr").find("td").eq(0).html(); respuesta = confirm("Desea
          * eliminar el usuario: " + id); if (respuesta){
@@ -156,8 +156,8 @@
          * aqui puedes enviar un conjunto de datos por ajax $.post("eliminar.php",
          * {ide_usu: id})
          *  }) } }); };
-         */
-        
+         
+        */
         
       
     

@@ -26,7 +26,7 @@
         <link href="css/app.css" rel="stylesheet">
         <link href="css/icons2.css" rel="stylesheet">
     </head>
-<body id="skin-blur-chrome">
+<body id="skin-blur-sunset">
         <header id="header" class="media">
             <a href="" id="menu-toggle"></a> 
             <a class="logo pull-left" href="Indice.jsp">Bonan S.A.</a>
@@ -86,13 +86,14 @@
                     
 						<a href="mpAdministrador.jsp">Inicio</a>
 						
-        				<li class="item2"><a href="#">Mantenimiento Clientes</a>
-						    <ul>
-                				<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-                				<li class="subitem2"><a href="#">Actualizar Cliente</a></li>
-                				<li class="subitem3"><a href="#">Listar Cliente</a></li>
-            				</ul>
-        				</li>
+					<li class="item2"><a href="#">Mantenimiento Clientes</a>
+						<ul>
+							<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
+							<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
+							<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
+							<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
+						</ul></li>
+
         				
         				
         				<li class="item3"><a href="#">Mantenimiento Empleados</a>

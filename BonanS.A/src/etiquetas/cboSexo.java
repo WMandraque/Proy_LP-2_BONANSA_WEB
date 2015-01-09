@@ -33,7 +33,7 @@ public class cboSexo extends TagSupport {
 			
 			JspWriter out=pageContext.getOut();
 			out.println("<select class='select'name='cboSexo'>");
-			if(getIdSexo().equals("M") || getIdSexo().equals(" ")){
+			if(getIdSexo().equals("M") || getIdSexo().equals("")){
 				out.println("<option value='M'>MASCULINO</option>");
 				out.println("<option value='F'>FEMENINO</option>");
 			}

@@ -13,7 +13,7 @@
         <meta name="descripcion" content="Violate Responsive Admin Template">
         <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-        <title>Listar Empleados</title>
+        <title>Listar Empleados OR</title>
             
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/animate.min.css" rel="stylesheet">
@@ -90,33 +90,37 @@
                     
                     
                      <ul class="menu">
-    
-						<a href="mpAdministrador.jsp">Inicio</a>
-						
-						<li class="item2"><a href="#">Mantenimiento Clientes</a>
-							<ul>
-								<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-								<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-								<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-								<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-						</ul>
-						</li>
 
-        				
-        				
-        				<li class="item3"><a href="#">Mantenimiento Empleados</a>
-						    <ul>
-                				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					            <li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-					            <li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
-            				</ul>
-        				</li>
-        				
-        				
-		 <li class="item3"><a href="#">Mantenimiento Usuario</a>
+			<a href="mpRecepcionista.jsp">Inicio</a>
+
+			<li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
+					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Solicitud de recojo</a></li>
+					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Cliente</a></li>
+					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
+				</ul>
+			</li>
+
+
+			<li class="item3"><a href="#">Control de Ruta</a>
+				<ul>
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar
+							Empleado</a></li>
+					<li class="subitem3"><a
+						href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+				</ul></li>
+
+
+			<li class="item3"><a href="#">Control de Gatos</a>
+				<ul>
+
+					<li class="subitem1"><a href="paRegistrarSolicitudServicio.jsp">Registrar
 							Usuario</a></li>
 					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>
@@ -124,27 +128,15 @@
 							Usuario</a></li>
 					<li class="subitem3"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
+
 				</ul>
 			</li>
-        				
-        				<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-						    <ul>
-                				<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar Vehiculo</a></li>
-                				<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar Vehiculo</a></li>
-                				<li class="subitem3"><a href="paEliminarVehiculo.jsp">Eliminar Vehiculo</a></li>
-                				<li class="subitem4"><a href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
-            				</ul>
-        				</li>
-        				
-        				 <li class="item4"><a href="#">Registro de acciones</a>
-						    <ul>
-                				<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado de logs</a></li>
-            				</ul>
-        				</li>
-        				
-        				
-        			
-                	</ul>
+
+			
+
+
+
+		</ul>
                 	</nav>
                     </div>
         	</aside>
@@ -155,7 +147,7 @@
                 <div class="block-area" id="required">
 
                 <!--Titulo  -->
-                 <h3 class="block-title">Matenimiento de Empleados</h3>
+                 <h3 class="block-title">Gestiona Orden de Recojo</h3>
                 </div>
                 
                 
@@ -178,7 +170,7 @@
                    
          <fieldset>
                    
-         <legend class="block-title" style="color: white;">Listado de Empleados</legend>
+         <legend class="block-title" style="color: white;">Listado de Empleados OR</legend>
                    
                    
                 
@@ -195,8 +187,6 @@
 															<th>Fono</th>
 															<th>Celular</th>
 															<th>Email</th>
-															<th>Estado de Trabajo</th>
-															<th>Estado</th>
 															<th>Operacion</th>
 														</tr> 
 													</thead>
@@ -213,8 +203,7 @@
 														                  <td>${lista.fonoEmpleado}</td>
 														                  <td>${lista.celularEmpleado}</td>
 														                  <td>${lista.emailEmpleado}</td>
-														                  <td>${lista.descEstadoT}</td>
-														                  <td>${lista.descEstado}</td>
+
 														                 
 												
 														      
@@ -224,26 +213,10 @@
 															<td class="center">
 																<div class="visible-md visible-lg hidden-sm hidden-xs">
 																	<div class="btn-group">
-																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#">
+																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" onclick="location='prRegistrarSolicitudRecojo.jsp?idEmpleado=${lista.idEmpleado}&nombreCompleto=${lista.nomEmpleado} ${lista.apepaEmpleado} ${lista.apemaEmpleado}&tipoEmpleado=${lista.nomCargo}'">
 																			<i ></i> <span >Seleccione</span>
 																		</a>
-																		<ul role="menu" class="dropdown-menu pull-right">
-																			<li role="presentation">
-																				<a role="menuitem" tabindex="-1" href="gestionaEmpleado?operacion=buscar&tipo=A&idEmpleado=${lista.idEmpleado}&tipoEmpleado=${lista.nomCargo}">
-																					Actualizar
-																				</a>
-																			</li>
-																			<li role="presentation">
-																				<a role="menuitem" tabindex="-1" href="gestionaEmpleado?operacion=buscar&tipo=E&idEmpleado=${lista.idEmpleado}&tipoEmpleado=${lista.nomCargo}">
-																					 Eliminar
-																				</a>
-																			</li>
-																			<li role="presentation">
-																				<a role="menuitem" tabindex="-1" href="paRegistrarUsuario.jsp?idEmpleado=${lista.idEmpleado}">
-																					 Asignar usuario
-																				</a>
-																			</li>
-																		</ul>
+																		
 																	</div>
 																</div>
 															</td>

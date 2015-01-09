@@ -26,7 +26,7 @@
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
 </head>
-<body id="skin-blur-chrome">
+<body id="skin-blur-sunset">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
 	<a class="logo pull-left" href="Indice.jsp">Bonan S.A.</a>
 

@@ -157,5 +157,17 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 </tag>	
+
+<tag>
+		<name>CboTipoUnidadMedida</name>
+		<tagclass>etiquetas.CboTipoUnidadMedida</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Tipo de unidad de medida</info>
+		<attribute>
+			<name>idTipoUnidadMedida</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>	
 	
 	</taglib>

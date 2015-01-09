@@ -17,7 +17,7 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/generics.css" rel="stylesheet"> 
     </head>
-    <body id="skin-blur-chrome">
+<body id="skin-blur-sunset">
         <section id="login">
             <header>
                 <h1>BONANSA</h1>

@@ -57,30 +57,7 @@ public class SvGestionaEmpleado extends HttpServlet {
 
 	
 
-	private void eliminarEmpleado(HttpServletRequest request, HttpServletResponse response) {
-		
-		try {
-			
-			String idEmpleado=request.getParameter("txtIdEmpleado");
-			HttpSession sesionX=request.getSession();
-			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
 
-			int r=sEmpleado.eliminarEmpleado(idEmpleado, ip_idEmpleadoR);
-			
-			if (r>0){
-				request.setAttribute("mensaje", "Empleado eliminado correctamente: "+idEmpleado);
-			}
-			else
-			{
-				request.setAttribute("mensaje", "Error al eliminar empleado: "+idEmpleado);	
-			}
-			request.getRequestDispatcher("paMenuEliminarEmpleado.jsp").forward(request, response);
-			
-		} catch (Exception e) {
-			System.out.println("Error al eliminiarEmpleado SvGestionaEmpleado: "+e);
-		}
-		
-	}
 
 
 
@@ -372,6 +349,32 @@ private void actualizarEmpleadoConductor(HttpServletRequest request,HttpServletR
 		
 		} catch (Exception e) {
 			System.out.println("Error al actualizarEmpleado SvGestionaEmpleado: "+e);
+		}
+		
+	}
+	
+	
+	private void eliminarEmpleado(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			
+			String idEmpleado=request.getParameter("txtIdEmpleado");
+			HttpSession sesionX=request.getSession();
+			String   ip_idEmpleadoR=(String)sesionX.getAttribute("idEmpleado");
+
+			int r=sEmpleado.eliminarEmpleado(idEmpleado, ip_idEmpleadoR);
+			
+			if (r>0){
+				request.setAttribute("mensaje", "Empleado eliminado correctamente: "+idEmpleado);
+			}
+			else
+			{
+				request.setAttribute("mensaje", "Error al eliminar empleado: "+idEmpleado);	
+			}
+			request.getRequestDispatcher("paMenuEliminarEmpleado.jsp").forward(request, response);
+			
+		} catch (Exception e) {
+			System.out.println("Error al eliminiarEmpleado SvGestionaEmpleado: "+e);
 		}
 		
 	}

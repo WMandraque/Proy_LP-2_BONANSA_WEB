@@ -57,9 +57,7 @@
     <servlet-name>gestionaCliente</servlet-name>
     <url-pattern>/gestionaCliente</url-pattern>
   </servlet-mapping>
-  
-  
-    <servlet>
+  <servlet>
     <servlet-name>gestionaEmpleado</servlet-name>
     <servlet-class>servlets.SvGestionaEmpleado</servlet-class>
   </servlet>
@@ -68,4 +66,12 @@
     <url-pattern>/gestionaEmpleado</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>gestionaOrdenRecojo</servlet-name>
+    <servlet-class>servlets.SvGestionaOrdenRecojo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaOrdenRecojo</servlet-name>
+    <url-pattern>/gestionaOrdenRecojo</url-pattern>
+  </servlet-mapping>
 </web-app>

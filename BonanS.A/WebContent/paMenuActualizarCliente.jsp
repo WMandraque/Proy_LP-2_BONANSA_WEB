@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +16,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Eliminar Usuario</title>
+<title>Actualizar Cliente</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -27,16 +28,6 @@
 <link href="css/generics.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
-
-<script language="javascript" type="text/javascript"
-	src="js/jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/paRegistrarCliente.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/gestionaUbigeo.js"></script>
-   
-<!-- <script src="js/mylibs/validaciones.js"></script>
- -->
 </head>
 <body id="skin-blur-sunset">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
@@ -48,8 +39,6 @@
 			<div id="time" class="pull-right">
 				<span id="hours"></span> : <span id="min"></span> : <span id="sec"></span>
 			</div>
-
-			
 		</div>
 	</div>
 	</header>
@@ -61,9 +50,10 @@
 
 	<div class="side-widgets overflow">
 		<!-- Profile Menu -->
-		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">                                                                                                       
-			<a href="" data-toggle="dropdown">                             <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
-
+		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+			<a href="" data-toggle="dropdown"> <img
+				class="profile-pic animated"
+				src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
 			</a>
 			<ul class="dropdown-menu profile-menu">
 				<li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i
@@ -72,55 +62,47 @@
 					class="icon right">&#61815;</i></li>
 				<li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i
 					class="icon right">&#61815;</i></li>
-				<li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-
+				<li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i
+					class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
 			</ul>
 
-                        <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
-                        <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
- 
-                        <br>
-                        
-                        <h5 class="m-0" style="color: orange;">Tipo:</h5>
-                        <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
+			<h5 class="m-0" style="color: orange;">Nombre completo:</h5>
+			<h5 class="m-0">${sessionScope.nombreCompleto}</h5>
+
+			<br>
+
+			<h5 class="m-0" style="color: orange;">Tipo:</h5>
+			<h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
 
 		</div>
 		<div class="s-widget m-b-25">
 			<div id="sidebar-calendar"></div>
 		</div>
 		<nav id="wrapper">
-
 		<ul class="menu">
 
 			<a href="mpAdministrador.jsp">Inicio</a>
-			
+
 			<li class="item2"><a href="#">Mantenimiento Clientes</a>
-			<ul>
+				<ul>
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
 					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
 			</ul>
 			</li>
-			
 
-			<li class="item2"><a href="#">Mantenimiento de Usuario</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-				</ul></li>
 
 
 			<li class="item3"><a href="#">Mantenimiento Empleados</a>
 				<ul>
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">RegistrarEmpleado</a></li>
 					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-                    <li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
-				</ul></li>
-				
-				
+					<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+				</ul>
+			</li>
+			
 		 <li class="item3"><a href="#">Mantenimiento Usuario</a>
 				<ul>
 					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
@@ -141,12 +123,11 @@
 							Vehiculo</a></li>
 					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
 							Vehiculo</a></li>
-					<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar
+					<li class="subitem3"><a href="paEliminarVehiculo.jsp">Eliminar
 							Vehiculo</a></li>
-					<li class="subitem3"><a
+					<li class="subitem4"><a
 						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
 				</ul></li>
-
 
 			<li class="item4"><a href="#">Registro de acciones</a>
 				<ul>
@@ -165,103 +146,38 @@
 	<div class="block-area" id="required">
 
 		<!--Titulo  -->
-		<h3 class="block-title">Matenimiento de Usuario</h3>
+		<h3 class="block-title">Matenimiento de Clientes</h3>
 	</div>
-
-
 
 
 	<!--Espacio para el formulario  -->
 	<div class="block-area" id="required">
 
 		<!-- FORMULARIO  -->
-		<form action="gestionaUsuario" method="post">
-		<input type="hidden" name="operacion" value="eliminar">
-		<c:set var="x" value="${requestScope.usuarioX}"/>
+		<form action="">
+
 			<fieldset>
-
-				<legend class="block-title" style="color: white;">Eliminar usuario</legend>
-
-
+				<legend class="block-title" style="color: white;">Seleccionar tipo de cliente a actualizar</legend>
 				
-					<!--Contenedor de datos generales  -->
 
 
-					<h3 class="block-title">Datos generales</h3>
-					<br><br>
-					
-					<div class="block-area">
-		                   <div class="row">
-		                   	  <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ID USUARIO</label>
-		                            <input type="text" name="txtIdUsuario" id="txtIdUsuario" class="input-sm form-control mask-date_time" placeholder="ingresar usuario" required="requerid" value="${x.idEmpleado}">
-		                        </div>
-		                        
-		                        
-		                       <div class="col-md-3 m-b-15">
-                                   <br>
-		                           <input type="button" class="btn" value="Buscar Usuario" onclick="location='gestionaUsuario?operacion=listar'">
-		                        </div>
-		                        
-		                   </div>
-		            </div>
-		            
-		            
-	
-		          
-		             <hr class="whiter m-t-20" />
-		                    
-		                    
-		             <div class="block-area">
-		             <div class="row">
-		             
-
-								
-								<div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ROL</label>
-		                            <libreria:CboRolUsuario idRol="${x.idRol}"/>
-                               </div> 
-		                   
-		                   
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">CONTRASEÑA</label>
-		                        <input type="password" id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;" placeholder="ingresar contraseña" required="requerid" maxlength="20"
-		                               value="${x.clave}" readonly="readonly"
-		                         >
-		                        </div>
-		                        
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">ESTADO</label>
-		                        <libreria:cboEstado idEstado="${x.idEstado}"/>
-		                        </div>
+                     <center>
+						<a href="paActualizarClienteNatural.jsp">Cliente Natural</a> <br><br><br>
+                        <a href="paActualizarClienteJuridico.jsp">Cliente Juridico</a>
+					 </center>
+                   
 
 
-                       </div>
-                       </div>
-                    
-                      <c:set var="mensaje" value="${requestScope.mensaje}"/>
-				      <c:if test="${mensaje!=null}">
-				                      <div class="block-area" >
-									       <div class="alert alert-success" style="font-size: 20px;">
-									        <center>${mensaje}</center>
-									       </div>
-				                   </div>
-				      </c:if> 
-		            
-					
-						<hr class="whiter m-t-20" />
-						<!--Botones  -->
-						<div class="block-area">
-							<input class="btn btn-sm" type="submit" value="ELIMINAR">
-							<input class="btn btn-sm" type="reset" value="LIMPIAR">
-						</div>
+               
 
-					
+
+			
+
 
 			</fieldset>
 		</form>
 		<!--FIN DEL FORMULARIO  -->
+
 	</div>
 	<!-- Fin del contenedor del form --> <!--Chat  -->
 	<div class="chat">
@@ -451,9 +367,6 @@
 	<script src="js/functions.js"></script>
 	<script src="js/depmain.js"></script>
 
-        
-        
-    
 
 </body>
 </html>
