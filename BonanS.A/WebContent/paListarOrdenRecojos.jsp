@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@taglib uri="WEB-INF/libreria.tld" prefix="libreria" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %> <!-- Definimos la etiqueta  -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -13,7 +16,7 @@
         <meta name="descripcion" content="Violate Responsive Admin Template">
         <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-        <title>Eliminar Empleado</title>
+        <title>Listar Ordenes de recojos</title>
             
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/animate.min.css" rel="stylesheet">
@@ -33,8 +36,7 @@
             
             <div class="media-body">
                 <div class="media" id="top-menu">
-
-
+                    
                     <div id="time" class="pull-right">
                         <span id="hours"></span>
                         :
@@ -42,7 +44,8 @@
                         :
                         <span id="sec"></span>
                     </div>
-                   
+                    
+                    
                 </div>
             </div>
         </header>
@@ -59,8 +62,8 @@
                     <!-- Profile Menu -->
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
-                                                      <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
-                        </a>
+                            <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
+                                                </a>
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                             <li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
@@ -68,6 +71,7 @@
                             <li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                         </ul>
                         
+
                         <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
                         <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
  
@@ -75,40 +79,48 @@
                         
                         <h5 class="m-0" style="color: orange;">Tipo:</h5>
                         <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
+             
                          
                     </div>
                     <div class="s-widget m-b-25">
                         <div id="sidebar-calendar"></div>
                     </div>
                     <nav id="wrapper">
-                    <ul class="menu">
                     
-						<a href="mpAdministrador.jsp">Inicio</a>
-						
-			<li class="item2"><a href="#">Mantenimiento Clientes</a>
+                    
+                    
+                    
+                     <ul class="menu">
+
+			<a href="mpRecepcionista.jsp">Inicio</a>
+
+				<li class="item2"><a href="#">Gestion de Orden recojo</a>
 				<ul>
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-			</ul>
-			</li>
+					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
+				</ul>
+				</li>
 
-        				
-        				
-        				<li class="item3"><a href="#">Mantenimiento Empleados</a>
-						    <ul>
-                				<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					            <li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-					            <li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-                				<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
-            				</ul>
-        				</li>
-        				
-        				
-          <li class="item3"><a href="#">Mantenimiento Usuario</a>
+
+			<li class="item3"><a href="#">Control de Ruta</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar
+							Empleado</a></li>
+					<li class="subitem3"><a
+						href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+				</ul></li>
+
+
+			<li class="item3"><a href="#">Control de Gatos</a>
+				<ul>
+
+					<li class="subitem1"><a href="paRegistrarSolicitudServicio.jsp">Registrar
 							Usuario</a></li>
 					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>
@@ -116,28 +128,15 @@
 							Usuario</a></li>
 					<li class="subitem3"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
+
 				</ul>
 			</li>
-        				
-        				
-        				<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-						    <ul>
-                				<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar Vehiculo</a></li>
-                				<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar Vehiculo</a></li>
-                				<li class="subitem3"><a href="paEliminarVehiculo.jsp">Eliminar Vehiculo</a></li>
-                				<li class="subitem4"><a href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
-            				</ul>
-        				</li>
-        				
-        				 <li class="item4"><a href="#">Registro de acciones</a>
-						    <ul>
-                				<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado de logs</a></li>
-            				</ul>
-        				</li>
-        				
-        				
-        			
-                	</ul>
+
+			
+
+
+
+		</ul>
                 	</nav>
                     </div>
         	</aside>
@@ -148,7 +147,7 @@
                 <div class="block-area" id="required">
 
                 <!--Titulo  -->
-                 <h3 class="block-title">Matenimiento de empleado</h3>
+                 <h3 class="block-title">Gestion Orden de Recojo</h3>
                 </div>
                 
                 
@@ -160,184 +159,77 @@
 
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
       <!--Espacio para el formulario  -->
      <div class="block-area" id="required">
                     
        <!-- FORMULARIO  -->             
-       <form action="gestionaEmpleado" method="post" enctype="multipart/form-data">
-         
+       <form action="gestionaVehiculo" method="post">
+       
+       
+     
+                   
          <fieldset>
                    
-         <legend class="block-title" style="color: white;">Eliminar Empleado</legend>
-         <input type="hidden" name="operacion" value="eliminar">                  
- 
+         <legend class="block-title" style="color: white;">Listado de Ordenes de recojo</legend>
                    
                    
                 
                    
-                   <!--Contenedor de datos generales  -->
-                <div class="block-area" id="input-masking">
-                	         
-		         <c:set var="x" value="${requestScope.empleadoX}"></c:set>
-     
-     
-		                   
-		            <div class="block-area">
-		                   <div class="row">
-		                   	  <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ID EMPLEADO</label>
-		                            <input type="text" name="txtIdEmpleado" id="txtIdEmpleado" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar codigo" value="${x.idEmpleado}">
-		                        </div>
-		                        
-		                        
-		                       <div class="col-md-3 m-b-15">
-                                   <br>
-		                           <input type="button" class="btn" value="Buscar empleado" onclick="location='gestionaEmpleado?operacion=listar'">
-		                        </div>
-		                        
-		                   </div>
-		            </div>
-		            
-		            
-		          
-		             <hr class="whiter m-t-20" />
-		                    
-		                    
-		             <div class="block-area">
-		             <div class="row">
-		             
-		             <div class="col-md-3 m-b-29">
+                  <div class="col-md-12">
+												
+												<table class="table table-bordered table-hover tile" id="sample_1" style="table-layout:auto;font-size:12px;">
+													<thead style="background-color:#C9FCC6;">
+														 <tr>
+														    <th>ID OR</th>
+															<th>ID CLIENTE</th>
+															<th>DIRECCION DE RECOJO</th>
+															<th>FECHA DE RECOJO</th>
+															<th>HORA DE RECOJO</th>
+															<th>CONDUCTOR</th>
+															<th>OPERACION</th>
+														</tr> 
+													</thead>
+													
+													
+												
+													<c:forEach var="lista" items="${sessionScope.listadoOrdenRecojos}">
+                  
+														                  <tr>
+														                  <td>${lista.idOR}</td>
+														                  <td>${lista.idCliente}</td>
+														                  <td>${lista.direccionRecojo}</td>
+														                  <td>${lista.fechaRecojo}</td>
+														                  <td>${lista.horaRecojo}</td>
+														                  <td>${lista.idEmpleado}</td>
+														                  
+														                  
+														      
+														                <!--  <td style="text-align:center: ;"><span class="label label-primary" >Primary</span></td>
+														                 <td><span class="label label-Danger"> Financiador</span></td> -->
 														
-														<center>
-														<h1 class="block-title">FOTO DEL EMPLEADO</h1>
-															<div class="col-sm-12">
-																<div class="fileupload fileupload-new" data-provides="fileupload">
-																	<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${x.idEmpleado}">
-																	</div>
-																	<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-																	<div>
-																		<span class="btn btn-light-grey btn-file">
-																			 <span class="fileupload-new">
-																				<i class="icon-picture"></i> Cambiar Imagen
-																			</span> 
-																			<span class="fileupload-exists"><i class="icon-picture"></i> Cambiar</span>
-																			<input type="file" name="txtFoto">
-																		</span>
-																		<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
-																			<i class="icon-remove"></i> Remover
+															<td class="center">
+																<div class="visible-md visible-lg hidden-sm hidden-xs">
+																	<div class="btn-group">
+																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+																			<i ></i> <span >Seleccione</span>
 																		</a>
+															
 																	</div>
 																</div>
-															</div>
-														</center>
+															</td>
+														</tr>
 														
-								</div>
-								
-								<div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">N° DOCUMENTO</label>
-		                            <input type="text" id="txtNumDocumento" name="txtNumDocumento" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar n° documento" required="requerid"
-		                                    maxlength="20" value="${x.numDocumento}">
-                               </div> 
-		                   
-		                   
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">NOMBRE</label>
-		                            <input type="text" id="txtNombre" name="txtNombre" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar nombre" required="requerid" value="${x.nomEmpleado}">
-		                        </div>
-                                  
-                                  
-                                <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">APELLIDO PATERNO</label>
-		                            <input type="text" id="txtApePa" name="txtApePa" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar a. paterno" required="requerid" value="${x.apepaEmpleado}">
-                               </div>  
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">APELLIDO MATERNO</label>
-		                            <input type="text" id="txtApeMa" name="txtApeMa" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar a. materno" required="requerid" value="${x.apemaEmpleado}">
-                               </div>  
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">SEXO</label>
-		                            <libreria:CboSexo idSexo="${x.sexoEmpleado}"/>
-                               </div> 
-                               
-                                <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">FECHA DE NACIMIENTO</label>
-		                            <input type="text" id="txtFecNac" name="txtFecNac" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar fecha de nacimiento" required="requerid" value="${x.fecnacEmpleado}">
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">UBIGEO</label>
-		                            <input type="text" id="txtUbigeo" name="txtUbigeo" class="input-sm form-control"  style="font-size: 16px;" placeholder="ingresar N° ubigeo" required="requerid" value="${x.ubigeoEmpleado}">
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">DIRECCION</label>
-		                            <input type="text" id="txtDireccion" name="txtDireccion" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar direccion" required="requerid" value="${x.domicilioEmpleado}">
-                               </div> 
-                               
-                                 <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">N° TELEFONO</label>
-		                            <input type="text" id="txtFono" name="txtFono" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar N° telefono" required="requerid" value="${x.fonoEmpleado}">
-                               </div> 
-                               
-                               
-                                 <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">N° CELULAR</label>
-		                            <input type="text" id="txtCelular" name="txtCelular" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar N° celular" required="requerid" value="${x.celularEmpleado}">
-                               </div> 
-                               
-                                 <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">E-MAIL</label>
-		                            <input type="text" id="txtEmail" name="txtEmail" class="input-sm form-control" style="font-size: 16px;" placeholder="ingresar e-mail" required="requerid" value="${x.emailEmpleado}">
-                               </div> 
-                               
-
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Estado</label>
-		                            <libreria:cboEstado idEstado="${x.idEstado}"/>
-		                            
-                               </div> 
-                               
-                               
-                               <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">Estado Trabajo</label>
-		                            <libreria:cboEstadoTrabajo idEstadoTrabajo="${x.idEstadoTrabajo}"/>
-                               </div>                                                                	                        
-                               
-                       </div>
-                 
-                 </div>
-                 
-                 <hr class="whiter m-t-20" />
-                   <!--Botones  -->
-                   <div class="block-area" id="input-masking">
-                        <input class="btn btn-sm" type="submit" value="ELIMINAR">
-                        <input class="btn btn-sm" type="reset" value="LIMPIAR">
-                   </div>
-                 
-            </div>
-                   
-                   
+													</c:forEach>
+													
+												
+												</table>
+			</div>
+          
                    
                    
                   
                    
-             </fieldset>
+        </fieldset>     
          </form><!--FIN DEL FORMULARIO  -->
                     
     </div><!-- Fin del contenedor del form -->

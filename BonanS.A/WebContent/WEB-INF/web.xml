@@ -65,13 +65,21 @@
     <servlet-name>gestionaEmpleado</servlet-name>
     <url-pattern>/gestionaEmpleado</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>gestionaOrdenRecojo</servlet-name>
     <servlet-class>servlets.SvGestionaOrdenRecojo</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>gestionaOrdenRecojo</servlet-name>
     <url-pattern>/gestionaOrdenRecojo</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>gestionaGRT</servlet-name>
+    <servlet-class>servlets.SvGestionaGRT</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaGRT</servlet-name>
+    <url-pattern>/gestionaGRT</url-pattern>
   </servlet-mapping>
 </web-app>

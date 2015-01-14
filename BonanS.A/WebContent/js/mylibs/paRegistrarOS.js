@@ -20,14 +20,14 @@ function fnc_capturarDatosDescripcionTraslado()
 
 	$("#btnBuscarEmpleado").click(function(){
 		
-		txtDireccionRecojo=document.getElementById("txtDireccionRecojo").value;
+		//cboDireccionRecojo=$("#cboDireccionesCliente").val();
 		txtFechaRecojo=document.getElementById("txtFechaRecojo").value;
 		txtHoraRecojo=document.getElementById("txtHoraRecojo").value;
 		$.ajax({
 			url : 'gestionaOrdenRecojo?operacion=prelistarEmpleados',
 			type : 'post',
-			data :       "txtDireccionRecojo="+txtDireccionRecojo
-		              +  "&txtFechaRecojo="+txtFechaRecojo
+			data :      // "cboDireccionRecojo="+cboDireccionRecojo
+		                 "txtFechaRecojo="+txtFechaRecojo
 		              +  "&txtHoraRecojo="+txtHoraRecojo,
 			success : function() {
 				location.href='gestionaOrdenRecojo?operacion=listarEmpleados';
@@ -42,13 +42,13 @@ function agregarDOR() {
 
 	$('#btnAgregarDOR').click(function() {
      
-						//var ultimoValor = " ";
-						// Hallar el ultimo valor de la ultima columna
-						/*$('#tabla tr').each(function() {
-							ultimoValor = $(this).find("td").eq(3).html();
-						});*/
+						var ultimoValor = " ";
+						
+						$('#tabla tr').each(function() {
+							ultimoValor = $(this).find("td").eq(0).html();
+						});
 
-						if (    !($("#txtDesTraslado").val() !== "") | !($("#txtPesoKg").val() !== "")/*| !(ultimoValor !== $("#txtDireccion").val())*/) 
+						if (    !($("#txtDesTraslado").val() !== "") | !($("#txtPesoKg").val() !== "")| !(ultimoValor !== $("#txtDesTraslado").val())) 
 						{
 						} else {
 							
@@ -90,14 +90,18 @@ function agregarDOR() {
 										+ "</td>";
 								cadena = cadena
 								+ "<td>"
-								+ json[i].PesokG
+								+ json[i].pesoKg
 								+ "</td>";
 								cadena = cadena + "<td><a class='elimina' onclick='fn_eliminar()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>";
 								$("#tabla").append(cadena);
-
+								
 							};
-									
+
+							$("#txtCantidad").val("");
+							$("#txtDesTraslado").val("");
+							$("#txtPesoKg").val("");		
 							}
+							
 							});
 						}
 						;
@@ -192,7 +196,9 @@ function agregarOR_EquipoPersonalRecojo() {
 								$("#tablaEquipoPersonal").append(cadena);
 
 							};
-									
+							$("#txtNomCompletoEmp").val("");
+							$("#txtDescTipoEmpleado").val("");
+							$("#txtIdEmpleado").val("");	
 							}
 							});
 						}
@@ -292,7 +298,9 @@ function agregarOR_EquipoVehicularRecojo() {
 								$("#tablaEquipoVehicular").append(cadena);
 
 							};
-									
+							$("#txtCatVehiculo").val("");
+							$("#txtPlacaVehiculo").val("");
+							$("#txtIdVehiculo").val("");	
 							}
 							});
 						}

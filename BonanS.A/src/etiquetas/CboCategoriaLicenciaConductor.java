@@ -53,6 +53,7 @@ public class CboCategoriaLicenciaConductor extends TagSupport {
 	
 	
 
+	
 	private void writerCuerpo() {
 		try {
 			JspWriter out=pageContext.getOut();
@@ -62,7 +63,7 @@ public class CboCategoriaLicenciaConductor extends TagSupport {
 					int idCategorialic=crs.getInt(1);
 					String descCategorialic=crs.getString(2);
 					out.println("<option value='" + idCategorialic + "'>" + descCategorialic+ "</option>");	
-				}
+			}
 				
 			}else{
 				 crs=sEntidades.listadoEntidades(getQuery(0));
@@ -81,6 +82,7 @@ public class CboCategoriaLicenciaConductor extends TagSupport {
 	}
 
 	private void writerFinal() {
+		
 try {
 			
 

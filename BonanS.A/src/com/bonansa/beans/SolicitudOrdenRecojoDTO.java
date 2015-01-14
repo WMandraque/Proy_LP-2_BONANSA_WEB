@@ -1,6 +1,7 @@
 package com.bonansa.beans;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class SolicitudOrdenRecojoDTO {
@@ -11,15 +12,18 @@ public class SolicitudOrdenRecojoDTO {
 	private String idOR;
 	private String idCliente;
 	private String direccionRecojo;
-	private Date fechaRecojo;
-	private Time horaRecojo; 
+	private String fechaRecojo;
+	private String horaRecojo; 
+	private String descEstadoOR;
+	private ArrayList<SolicitudOrdenRecojoDTO> listadoDescripcionTraslado;
 	
-	
+
+
 	//Atributos para la tabla tb_DetalleOrdenRecojo
 	private String descripcionTraslado;
 	private int cantidad;
 	private int idTipoUnidadMedida;
-	private double PesokG;
+	private double pesoKg;
 	
 	
 	//Atributos para la tabla tb_OrdenRecojo_EquipoPersonal
@@ -37,6 +41,29 @@ public class SolicitudOrdenRecojoDTO {
 	
 	private String descTipoUnidadMedida;
 	
+	//Atributos para listador de ordenes de recojo con joins
+	private String licenCondu;
+	private int idTipoCliente;
+	private String descTipoDocumento;
+	private String numDocumento;
+	private String nomCompletoCliente;
+	
+	
+
+	
+
+	public ArrayList<SolicitudOrdenRecojoDTO> getListadoDescripcionTraslado() {
+		return listadoDescripcionTraslado;
+	}
+
+
+
+
+	public void setListadoDescripcionTraslado(
+			ArrayList<SolicitudOrdenRecojoDTO> listadoDescripcionTraslado) {
+		this.listadoDescripcionTraslado = listadoDescripcionTraslado;
+	}
+
 
 
 
@@ -62,23 +89,18 @@ public class SolicitudOrdenRecojoDTO {
 	}
 
 
-	public Date getFechaRecojo() {
+	public String getFechaRecojo() {
 		return fechaRecojo;
 	}
 
 
-	public Time getHoraRecojo() {
+	public String getHoraRecojo() {
 		return horaRecojo;
 	}
 
 
 	public String getDescripcionTraslado() {
 		return descripcionTraslado;
-	}
-
-
-	public double getPesokG() {
-		return PesokG;
 	}
 
 
@@ -97,12 +119,12 @@ public class SolicitudOrdenRecojoDTO {
 	}
 
 
-	public void setFechaRecojo(Date fechaRecojo) {
+	public void setFechaRecojo(String fechaRecojo) {
 		this.fechaRecojo = fechaRecojo;
 	}
 
 
-	public void setHoraRecojo(Time horaRecojo) {
+	public void setHoraRecojo(String horaRecojo) {
 		this.horaRecojo = horaRecojo;
 	}
 
@@ -112,13 +134,6 @@ public class SolicitudOrdenRecojoDTO {
 	}
 
 
-
-
-
-	public void setPesokG(double pesokG) {
-		PesokG = pesokG;
-	}
-	
 	
 	public int getIdTipoUnidadMedida() {
 		return idTipoUnidadMedida;
@@ -238,6 +253,105 @@ public class SolicitudOrdenRecojoDTO {
 
 	public void setDescCatVehiculo(String descCatVehiculo) {
 		this.descCatVehiculo = descCatVehiculo;
+	}
+
+
+
+
+	public double getPesoKg() {
+		return pesoKg;
+	}
+
+
+
+
+	public void setPesoKg(double pesoKg) {
+		this.pesoKg = pesoKg;
+	}
+
+
+	public String getDescEstadoOR() {
+		return descEstadoOR;
+	}
+
+
+
+
+	public void setDescEstadoOR(String descEstadoOR) {
+		this.descEstadoOR = descEstadoOR;
+	}
+
+
+
+
+	public String getDescTipoDocumento() {
+		return descTipoDocumento;
+	}
+
+
+
+
+	public String getNumDocumento() {
+		return numDocumento;
+	}
+
+
+
+
+	public String getNomCompletoCliente() {
+		return nomCompletoCliente;
+	}
+
+
+
+
+	public void setDescTipoDocumento(String descTipoDocumento) {
+		this.descTipoDocumento = descTipoDocumento;
+	}
+
+
+
+
+	public void setNumDocumento(String numDocumento) {
+		this.numDocumento = numDocumento;
+	}
+
+
+
+
+	public void setNomCompletoCliente(String nomCompletoCliente) {
+		this.nomCompletoCliente = nomCompletoCliente;
+	}
+
+
+
+
+
+	public String getLicenCondu() {
+		return licenCondu;
+	}
+
+
+
+
+	public int getIdTipoCliente() {
+		return idTipoCliente;
+	}
+
+
+
+
+
+
+	public void setLicenCondu(String licenCondu) {
+		this.licenCondu = licenCondu;
+	}
+
+
+
+
+	public void setIdTipoCliente(int idTipoCliente) {
+		this.idTipoCliente = idTipoCliente;
 	}
 
 

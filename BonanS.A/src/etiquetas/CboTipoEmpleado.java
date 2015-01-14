@@ -35,15 +35,24 @@ public class CboTipoEmpleado extends TagSupport {
 
 
 
+	/**
+	 * Este metodo permite realizar una sentencia para listar todos los empleados por el idTipo empleado
+	 * @param paramQuery idTipoEmpleado, o= todo
+	 * @return listado segun la sentencia.
+	 */
 	public String getQuery(int paramQuery){
 		
+		
 		switch (paramQuery) {
+		
 		case 0:
 			return "SELECT*FROM tb_tipo_empleado";
 
 		default:
 			return "SELECT*FROM tb_tipo_empleado where idTipoEmpleado="+getIdTipoEmpleado();
 		}
+		
+		
 	}
 	
 	@Override
@@ -73,6 +82,8 @@ public class CboTipoEmpleado extends TagSupport {
 					int idTipoEmpleado=crs.getInt(1);
 					String nomCargo=crs.getString(2);
 					out.println("<option value='" + idTipoEmpleado + "'>" + nomCargo+ "</option>");
+					
+					
 				}
 				
 				
@@ -122,10 +133,8 @@ public class CboTipoEmpleado extends TagSupport {
 	
 		
 	}
-
-
-
-	@Override
+	
+@Override
 	public int doStartTag() throws JspException {
 		
 		return EVAL_PAGE;

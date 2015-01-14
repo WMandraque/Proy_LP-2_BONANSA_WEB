@@ -86,16 +86,15 @@
 		<nav id="wrapper">
 		<ul class="menu">
 
-			<a href="mpRecepcionista.jsp">Inicio</a>
+			<a href="mpConductor.jsp">Inicio</a>
 
 			<li class="item2"><a href="#">Servicio de Recojo</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar
-							Cliente</a></li>
-					<li class="subitem2"><a href="#">Actualizar Cliente</a></li>
-					<li class="subitem3"><a
-						href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-				</ul></li>
+					<li class="subitem1"><a href="gestionaOrdenRecojo?operacion=listar&idEmpleado=${sessionScope.idEmpleado}&nivel=condu">Mis Ordenes de recojo</a></li>
+					<li class="subitem2"><a href="pcRegistrarGRT.jsp">Generar Guia de Remision del Transportista</a></li>
+					
+				</ul>
+			</li>
 
 
 			<li class="item3"><a href="#">Control de Ruta</a>

@@ -93,11 +93,11 @@
 
 			<a href="mpRecepcionista.jsp">Inicio</a>
 
-			<li class="item2"><a href="#">Gestion de Recojo</a>
+            <li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
 					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=recep">Listar Ordenes de recojo</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Cliente</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
 				</ul>
@@ -213,7 +213,7 @@
 															<td class="center">
 																<div class="visible-md visible-lg hidden-sm hidden-xs">
 																	<div class="btn-group">
-																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" onclick="location='prRegistrarSolicitudRecojo.jsp?idEmpleado=${lista.idEmpleado}&nombreCompleto=${lista.nomEmpleado} ${lista.apepaEmpleado} ${lista.apemaEmpleado}&tipoEmpleado=${lista.nomCargo}'">
+																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" onclick="location='prRegistrarSolicitudRecojo.jsp?idEmpleado=${lista.idEmpleado}&nombreCompletoEmp=${lista.nomEmpleado} ${lista.apepaEmpleado} ${lista.apemaEmpleado}&tipoEmpleado=${lista.nomCargo}'">
 																			<i ></i> <span >Seleccione</span>
 																		</a>
 																		

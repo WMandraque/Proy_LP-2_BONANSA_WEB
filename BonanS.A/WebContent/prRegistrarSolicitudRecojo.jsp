@@ -85,17 +85,17 @@
 		</div>
 		<nav id="wrapper">
 
-		<ul class="menu">
+		                     <ul class="menu">
 
 			<a href="mpRecepcionista.jsp">Inicio</a>
 
-			<li class="item2"><a href="#">Gestion de Recojo</a>
+            <li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
 					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar">Listar Ordenes de recojo</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
+					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=recep">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 
@@ -151,7 +151,7 @@
 	<div class="block-area" id="required">
 
 		<!-- FORMULARIO  -->
-		<form action="gestionaCliente" method="post">
+		<form action="gestionaOrdenRecojo" method="post">
 	    <input type="hidden" name="operacion" value="registrar">
 		<fieldset>
 		<legend class="block-title" style="color: white;">Registrar Solicitud de Recojo</legend>
@@ -220,14 +220,8 @@
 
 						<div class="row">
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">DIRECCION DE RECOJO</label> <input
-									type="text" id="txtDireccionRecojo" name="txtDireccionRecojo"
-									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar direccion de recojo" required="requerid"
-									maxlength="20"
-									value="${sessionScope.s_txtDireccionRecojo}"
-									>
+								<label style="font-size: 12px;">DIRECCION DE RECOJO</label> 
+								<libreria:CboDireccionesCliente idCliente="${sessionScope.sSOR_idCliente}"/>
 							</div>
 
 
@@ -328,7 +322,16 @@
 										<td>OPERACION</td>
 
 									</tr>
-
+									
+								   <c:forEach items="${sessionScope.listadoDOR}" var="lista">
+									<tr>
+										<td>${lista.descripcionTraslado}</td>
+										<td>${lista.cantidad}</td>
+										<td>${lista.descTipoUnidadMedida }</td>
+										<td>${lista.pesoKg}</td>
+                                        <td><a class='elimina' onclick='fn_eliminar()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>									
+                                   </tr>
+                                  </c:forEach>
 								</thead>
 							</table>
 						</div>
@@ -376,7 +379,7 @@
 									class="input-sm form-control mask-date"
 									style="font-size: 16px;"
 									placeholder="ingresar idEmpleado"
-									value="${param.nombreCompleto}"
+									value="${param.nombreCompletoEmp}"
 									>
 
 							</div>
@@ -412,7 +415,15 @@
 										<td>OPERACION</td>
 
 									</tr>
-
+									
+									<c:forEach items="${sessionScope.listadoOR_EquipoPersonal}" var="lista">
+									<tr>
+										<td>${lista.idEmpleado}</td>
+										<td>${lista.descTipoEmpleado}</td>
+										<td>${lista.nomCompleto }</td>
+                                        <td><a class='eliminaEquipoPersonal' onclick='fn_eliminarEquipoPersonal()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>									</tr>
+									</c:forEach>
+ 
 								</thead>
 							</table>
 						</div>
@@ -496,8 +507,8 @@
 									</tr>
 									
 									
-									<c:if test="${sessionScope.listadoOR_EquiVehicular}>0">
-									<c:forEach items="${sessionScope.listadoOR_EquiVehicular}" var="lista">
+									
+									<c:forEach items="${sessionScope.listadoOR_EquipoVehicular}" var="lista">
 									<tr>
 										<td>${lista.idVehiculo}</td>
 										<td>${lista.placaVehiculo}</td>
@@ -505,7 +516,7 @@
 										<td><a class='eliminaEquipoVehicular' onclick='fn_eliminarEquipoVehicular()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>
 									</tr>
 									</c:forEach>
-									</c:if>
+									
 
 								</thead>
 							</table>

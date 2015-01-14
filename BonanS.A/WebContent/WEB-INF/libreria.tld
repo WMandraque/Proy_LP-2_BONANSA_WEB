@@ -169,5 +169,30 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 </tag>	
+
+
+<tag>
+		<name>CboDireccionesCliente</name>
+		<tagclass>etiquetas.CboDireccionesCliente</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Direcciones del cliente</info>
+		<attribute>
+			<name>idCliente</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>	
+
+<tag>
+		<name>CboTipoDocumento</name>
+		<tagclass>etiquetas.cboTipoDocumento</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Tipos de documento</info>
+		<attribute>
+			<name>idTipoDocumento</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+</tag>	
 	
 	</taglib>

@@ -233,6 +233,8 @@ public class SvGestionaUsuario extends HttpServlet {
 			try {
 				
 				
+				HttpSession miSesion=request.getSession();
+				miSesion.invalidate();
 				request.getRequestDispatcher("logueo.jsp").forward(request, response);
 				
 				

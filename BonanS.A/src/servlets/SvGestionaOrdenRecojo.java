@@ -15,10 +15,12 @@ import javax.sql.rowset.CachedRowSet;
 
 import com.bonansa.beans.ClienteDTO;
 import com.bonansa.beans.EmpleadoDTO;
+import com.bonansa.beans.GuiaRemisionTransportistaDTO;
 import com.bonansa.beans.SolicitudOrdenRecojoDTO;
 import com.bonansa.beans.VehiculoDTO;
 import com.bonansa.services.ClienteService;
 import com.bonansa.services.EmpleadoService;
+import com.bonansa.services.OrdenRecojoService;
 import com.google.gson.Gson;
 
 import extras.ServicioEntidades;
@@ -32,27 +34,35 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 
 	
 	
+	OrdenRecojoService sOrdenRecojo=new OrdenRecojoService();
 	ClienteService sCliente=new ClienteService();
 	EmpleadoService sEmpleado=new EmpleadoService();
 	ServicioEntidades sEntidades=new ServicioEntidades();
 	ArrayList<SolicitudOrdenRecojoDTO> listadoDOR=new ArrayList<SolicitudOrdenRecojoDTO>();
 	ArrayList<SolicitudOrdenRecojoDTO> listadoOR_EquipoPersonal=new ArrayList<SolicitudOrdenRecojoDTO>();
-	ArrayList<SolicitudOrdenRecojoDTO> listadoOR_EquiVehicular=new ArrayList<SolicitudOrdenRecojoDTO>();
+	ArrayList<SolicitudOrdenRecojoDTO> listadoOR_EquipoVehicular=new ArrayList<SolicitudOrdenRecojoDTO>();
+	ArrayList<GuiaRemisionTransportistaDTO> listadoGRT=new ArrayList<GuiaRemisionTransportistaDTO>();
 	Gson obJson=new Gson();
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
-		/*	HttpSession sesionX=request.getSession();
-			sesionX.setAttribute("s_listadoDOR", listadoDOR);*/
+		
 		
 			try 
 			{
 				
 				String operacion=request.getParameter("operacion");
 				
-		
-				if(operacion.equals("listarClientes"))
+				if (operacion.equals("registrar")) 
+				{
+				this.registrar(request, response);	
+				}
+				else if(operacion.equals("listar"))
+				{
+				this.listar(request, response);	
+				}
+				else if(operacion.equals("listarClientes"))
 				{
 				this.listarCliente(request, response);	
 				}
@@ -79,6 +89,10 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 				else if(operacion.equals("buscarCliente"))
 				{
 				this.buscarCliente(request, response);	
+				}
+				else if(operacion.equals("buscarSOR"))
+				{
+				this.buscarSOR(request, response);	
 				}
 /*				else if(operacion.equals("buscarVehiculo"))
 				{
@@ -123,11 +137,227 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 				
 				
 				
+				
 			} 
 			catch (Exception e) 
 			{
 				System.out.println("Error en el service SvGestionaOrdenRecojo: "+e);
 			}	
+		
+	}
+
+
+
+	
+
+
+
+	private void buscarSOR(HttpServletRequest request, HttpServletResponse response) 
+	{
+		try {
+			
+			
+			HttpSession miSesion=request.getSession();
+			
+			String idOR=request.getParameter("idOR");
+			String nivel=request.getParameter("nivel");
+			
+			SolicitudOrdenRecojoDTO sORX=sOrdenRecojo.buscarSOR(idOR);
+			
+			listadoGRT.clear();
+			for (int i = 0; i < sORX.getListadoDescripcionTraslado().size(); i++) 
+			{
+				
+				GuiaRemisionTransportistaDTO gRT=new GuiaRemisionTransportistaDTO();
+				
+				gRT.setDescTraslado(sORX.getListadoDescripcionTraslado().get(i).getDescripcionTraslado());
+				gRT.setCantidad(sORX.getListadoDescripcionTraslado().get(i).getCantidad());
+				gRT.setIdTipoUnidadMedida(sORX.getListadoDescripcionTraslado().get(i).getIdTipoUnidadMedida());
+				gRT.setDescTipoUnidadMedida(sORX.getListadoDescripcionTraslado().get(i).getDescTipoUnidadMedida());
+				gRT.setPesoKg(sORX.getListadoDescripcionTraslado().get(i).getPesoKg());
+				
+				listadoGRT.add(gRT);
+			}
+			
+		
+			
+				if (nivel.equals("condu")) 
+				{
+				request.setAttribute("r_sORX", sORX);
+				miSesion.setAttribute("s_listadoGRT", listadoGRT);
+				request.getRequestDispatcher("pcRegistrarGRT.jsp").forward(request, response);
+				}				
+				
+			
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+
+
+
+	private void listar(HttpServletRequest request, HttpServletResponse response) 
+	{
+			try 
+			{
+				HttpSession miSesion=request.getSession();
+				
+				String idEmpleado=request.getParameter("idEmpleado");
+				String nivel=request.getParameter("nivel");
+				
+				ArrayList<SolicitudOrdenRecojoDTO> listadoOrdenRecojos=new ArrayList<SolicitudOrdenRecojoDTO>();
+				
+				if(idEmpleado==null)
+				{
+					
+					 listadoOrdenRecojos=sOrdenRecojo.listarOrdenRecojos(null);
+					System.out.println("sin id");
+				}
+				else
+				{
+					listadoOrdenRecojos=sOrdenRecojo.listarOrdenRecojos(idEmpleado);
+					System.out.println("conn id");
+				}
+				
+				if (listadoOrdenRecojos.size()>0) 
+				{
+				miSesion.setAttribute("listadoOrdenRecojos", listadoOrdenRecojos);	
+				}
+				
+				if(nivel.equals("admin"))
+				{
+					request.getRequestDispatcher("paListarOrdenRecojos.jsp").forward(request, response);
+				}
+				else if(nivel.equals("recep"))
+				{
+					request.getRequestDispatcher("prListarOrdenRecojos.jsp").forward(request, response);
+
+				}
+				else if(nivel.equals("condu"))
+				{
+					request.getRequestDispatcher("pcListarOrdenRecojos.jsp").forward(request, response);
+
+				}
+				
+			}
+			catch (Exception e) 
+			{
+				System.out.println("Error en listar SvGestionaOrdenRecojo: "+e);
+			}
+		
+	}
+
+
+
+	@SuppressWarnings("unchecked")
+	private void registrar(HttpServletRequest request, HttpServletResponse response) 
+	{
+		
+		try 
+		{
+			
+			
+			//Capturando datos para la tabla tb_OrdenRecojo
+			
+			String   idCliente=request.getParameter("txtIdCliente");
+			String   direccionRecojoUbigeo=request.getParameter("cboDireccionesCliente");
+			String[] direccionRecojo=direccionRecojoUbigeo.split(":");
+			String fechaRecojo=request.getParameter("txtFechaRecojo");
+			String horaRecojo=request.getParameter("txtHoraRecojo");
+			
+			SolicitudOrdenRecojoDTO ordenRecojoX=new SolicitudOrdenRecojoDTO();
+			ordenRecojoX.setIdCliente(idCliente);
+			ordenRecojoX.setDireccionRecojo(direccionRecojo[1]);
+			ordenRecojoX.setFechaRecojo(fechaRecojo);
+			ordenRecojoX.setHoraRecojo(horaRecojo);
+			
+			
+			System.out.println("Probando direcciones: "+direccionRecojo[1]);
+			//Capturando las listas
+			HttpSession miSesion=request.getSession();
+			
+			ArrayList<SolicitudOrdenRecojoDTO> cp_listadoDOR;
+			ArrayList<SolicitudOrdenRecojoDTO> cp_listadoOR_EquipoPersonal;
+			ArrayList<SolicitudOrdenRecojoDTO> cp_listadoOR_EquipoVehicular;
+			
+			if (miSesion.getAttribute("listadoDOR")==null) {
+				cp_listadoDOR=new ArrayList<SolicitudOrdenRecojoDTO>();
+			}
+			else
+			{
+				cp_listadoDOR=(ArrayList<SolicitudOrdenRecojoDTO>)miSesion.getAttribute("listadoDOR");
+			}
+			
+			if(miSesion.getAttribute("listadoOR_EquipoPersonal")==null)
+			{
+				cp_listadoOR_EquipoPersonal=new ArrayList<SolicitudOrdenRecojoDTO>();
+			}
+			else
+			{
+				cp_listadoOR_EquipoPersonal=(ArrayList<SolicitudOrdenRecojoDTO>)miSesion.getAttribute("listadoOR_EquipoPersonal");
+			}
+			if(miSesion.getAttribute("listadoOR_EquipoVehicular")==null)
+			{
+				cp_listadoOR_EquipoVehicular=new ArrayList<SolicitudOrdenRecojoDTO>();
+			}
+			else
+			{
+				cp_listadoOR_EquipoVehicular=(ArrayList<SolicitudOrdenRecojoDTO>)miSesion.getAttribute("listadoOR_EquipoVehicular");
+			}
+
+			
+			System.out.println("Tamaño de la lista de traslados: "+ cp_listadoDOR.size());
+			System.out.println("Tamaño de la lista de personal: "+ cp_listadoOR_EquipoPersonal.size());
+			System.out.println("Tamaño de la lista de vehiculos: "+ cp_listadoOR_EquipoVehicular.size());
+			
+			
+			
+			//Capturando al empleado responsable
+			String idEmpleadoR=(String)miSesion.getAttribute("idEmpleado");
+			
+			
+			
+			//Enviando por el service
+			
+			int r=sOrdenRecojo.registrarOrdenRecojo(ordenRecojoX, cp_listadoDOR, cp_listadoOR_EquipoPersonal, cp_listadoOR_EquipoVehicular, idEmpleadoR);
+			
+			if(r>0)
+			{
+			request.setAttribute("mensaje", "Solicitud de Orden de recojo registrado correctamente");	
+			}
+			else
+			{
+			request.setAttribute("mensaje", "Error al registrar Solicitud de Orden de recojo");	
+			}
+			listadoDOR.clear();
+			listadoOR_EquipoPersonal.clear();
+			listadoOR_EquipoVehicular.clear();
+			
+		    miSesion.removeAttribute("s_txtDireccionRecojo");
+		    miSesion.removeAttribute("s_txtFechaRecojo");
+		    miSesion.removeAttribute("s_txtHoraRecojo");
+		    
+		    miSesion.removeAttribute("sSOR_idCliente");
+		    miSesion.removeAttribute("sSOR_nombreCompleto");
+		    miSesion.removeAttribute("sSOR_tipoCliente");
+	
+			
+			request.getRequestDispatcher("prRegistrarSolicitudRecojo.jsp").forward(request, response);
+			
+			System.out.println("Tamaño de la lista de traslados al finalizar: "+ cp_listadoDOR.size());
+			System.out.println("Tamaño de la lista de personal al finalizar: "+ cp_listadoOR_EquipoPersonal.size());
+			System.out.println("Tamaño de la lista de vehiculos al finalizar: "+ cp_listadoOR_EquipoVehicular.size());
+			
+		} 
+		catch (Exception e) {
+			System.out.println("Error  en registrar SvGestionaOrdenRecojo: "+e);
+		}
+
+
 		
 	}
 
@@ -140,7 +370,7 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 		try 
 		{	
 			//Capturando los datos de las cajas de texto de "Descripcion del traslado"
-			String txtDireccionRecojo=request.getParameter("txtDireccionRecojo");
+			//String txtDireccionRecojo=request.getParameter("txtDireccionRecojo");
 			String txtFechaRecojo=request.getParameter("txtFechaRecojo");
 			String txtHoraRecojo=request.getParameter("txtHoraRecojo");
 			
@@ -148,7 +378,7 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 			//Capturamos la session Actual
 			HttpSession sesioX=request.getSession();
 			
-			sesioX.setAttribute("s_txtDireccionRecojo", txtDireccionRecojo);
+			//sesioX.setAttribute("s_txtDireccionRecojo", txtDireccionRecojo);
 			sesioX.setAttribute("s_txtFechaRecojo", txtFechaRecojo);
 			sesioX.setAttribute("s_txtHoraRecojo", txtHoraRecojo);
 			
@@ -207,7 +437,7 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 		{
 			
 			//Capturando los datos de las cajas de texto de "Descripcion del traslado"
-			String txtDireccionRecojo=request.getParameter("txtDireccionRecojo");
+			//String direccionRecojo=request.getParameter("cboDireccionRecojo");
 			String txtFechaRecojo=request.getParameter("txtFechaRecojo");
 			String txtHoraRecojo=request.getParameter("txtHoraRecojo");
 			
@@ -215,7 +445,7 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 			//Capturamos la session Actual
 			HttpSession sesioX=request.getSession();
 			
-			sesioX.setAttribute("s_txtDireccionRecojo", txtDireccionRecojo);
+			//sesioX.setAttribute("s_txtDireccionRecojo", direccionRecojo);
 			sesioX.setAttribute("s_txtFechaRecojo", txtFechaRecojo);
 			sesioX.setAttribute("s_txtHoraRecojo", txtHoraRecojo);
 			
@@ -285,6 +515,8 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 		try 
 		{
 			
+			HttpSession sesionX=request.getSession();
+			
 			String descripcionTraslado=request.getParameter("descripcionTraslado");
 			String descTipoUnidadMedida=request.getParameter("descTipoUnidadMedida");
 			int idTipoUnidadMedida=Integer.parseInt(request.getParameter("idTipoUnidadMedida"));
@@ -297,10 +529,10 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 			sOR.setDescTipoUnidadMedida(descTipoUnidadMedida);
 			sOR.setCantidad(cantidad);
 			sOR.setIdTipoUnidadMedida(idTipoUnidadMedida);
-			sOR.setPesokG(PesokG);
+			sOR.setPesoKg(PesokG);
 			listadoDOR.add(sOR);
 			
-			
+			sesionX.setAttribute("listadoDOR", listadoDOR);
 			String json=obJson.toJson(listadoDOR);
 			PrintWriter out;
 			
@@ -365,9 +597,9 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 			sOR_EquipoVehicular.setDescCatVehiculo(txtCatVehiculo);
 			
 			
-			listadoOR_EquiVehicular.add(sOR_EquipoVehicular);
-			sesionX.setAttribute("listadoOR_EquiVehicular", listadoOR_EquiVehicular);
-			String json=obJson.toJson(listadoOR_EquiVehicular);
+			listadoOR_EquipoVehicular.add(sOR_EquipoVehicular);
+			sesionX.setAttribute("listadoOR_EquipoVehicular", listadoOR_EquipoVehicular);
+			String json=obJson.toJson(listadoOR_EquipoVehicular);
 			PrintWriter out;
 			
 				out = response.getWriter();
@@ -386,7 +618,7 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 	{
 		try 
 		{
-			listadoOR_EquiVehicular.clear();
+			listadoOR_EquipoVehicular.clear();
 		} 
 		catch (Exception e) 
 		{
@@ -402,13 +634,13 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 		try 
 		{
 			String idVehiculo=request.getParameter("idVehiculo");
-			if(listadoOR_EquiVehicular.size()>0)
+			if(listadoOR_EquipoVehicular.size()>0)
 			{
-			   for (int i = 0; i < listadoOR_EquiVehicular.size(); i++) 
+			   for (int i = 0; i < listadoOR_EquipoVehicular.size(); i++) 
 			   {
-					if (listadoOR_EquiVehicular.get(i).getIdVehiculo().equals(idVehiculo)) 
+					if (listadoOR_EquipoVehicular.get(i).getIdVehiculo().equals(idVehiculo)) 
 					{
-						listadoOR_EquiVehicular.remove(i);
+						listadoOR_EquipoVehicular.remove(i);
 					}
 		       }	
 			}
@@ -428,12 +660,14 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 	private void agregarOR_EquipoPersponal(HttpServletRequest request, HttpServletResponse response) {
 		try 
 		{
+			
+			HttpSession sesionX=request.getSession();
 		
 			String txtIdEmpleado=request.getParameter("txtIdEmpleado");
 			String txtDescTipoEmpleado=request.getParameter("txtDescTipoEmpleado");
 			String txtNomCompletoEmp=request.getParameter("txtNomCompletoEmp");
 
-			      System.out.println("Des: "+txtDescTipoEmpleado);
+			      
 			
 			SolicitudOrdenRecojoDTO sOR_EquipoPersonal=new SolicitudOrdenRecojoDTO();
 			sOR_EquipoPersonal.setIdEmpleado(txtIdEmpleado);
@@ -442,9 +676,8 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 
 			listadoOR_EquipoPersonal.add(sOR_EquipoPersonal);
 			
-			System.out.println("Tmño EPER: "+listadoOR_EquipoPersonal.size());
 			
-			//sesionX.setAttribute("s_listadoDOR", listadoDOR);
+			sesionX.setAttribute("listadoOR_EquipoPersonal", listadoOR_EquipoPersonal);
 			String json=obJson.toJson(listadoOR_EquipoPersonal);
 			PrintWriter out;
 			

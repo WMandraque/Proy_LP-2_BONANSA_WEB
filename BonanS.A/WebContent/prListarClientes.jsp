@@ -97,7 +97,7 @@
 				<ul>
 					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=recep">Listar Ordenes de recojo</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Cliente</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
 				</ul>

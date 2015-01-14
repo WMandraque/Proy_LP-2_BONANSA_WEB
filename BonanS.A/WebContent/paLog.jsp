@@ -64,8 +64,9 @@
                             <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                             <li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
                             <li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                            <li><a href="">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                        </ul>
+                            <li><a href="gestionaUsuario?operacion=salir">Desconectar</a>
+                            <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>      
+                          </ul>
                         
 <%--                         <h4 class="m-0" style="color: orange;">Usuario:</h4>
                         <h4 class="m-0">${sessionScope.idEmpleado}</h4>
@@ -87,6 +88,16 @@
                     <ul class="menu">
                     
 						<a href="mpAdministrador.jsp">Inicio</a>
+						
+						
+				<li class="item2"><a href="#">Gestion de Orden recojo</a>
+				<ul>
+					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
+					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
+					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
+					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
+				</ul>
+				</li>
 						
 						<li class="item2"><a href="#">Mantenimiento Clientes</a>
 							<ul>

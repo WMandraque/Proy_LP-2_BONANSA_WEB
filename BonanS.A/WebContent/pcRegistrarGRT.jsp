@@ -15,7 +15,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Registrar cliente</title>
+<title>Registrar Guia de Remision del Transportista</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -28,12 +28,8 @@
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
 
-<script language="javascript" type="text/javascript"
-	src="js/jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/paRegistrarCliente.js"></script>
-<script language="javascript" type="text/javascript"
-	src="js/mylibs/gestionaUbigeo.js"></script>
+<script language="javascript" type="text/javascript"src="js/jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript"src="js/mylibs/pcRegistrarGRT.js"></script>
    
 
 </head>
@@ -89,45 +85,35 @@
 		</div>
 		<nav id="wrapper">
 
-		<ul class="menu">
+		                     <ul class="menu">
 
-			<a href="mpAdministrador.jsp">Inicio</a>
-			
-			
-			
-			
-				<li class="item2"><a href="#">Gestion de Orden recojo</a>
+			<a href="mpRecepcionista.jsp">Inicio</a>
+
+            <li class="item2"><a href="#">Servicio de Recojo</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
+					<li class="subitem1"><a href="gestionaOrdenRecojo?operacion=listar&idEmpleado=${sessionScope.idEmpleado}&nivel=condu">Mis Ordenes de recojo</a></li>
+					<li class="subitem2"><a href="pcRegistrarGRT.jsp">Generar Guia de Remision del Transportista</a></li>
+					
 				</ul>
-				</li>
-
-			<li class="item2"><a href="#">Mantenimiento Clientes</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-			</ul>
 			</li>
 
-
-
-			<li class="item3"><a href="#">Mantenimiento Empleados</a>
+			<li class="item3"><a href="#">Control de Ruta</a>
 				<ul>
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-                    <li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar
+							Empleado</a></li>
+					<li class="subitem3"><a
+						href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
 				</ul></li>
-				
-				
-		 <li class="item3"><a href="#">Mantenimiento Usuario</a>
+
+
+			<li class="item3"><a href="#">Control de Gatos</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
+
+					<li class="subitem1"><a href="paRegistrarSolicitudServicio.jsp">Registrar
 							Usuario</a></li>
 					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>
@@ -135,28 +121,11 @@
 							Usuario</a></li>
 					<li class="subitem3"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
+
 				</ul>
 			</li>
 
-
-			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
-							Vehiculo</a></li>
-					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
-							Vehiculo</a></li>
-					<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar
-							Vehiculo</a></li>
-					<li class="subitem3"><a
-						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
-				</ul></li>
-
-
-			<li class="item4"><a href="#">Registro de acciones</a>
-				<ul>
-					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
-							de logs</a></li>
-				</ul></li>
+			
 
 
 
@@ -169,7 +138,7 @@
 	<div class="block-area" id="required">
 
 		<!--Titulo  -->
-		<h3 class="block-title">Matenimiento de cliente</h3>
+		<h3 class="block-title">Gestion de recojos</h3>
 	</div>
 
 
@@ -179,266 +148,389 @@
 	<div class="block-area" id="required">
 
 		<!-- FORMULARIO  -->
-		<form action="gestionaCliente" method="post">
+		<form action="gestionaGRT" method="post">
+		<c:set var="x" value="${requestScope.r_sORX}"></c:set>
 	    <input type="hidden" name="operacion" value="registrar">
 		<fieldset>
-
-				<legend class="block-title" style="color: white;">Registrar cliente</legend>
+		<legend class="block-title" style="color: white;">Registrar Guia de Remision del Transportista</legend>
 
 
 				<div class="block-area">
-					<!--Contenedor de datos generales  -->
-
-
-					<h3 class="block-title">Datos generales</h3>
-					<br> <br>
-
-
 
 					<div class="row">
-
-
 						<div class="col-md-3 m-b-15">
-							<label style="font-size: 15px;">ID Vehiculo</label> <input
-								type="text" class="input-sm form-control mask-date_time"
-								style="text-align: center;" value=">>AUTOGENERADO<<" readonly="
-								readonly="readonly">
+							<label style="font-size: 15px;">ID GRT</label> 
+							<input
+							    style="text-align: center;"
+								type="text" class="input-sm form-control mask-date_time" value=">>AUTOGENERADO<<"
+								readonly="readonly="readonly"
+							>
 						</div>
-
+						
 						<div class="col-md-3 m-b-15">
-							<label style="font-size: 15px;">Tipo de Cliente</label>
-							<libreria:CboTipoCliente idTipoCliente="" />
-
+							<label style="font-size: 15px;">ID SOR</label> 
+							<input
+							     id="txtIdSOR" name="txtIdSOR"
+							    style="text-align: center;"
+								type="text" class="input-sm form-control mask-date_time" 
+								value="${x.idOR}"
+							>
 						</div>
+						
+						<div class="col-md-3 m-b-15">
+                                   <br>
+		                           <input type="button" class="btn" value="Buscar Orden de Recojo" onclick="location='gestionaOrdenRecojo?operacion=listar&idEmpleado=${sessionScope.idEmpleado}&nivel=condu'">
+		                </div>
                      </div>
-					</div>
+                 </div>
+					
 
-					<!--  -->
-
+					<!--  DATOS GENERALES DEL GRT-->
 					<br>
 					<hr class="whiter m-t-20" />
-					<br> <br>
-
-					<div id="contenedor">
                     <div class="block-area">
-						<div  id="tituloCN">
-							<h3 class="block-title">Datos del cliente natural</h3>
-						</div>
-
-						<div  id="tituloCJ">
-							<h3 class="block-title">Datos del Contacto del cliente Juridico</h3>
-						</div>
-						<br> <br>
+					<h3 class="block-title">DATOS GENERALES</h3>
+					<br><br>
 
 						<!--  -->
-
+						
 						<div class="row">
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Nombre</label> <input
-									type="text" id="txtNombre" name="txtNombre"
+								<label style="font-size: 12px;">FECHA DE INICIO DEL TRASLADO</label>
+								   <input
+									type="text" id="txtFechaTraslado" name="txtFechaTraslado" id="txtFechaTraslado"
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar nombre"
-									required="requerid" maxlength="20">
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20" 
+									>
 							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">A paterno</label> <input
-									type="text" id="txtApePa" name="txtApePa"
+							
+							
+						    <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">ID VEHICULO</label> <input
+								    id="txtIdVehiculo" name="txtIdVehiculo"
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar apellido paterno" required="requerid"
-									maxlength="20">
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20" value="${x.idVehiculo}"
+									>
 							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">A materno</label> <input
-									type="text" id="txtApeMa" name="txtApeMa"
+							
+							
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Nº PLACA DEL VEHICULO</label> <input
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar apellido materno" required="requerid">
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20" value="${x.placaVehiculo}"
+									>
 							</div>
-
+							
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Fecha de nacimiento</label> <input
-									type="text" id="txtFechaNac" name="txtFechaNac"
-									class="input-sm form-control mask-date"
-									style="font-size: 16px;"
-									placeholder="ingresar fecha de nacimiento" required="requerid">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Sexo</label>
-								<libreria:CboSexo idSexo=" "/> 
-							</div>
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Telefono</label> <input
-									type="text" id="txtFono" name="txtFono"
+								<label style="font-size: 12px;">ID EMPLEADO</label> <input
+								    id="txtIdEmpleado" name="txtIdEmpleado"
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar Num. fono"
-									required="requerid">
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20"
+									value="${x.idEmpleado}"
+									>
 							</div>
-
-
+							
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Celular</label> <input
-									type="text" id="txtCelular" name="txtCelular"
-									class="input-sm form-control mask-cel"
-									style="font-size: 16px;" placeholder="ingresar Num. celular"
-									required="requerid">
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Correo</label> <input
-									type="text" id="txtCorreo" name="txtCorreo"
+								<label style="font-size: 12px;">Nº DE LICENCIA DEL CONDUCTOR</label> <input
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar correo"
-									required="requerid">
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20"
+									value="${x.licenCondu}"
+									>
 							</div>
-
-
-							<div id="divNatural">
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Num DNI</label> <input
-										type="text" id="txtNumDNI" name="txtNumDNI"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-							</div>
-
-							<div id="divJuridico">
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Num RUC</label> <input
-										type="text" id="txtNumRUC" name="txtNumRUC"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Razon social</label> <input
-										type="text" id="txtRazonSocial" name="txtRazonSocial"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">CIUU</label> <input type="text"
-										id="txtCIUU" name="txtCIUU"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-
-								<div class="col-md-3 m-b-15">
-									<label style="font-size: 12px;">Cargo</label> <input
-										type="text" id="txtCargo" name="txtCargo"
-										class="input-sm form-control mask-phone"
-										style="font-size: 16px;" placeholder="ingresar correo">
-								</div>
-								
-
-						</div>
-            </div>
-            </div>
-            
-
-            
+					</div>	
+					</div>
+					<!--FIN DE LOS DATOS GENERALES DEL GRT  -->
+					
+			
+			<!-- CLIENTE REMITENTE -->  
             <br>
 			<hr class="whiter m-t-20" /> 
 			<br><br>                  
             <div class="block-area">
-						<h3 class="block-title">Direccion del cliente</h3>
+						<h3 class="block-title">CLIENTE REMITENTE</h3>
+						<br><br>   
+						<div class="row">
+						
+					
+												
+						<div class="col-md-3 m-b-15">
+						<label style="font-size: 12px;">TIPO DE DOCUMENTO</label>	
+						<c:choose>
+						      <c:when test="${x.idTipoCliente=='1'}">
+						      <input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="JURIDICO"
+									>
+						      </c:when>
+						
+						      <c:when test="${x.idTipoCliente=='2'}">
+						            <input
+											type="text" 
+											class="input-sm form-control mask-date"
+											style="font-size: 16px;"
+											value="NATURAL"
+									>
+						       </c:when>
+						       <c:otherwise>
+						       <input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="seleccione una orden de recojo"
+								>
+
+						      </c:otherwise>
+						      
+						</c:choose>
+						</div>		
+							
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Nº DE DOCUMENTO</label>
+								<input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.numDocumento}"
+									>
+							</div>
+							
+							
+						   <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">ID CLIENTE</label>
+								<input
+									type="text" id="txtIdClienteRemi" name="txtIdClienteRemi"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.idCliente}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">NOMBRE COMPLETO</label>
+								<input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.nomCompleto}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">DIRECCION</label>
+								<input
+									type="text" id="txtDireccionRemitente" name="txtDireccionRemitente"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.direccionRecojo}"
+									>
+
+							</div>
+						
+						</div>
+
+						
+						</div>	
+						
+						
+			<!-- Cliente Destinatario -->
+            <br>
+			<hr class="whiter m-t-20" /> 
+			<br><br>                  
+            <div class="block-area">
+						<h3 class="block-title">CLIENTE DESTINATARIO</h3>
+						<br><br>   
+						<div class="row">
+						
+						
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">TIPO DE DOCUMENTO</label>
+								<libreria:CboTipoDocumento idTipoDocumento=""/>
+							</div>
+						
+						
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Nº DE DOCUMENTO</label>
+								<input
+									type="text" id="txtNumDocumentoCliDest" name="txtNumDocumentoCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									>
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">NOMBRE</label>
+								<input
+									type="text" id="txtNomCliDestinatario" name="txtNomCliDestinatario"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">A. PATERNO</label>
+								<input
+									type="text" id="txtApePaCliDest" name="txtApePaCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">A. MATERNO</label>
+								<input
+									type="text" id="txtApeMaCliDest" name="txtApeMaCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">DIRECCION</label>
+								<input
+									type="text" id="txtDireccionCliDest" name="txtDireccionCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									>
+
+							</div>
+						
+						</div>
+
+						
+						</div>	
+						
+					
+					
+					<br>
+					<hr class="whiter m-t-20" />
+                    <div class="block-area">
+					<h3 class="block-title">FECHAS DE ENTREGA</h3>	
+					<br><br>
+
+						
+						<div class="row">
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">FECHA MINIMA DE ENTREGA</label>
+								 <input
+									type="text" id="txtFechaMinEntrega" name="txtFechaMinEntrega"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;"
+									required="requerid" maxlength="20">
+							</div>
+							
+							
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">FECHA MAXIMA DE ENTREGA</label> 
+								<input
+								    id="txtFechaMaxEntrega" name="txtFechaMaxEntrega"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20"
+									>
+							</div>
+					</div>	
+					</div>	
+						
+						
+						
+					
+            <!-- EQUIPO PERSONAL DE RECOJO -->
+            <br>
+			<hr class="whiter m-t-20" /> 
+			<br><br>                  
+            <div class="block-area">
+						<h3 class="block-title">DESCRIPCION GENERAL DEL TRASLADO</h3>
 						<br><br>   
 						<div class="row">
 
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Tipo de establecimiento</label>
-								<libreria:CboTipoEstablecimiento idTipoEstablec="" />
+								<label style="font-size: 12px;">SERIE Y Nº DE GUIA DE REMITENTE</label>
+								<input
+									type="text" id="txtNumGr" name="txtNumGr"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+								
+									>
 
 							</div>
-
-							<div class="col-md-3 m-b-15">
-
-								<label style="font-size: 12px;">Departamento</label>
-								<libreria:CboDepartamento codubigeo="" />
-
-							</div>
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Provincia</label> <select
-									id="cboPronvincia" name="cboPronvincia"
-									class="input-sm form-control mask-phone">
-									<option value="">SELECCIONE</option>
-								</select>
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">Distrito</label> <select
-									id="cboDistrito" name="cboDistrito"
-									class="input-sm form-control mask-phone">
-									<option value="">SELECCIONE</option>
-								</select>
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-
-								<label style="font-size: 12px;">Direccion</label> <input
-									type="text" id="txtDireccion" name="txtDireccion"
-									class="input-sm form-control mask-date_time">
+							
+							
+						 <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">SERIE Y Nº DE FACTURA</label>
+								<input
+								    id="txtNumFact" name="txtNumFact"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									
+									>
 
 							</div>
-
+						
 						</div>
 
 						<div class="row">
-
-
-							<input class="btn btn-sm" type="button" value="Agregar" id="btnAgregar"> 
-							<input class="btn btn-sm" type="button" value="Limpiar Tabla" id="btnLimpiarTabla">
-
-
-
-							<input class="btn btn-sm" type="button" value="Limpiar Campos" id="btnLimpiarCampos">
-
-
+							<input class="btn btn-sm" type="button" value="Limpiar Campos" id="btnLimpiarCamposEquipoPersonal">
 						</div>
 
 						<br>
 						<div class="row">
-							<table id="tabla" class="table table-bordered table-hover tile">
+							<table id="tablaDGRT" class="table table-bordered table-hover tile">
 								<thead>
 									<tr>
-										<td>TIPO DE ESTABLECIMIENTO</td>
-										<td>ID TIPO DE ESTABLECIMIENTO</td>
-										<td>UBIGEO</td>
-										<td>DIRECCION</td>
-										<td>OPERACION</td>
-
+										<td>DESCRIPCION DE TRASLADO</td>
+										<td>CANTIDAD</td>
+										<td>UNIDAD DE MEDIDA</td>
+										<td>PESO EN KG</td>
+										<td>G. REMITENTE</td>
+										<td>FACTURA</td>
+                                        <td>ASIGNAR GR Y FACT</td>
+                                        <td>QUITAR GR Y FACT</td>
 									</tr>
-
+									
+									<c:forEach items="${sessionScope.s_listadoGRT}" var="lista">
+									<tr>
+										<td>${lista.descTraslado}</td>
+										<td>${lista.cantidad}</td>
+										<td>${lista.descTipoUnidadMedida }</td>
+										<td>${lista.pesoKg} Kg</td>
+										<td>${lista.numCodGR}</td>
+										<td>${lista.numCodFT}</td>
+										<td><a class='agregarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ASIGNAR'/></a></td>									
+                                        <td><a class='agregarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ASIGNAR'/></a></td>									
+									</c:forEach>
+ 
 								</thead>
 							</table>
 						</div>
                         </div>
-
+                        
+                        
+                        
+           
                       
-                        <br><br><br>
+                      <!-- OPERACIONES  -->
+                        <br><br><br><br><br><br>
 						<hr class="whiter m-t-20" />
+						<br><br><br><br><br><br>
 						<div class="block-area">
 							<input class="btn btn-sm" type="submit" value="REGISTRAR">
 							<input class="btn btn-sm" type="reset" value="LIMPIAR">
 						</div>
 
 					    
-					    </div>
+					    
                
                  <c:set var="mensaje" value="${requestScope.mensaje}"/>
 				      <c:if test="${mensaje!=null}">
@@ -453,6 +545,7 @@
 		</form>
 		<!--FIN DEL FORMULARIO  -->
 	</div>
+
 	
 	
 	<!-- Fin del contenedor del form --> <!--Chat  -->
