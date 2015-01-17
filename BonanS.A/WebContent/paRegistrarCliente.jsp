@@ -28,8 +28,7 @@
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
 
-<script language="javascript" type="text/javascript"
-	src="js/jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript"src="js/jquery-1.3.2.min.js"></script>
 <script language="javascript" type="text/javascript"
 	src="js/mylibs/paRegistrarCliente.js"></script>
 <script language="javascript" type="text/javascript"

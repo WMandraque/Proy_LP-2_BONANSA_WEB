@@ -19,6 +19,7 @@ public class GuiaRemisionTransportistaDTO
 	private String fecMinEntrega;
 	private String fecMaxEntrega;
 	private String idEstadoGRT;
+	private String descEstadoGRT;
 	
 	private String numCodGR;
 	private String numCodFT;
@@ -27,9 +28,18 @@ public class GuiaRemisionTransportistaDTO
 	private int idTipoUnidadMedida;
 	private String descTipoUnidadMedida;
 	private double pesoKg;
-
 	
 	
+	private String licenCondEmpleado;
+	private String placaVeh;
+    private String nomCliRemitente;	
+    private String apePaCliRemitente;	
+    private String apeMaCliRemitente;	
+    private int    idTipoCliente;
+    private String descTipoCliente;
+    private String numDocumentoCliRemitente;
+    private int    idTipoDocIdCliDestinatario;
+    
 
 	public String getIdEmpleado() {
 		return idEmpleado;
@@ -186,6 +196,86 @@ public class GuiaRemisionTransportistaDTO
 
 	public void setDescTipoUnidadMedida(String descTipoUnidadMedida) {
 		this.descTipoUnidadMedida = descTipoUnidadMedida;
+	}
+
+	public String getLicenCondEmpleado() {
+		return licenCondEmpleado;
+	}
+
+	public void setLicenCondEmpleado(String licenCondEmpleado) {
+		this.licenCondEmpleado = licenCondEmpleado;
+	}
+
+	public String getPlacaVeh() {
+		return placaVeh;
+	}
+
+	public void setPlacaVeh(String placaVeh) {
+		this.placaVeh = placaVeh;
+	}
+
+	public String getNomCliRemitente() {
+		return nomCliRemitente;
+	}
+
+	public String getApePaCliRemitente() {
+		return apePaCliRemitente;
+	}
+
+	public String getApeMaCliRemitente() {
+		return apeMaCliRemitente;
+	}
+
+	public void setNomCliRemitente(String nomCliRemitente) {
+		this.nomCliRemitente = nomCliRemitente;
+	}
+
+	public void setApePaCliRemitente(String apePaCliRemitente) {
+		this.apePaCliRemitente = apePaCliRemitente;
+	}
+
+	public void setApeMaCliRemitente(String apeMaCliRemitente) {
+		this.apeMaCliRemitente = apeMaCliRemitente;
+	}
+
+	public int getIdTipoCliente() {
+		return idTipoCliente;
+	}
+
+	public void setIdTipoCliente(int idTipoCliente) {
+		this.idTipoCliente = idTipoCliente;
+	}
+
+	public String getDescTipoCliente() {
+		return descTipoCliente;
+	}
+
+	public void setDescTipoCliente(String descTipoCliente) {
+		this.descTipoCliente = descTipoCliente;
+	}
+
+	public String getNumDocumentoCliRemitente() {
+		return numDocumentoCliRemitente;
+	}
+
+	public void setNumDocumentoCliRemitente(String numDocumentoCliRemitente) {
+		this.numDocumentoCliRemitente = numDocumentoCliRemitente;
+	}
+
+	public int getIdTipoDocIdCliDestinatario() {
+		return idTipoDocIdCliDestinatario;
+	}
+
+	public void setIdTipoDocIdCliDestinatario(int idTipoDocIdCliDestinatario) {
+		this.idTipoDocIdCliDestinatario = idTipoDocIdCliDestinatario;
+	}
+
+	public String getDescEstadoGRT() {
+		return descEstadoGRT;
+	}
+
+	public void setDescEstadoGRT(String descEstadoGRT) {
+		this.descEstadoGRT = descEstadoGRT;
 	}
 
 }

@@ -156,44 +156,45 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 	{
 		try {
 			
-			
 			HttpSession miSesion=request.getSession();
 			
 			String idOR=request.getParameter("idOR");
 			String nivel=request.getParameter("nivel");
-			
 			SolicitudOrdenRecojoDTO sORX=sOrdenRecojo.buscarSOR(idOR);
-			
 			listadoGRT.clear();
-			for (int i = 0; i < sORX.getListadoDescripcionTraslado().size(); i++) 
+			
+			if(sORX.getIdOR()!=null)
 			{
 				
-				GuiaRemisionTransportistaDTO gRT=new GuiaRemisionTransportistaDTO();
-				
-				gRT.setDescTraslado(sORX.getListadoDescripcionTraslado().get(i).getDescripcionTraslado());
-				gRT.setCantidad(sORX.getListadoDescripcionTraslado().get(i).getCantidad());
-				gRT.setIdTipoUnidadMedida(sORX.getListadoDescripcionTraslado().get(i).getIdTipoUnidadMedida());
-				gRT.setDescTipoUnidadMedida(sORX.getListadoDescripcionTraslado().get(i).getDescTipoUnidadMedida());
-				gRT.setPesoKg(sORX.getListadoDescripcionTraslado().get(i).getPesoKg());
-				
-				listadoGRT.add(gRT);
-			}
-			
-		
-			
-				if (nivel.equals("condu")) 
+				for (int i = 0; i < sORX.getListadoDescripcionTraslado().size(); i++) 
 				{
-				request.setAttribute("r_sORX", sORX);
-				miSesion.setAttribute("s_listadoGRT", listadoGRT);
-				request.getRequestDispatcher("pcRegistrarGRT.jsp").forward(request, response);
-				}				
+					GuiaRemisionTransportistaDTO gRT=new GuiaRemisionTransportistaDTO();
+					
+					gRT.setDescTraslado(sORX.getListadoDescripcionTraslado().get(i).getDescripcionTraslado());
+					gRT.setCantidad(sORX.getListadoDescripcionTraslado().get(i).getCantidad());
+					gRT.setIdTipoUnidadMedida(sORX.getListadoDescripcionTraslado().get(i).getIdTipoUnidadMedida());
+					gRT.setDescTipoUnidadMedida(sORX.getListadoDescripcionTraslado().get(i).getDescTipoUnidadMedida());
+					gRT.setPesoKg(sORX.getListadoDescripcionTraslado().get(i).getPesoKg());
+					
+					listadoGRT.add(gRT);
+				}
 				
 			
-			
-			
+					if (nivel.equals("condu")) 
+					{
+					request.setAttribute("r_sORX", sORX);
+					miSesion.setAttribute("s_listadoGRT", listadoGRT);
+					miSesion.setAttribute("s_listadoEquipoPersonalTraslado", sORX.getListadoEquipoPersonaRecojos());
+					}		
+				
+			}
+			request.getRequestDispatcher("pcRegistrarGRT.jsp").forward(request, response);
+
+					
+	
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Error en buscarSOR SvGestionaOrdenRecojo: "+e);
 		}
 		
 	}
@@ -215,12 +216,10 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 				{
 					
 					 listadoOrdenRecojos=sOrdenRecojo.listarOrdenRecojos(null);
-					System.out.println("sin id");
 				}
 				else
 				{
 					listadoOrdenRecojos=sOrdenRecojo.listarOrdenRecojos(idEmpleado);
-					System.out.println("conn id");
 				}
 				
 				if (listadoOrdenRecojos.size()>0) 

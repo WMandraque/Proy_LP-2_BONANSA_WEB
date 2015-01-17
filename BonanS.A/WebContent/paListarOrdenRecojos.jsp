@@ -88,55 +88,84 @@
                     <nav id="wrapper">
                     
                     
-                    
-                    
-                     <ul class="menu">
+                 <ul class="menu">
 
-			<a href="mpRecepcionista.jsp">Inicio</a>
-
-				<li class="item2"><a href="#">Gestion de Orden recojo</a>
+			<a href="mpAdministrador.jsp">Inicio</a>
+			
+			  <li class="item2"><a href="#">Gestion de Orden recojo</a>
 				<ul>
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
-				</li>
-
-
-			<li class="item3"><a href="#">Control de Ruta</a>
+			</li>
+			
+			<li class="item3"><a href="#">Gestion de Transporte</a>
 				<ul>
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
-							Empleado</a></li>
-					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar
-							Empleado</a></li>
-					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar
-							Empleado</a></li>
-					<li class="subitem3"><a
-						href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
+					
+				</ul>
+			</li>
+
+			<li class="item2"><a href="#">Mantenimiento Clientes</a>
+				<ul>
+					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
+					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
+					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
+					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
 				</ul></li>
 
 
-			<li class="item3"><a href="#">Control de Gatos</a>
+			<li class="item3"><a href="#">Mantenimiento Empleados</a>
+				<ul>
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
+					<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+				</ul>
+			</li>
+
+
+			<li class="item3"><a href="#">Mantenimiento Usuario</a>
 				<ul>
 
-					<li class="subitem1"><a href="paRegistrarSolicitudServicio.jsp">Registrar
+					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
 							Usuario</a></li>
 					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>
-					<li class="subitem2"><a href="paEliminarUsuario.jsp">Eliminar
-							Usuario</a></li>
+					<li class="subitem2"><a href="paEliminarUsuario.jsp">Eliminar Usuario</a></li>
 					<li class="subitem3"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
 
 				</ul>
 			</li>
 
-			
+			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
+				<ul>
+					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
+							Vehiculo</a></li>
+					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
+							Vehiculo</a></li>
+					<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar
+							Vehiculo</a></li>
+					<li class="subitem3"><a
+						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
+				</ul></li>
+
+
+			<li class="item4"><a href="#">Registro de acciones</a>
+				<ul>
+					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
+							de logs</a></li>
+				</ul></li>
 
 
 
 		</ul>
+		   
+                    
+                     
                 	</nav>
                     </div>
         	</aside>
@@ -185,7 +214,8 @@
 															<th>DIRECCION DE RECOJO</th>
 															<th>FECHA DE RECOJO</th>
 															<th>HORA DE RECOJO</th>
-															<th>CONDUCTOR</th>
+															<th>CONDUCTOR RESPONSABLE</th>
+															<th>ESTADO</th>
 															<th>OPERACION</th>
 														</tr> 
 													</thead>
@@ -201,6 +231,7 @@
 														                  <td>${lista.fechaRecojo}</td>
 														                  <td>${lista.horaRecojo}</td>
 														                  <td>${lista.idEmpleado}</td>
+														                  <td>${lista.descEstadoOR}</td>
 														                  
 														                  
 														      

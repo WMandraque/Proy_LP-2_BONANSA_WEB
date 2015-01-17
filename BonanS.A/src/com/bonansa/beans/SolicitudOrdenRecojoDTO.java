@@ -16,7 +16,7 @@ public class SolicitudOrdenRecojoDTO {
 	private String horaRecojo; 
 	private String descEstadoOR;
 	private ArrayList<SolicitudOrdenRecojoDTO> listadoDescripcionTraslado;
-	
+	private ArrayList<SolicitudOrdenRecojoDTO> listadoEquipoPersonaRecojos;
 
 
 	//Atributos para la tabla tb_DetalleOrdenRecojo
@@ -352,6 +352,21 @@ public class SolicitudOrdenRecojoDTO {
 
 	public void setIdTipoCliente(int idTipoCliente) {
 		this.idTipoCliente = idTipoCliente;
+	}
+
+
+
+
+	public ArrayList<SolicitudOrdenRecojoDTO> getListadoEquipoPersonaRecojos() {
+		return listadoEquipoPersonaRecojos;
+	}
+
+
+
+
+	public void setListadoEquipoPersonaRecojos(
+			ArrayList<SolicitudOrdenRecojoDTO> listadoEquipoPersonaRecojos) {
+		this.listadoEquipoPersonaRecojos = listadoEquipoPersonaRecojos;
 	}
 
 

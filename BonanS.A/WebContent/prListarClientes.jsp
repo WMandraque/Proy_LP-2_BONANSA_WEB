@@ -87,9 +87,7 @@
                     <nav id="wrapper">
                     
                     
-                    
-                    
-                     <ul class="menu">
+                    <ul class="menu">
 
 			<a href="mpRecepcionista.jsp">Inicio</a>
 
@@ -97,46 +95,34 @@
 				<ul>
 					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=recep">Listar Ordenes de recojo</a></li>
-					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Cliente</a></li>
+<!-- 				<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Clientes</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
+					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarVehiculos">Listar Vehiculos</a></li> -->
 				</ul>
 			</li>
+			
+			<li class="item3"><a href="#">Gestion de Transporte</a>
+				<ul>
+				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
+					<li class="subitem2"><a href="#">Eliminar GRT</a></li>
+				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=RECEPCIONISTA">Listar GRT</a></li>
+					
+				</ul>
+			</li>
+
 
 
 			<li class="item3"><a href="#">Control de Ruta</a>
 				<ul>
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
-							Empleado</a></li>
-					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar
-							Empleado</a></li>
-					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar
-							Empleado</a></li>
-					<li class="subitem3"><a
-						href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
-				</ul></li>
-
-
-			<li class="item3"><a href="#">Control de Gatos</a>
-				<ul>
-
-					<li class="subitem1"><a href="paRegistrarSolicitudServicio.jsp">Registrar
-							Usuario</a></li>
-					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
-							Usuario</a></li>
-					<li class="subitem2"><a href="paEliminarUsuario.jsp">Eliminar
-							Usuario</a></li>
-					<li class="subitem3"><a
-						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
-
+					
 				</ul>
 			</li>
-
-			
-
-
-
 		</ul>
+		
+                    
+                     
                 	</nav>
                     </div>
         	</aside>

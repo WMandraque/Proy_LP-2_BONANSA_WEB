@@ -39,6 +39,14 @@ public class SvGestionaGRT extends HttpServlet {
 		{
 			registrar(request, response);
 		}
+		else if(operacion.equals("listar"))
+		{
+		this.listar(request, response);	
+		}
+		else if(operacion.equals("buscar"))
+		{
+		this.buscar(request, response);	
+		}
 		else if (operacion.equals("agregarGRyFACT")) 
 		{
 		this.agregarGRyFACT(request, response);	
@@ -46,7 +54,26 @@ public class SvGestionaGRT extends HttpServlet {
 	}
 	
 	
-	
+
+
+	private void buscar(HttpServletRequest request, HttpServletResponse response) 
+	{
+			try 
+			{
+				
+				System.out.println("Llego para buscar GRT");
+				
+			} 
+			catch (Exception e) 
+			{
+				
+			}
+		
+	}
+
+
+
+
 	private void registrar(HttpServletRequest request, HttpServletResponse response) 
 	{
 		try 
@@ -92,20 +119,88 @@ public class SvGestionaGRT extends HttpServlet {
 		 */
 		ArrayList<GuiaRemisionTransportistaDTO> listadoDGRT=(ArrayList<GuiaRemisionTransportistaDTO>)miSesion.getAttribute("s_listadoGRT");
 
+		ArrayList<SolicitudOrdenRecojoDTO> listadoEquipoPersonalTraslado=(ArrayList<SolicitudOrdenRecojoDTO>)miSesion.getAttribute("s_listadoEquipoPersonalTraslado");
+
 		String   ip_idEmpleadoR=(String)miSesion.getAttribute("idEmpleado");
 
 		
 		String idSOR=request.getParameter("txtIdSOR");
 		
 		
-		int r=sGRT.registrarGRT(grt, ip_idEmpleadoR, idSOR);
-			
+		int r=sGRT.registrarGRT(grt, ip_idEmpleadoR, idSOR, listadoDGRT, listadoEquipoPersonalTraslado );
+		
+		if (r>0) 
+		{
+		request.setAttribute("mensaje", "GRT registrado correctamente");	
+		}
+		else
+		{
+			request.setAttribute("mensaje", "Error al registrar GRT ");	
+		}
+		
+		//Limpiamos el arrayList
+		listadoDGRT.clear();	
+		listadoEquipoPersonalTraslado.clear();
+		request.getRequestDispatcher("pcRegistrarGRT.jsp").forward(request, response);
 			
 		} catch (Exception e) {
 			System.out.println("Error registrarGRT: "+e);
 		}
 		
 	}
+
+	
+	
+	
+	private void listar(HttpServletRequest request, HttpServletResponse response) 
+	{
+		
+		try 
+		{
+			HttpSession miSesion=request.getSession();
+			String idEmpleado=request.getParameter("idEmpleado");
+			String nivel=request.getParameter("nivel");
+			if (idEmpleado==null) 
+			{
+			idEmpleado=null;
+			}
+			System.out.println("Nivel: "+nivel);
+			ArrayList<GuiaRemisionTransportistaDTO> listadoGRT=new ArrayList<GuiaRemisionTransportistaDTO>();
+			
+			if(nivel.equals("ADMINISTRADOR")||nivel.equals("RECEPCIONISTA"))
+			{
+				listadoGRT=sGRT.listarGRT(null);
+				miSesion.setAttribute("s_listadoGRT", listadoGRT);
+				
+				if (nivel.equals("ADMINISTRADOR")) 
+				{
+				 request.getRequestDispatcher("paListarGRT.jsp").forward(request, response);	
+				}
+				else if(nivel.equals("RECEPCIONISTA"))
+				{
+				request.getRequestDispatcher("prListarGRT.jsp").forward(request, response);	
+				}
+				
+			}
+			else if(nivel.equals("CONDUCTOR"))
+			{
+				listadoGRT=sGRT.listarGRT(idEmpleado);
+				miSesion.setAttribute("s_listadoGRT", listadoGRT);
+				request.getRequestDispatcher("pcListarGRT.jsp").forward(request, response);	
+			}
+			
+			
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Error al listar SvGestionaGRT: "+e);
+		}
+		
+		
+		
+	}
+
 
 
 

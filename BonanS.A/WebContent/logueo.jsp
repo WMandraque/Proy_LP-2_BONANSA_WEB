@@ -8,7 +8,7 @@
         <meta name="description" content="Violate Responsive Admin Template">
         <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <title>Super Admin Responsive Template</title>
+        <title>BONANS.A</title>
             
         <!-- CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">

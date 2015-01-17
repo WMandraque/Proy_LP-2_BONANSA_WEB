@@ -189,10 +189,11 @@ public class MySQLOrdenRecojoDAO implements OrdenRecojoDAO
 		
 		SolicitudOrdenRecojoDTO sORX=new SolicitudOrdenRecojoDTO();
 		ArrayList<SolicitudOrdenRecojoDTO> listadoDescripcionTraslado=new ArrayList<SolicitudOrdenRecojoDTO>();
+		ArrayList<SolicitudOrdenRecojoDTO> listadoEquipoPersonaRecojo=new ArrayList<SolicitudOrdenRecojoDTO>();
 		try 
 		{
 			con=MySQLConexion.getConexion();
-			String qSql="SELECT*FROM vistaListaParaGRT where idOR=?";
+			String qSql="SELECT*FROM vistaBuscarSOR where idOR=? and idEstadoOR='0'";
 			pst=con.prepareStatement(qSql);
 			pst.setString(1, idOR);
 			ResultSet rs=pst.executeQuery();
@@ -226,10 +227,39 @@ public class MySQLOrdenRecojoDAO implements OrdenRecojoDAO
 			 listadoDescripcionTraslado.add(descripcionTraslado);
 			}
 			sORX.setListadoDescripcionTraslado(listadoDescripcionTraslado);
+			rs2.close();
+			
+			String qSql3=   "SELECT*FROM vistaBuscarEquipoPersonal WHERE idOR=?";
+			pst=con.prepareStatement(qSql3);
+			pst.setString(1, idOR);
+			ResultSet rs3=pst.executeQuery();
+			while(rs3.next())
+			{
+				SolicitudOrdenRecojoDTO equipoPersonalRecojo=new SolicitudOrdenRecojoDTO();
+				equipoPersonalRecojo.setIdEmpleado(rs3.getString(2));
+				equipoPersonalRecojo.setDescTipoEmpleado(rs3.getString(4));
+				equipoPersonalRecojo.setNomCompleto(rs3.getString(5)+" "+rs3.getString(6)+" "+rs3.getString(7));
+				listadoEquipoPersonaRecojo.add(equipoPersonalRecojo);
+			}
+				
+			sORX.setListadoEquipoPersonaRecojos(listadoEquipoPersonaRecojo);
+			rs3.close();
+
+
 			
 		} 
-		catch (Exception e) {
-			// TODO: handle exception
+		catch (Exception e) 
+		{
+			System.out.println("Error en buscarSORDAO: "+e);
+		}
+		finally
+		{
+			try {
+				if(con!=null){con.close();}
+				if(pst!=null){pst.close();}
+			} catch (Exception e2) {
+				System.out.println("Error al cerrar conexiones: "+e2);
+			}
 		}
 		return sORX;
 	}
