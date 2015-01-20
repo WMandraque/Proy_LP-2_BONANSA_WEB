@@ -1,10 +1,13 @@
 package com.bonansa.beans;
 
+import java.util.ArrayList;
+
 public class GuiaRemisionTransportistaDTO 
 {
 	
 	private String idGRT;
 	private String idEmpleado;
+	private int    idTipoEmpleado;
 	private String idVeh;
 	private String fecInicioTraslado; 
 	private String idCliRemitente;
@@ -39,7 +42,37 @@ public class GuiaRemisionTransportistaDTO
     private String descTipoCliente;
     private String numDocumentoCliRemitente;
     private int    idTipoDocIdCliDestinatario;
-    
+    ArrayList<GuiaRemisionTransportistaDTO> listadoEquipoPersonalTraslado;
+    ArrayList<GuiaRemisionTransportistaDTO> listadoDGRT;
+    private String nomEmpleado;
+    private String apePaEmpleado;
+    private String apeMaEmpleado;
+    private String descTipoEmpleado;
+
+
+	public String getNomEmpleado() {
+		return nomEmpleado;
+	}
+
+	public String getApePaEmpleado() {
+		return apePaEmpleado;
+	}
+
+	public String getApeMaEmpleado() {
+		return apeMaEmpleado;
+	}
+
+	public void setNomEmpleado(String nomEmpleado) {
+		this.nomEmpleado = nomEmpleado;
+	}
+
+	public void setApePaEmpleado(String apePaEmpleado) {
+		this.apePaEmpleado = apePaEmpleado;
+	}
+
+	public void setApeMaEmpleado(String apeMaEmpleado) {
+		this.apeMaEmpleado = apeMaEmpleado;
+	}
 
 	public String getIdEmpleado() {
 		return idEmpleado;
@@ -276,6 +309,39 @@ public class GuiaRemisionTransportistaDTO
 
 	public void setDescEstadoGRT(String descEstadoGRT) {
 		this.descEstadoGRT = descEstadoGRT;
+	}
+
+	public int getIdTipoEmpleado() {
+		return idTipoEmpleado;
+	}
+
+	public void setIdTipoEmpleado(int idTipoEmpleado) {
+		this.idTipoEmpleado = idTipoEmpleado;
+	}
+
+	public ArrayList<GuiaRemisionTransportistaDTO> getListadoEquipoPersonalTraslado() {
+		return listadoEquipoPersonalTraslado;
+	}
+
+	public ArrayList<GuiaRemisionTransportistaDTO> getListadoDGRT() {
+		return listadoDGRT;
+	}
+
+	public void setListadoEquipoPersonalTraslado(
+			ArrayList<GuiaRemisionTransportistaDTO> listadoEquipoPersonalTraslado) {
+		this.listadoEquipoPersonalTraslado = listadoEquipoPersonalTraslado;
+	}
+
+	public void setListadoDGRT(ArrayList<GuiaRemisionTransportistaDTO> listadoDGRT) {
+		this.listadoDGRT = listadoDGRT;
+	}
+
+	public String getDescTipoEmpleado() {
+		return descTipoEmpleado;
+	}
+
+	public void setDescTipoEmpleado(String descTipoEmpleado) {
+		this.descTipoEmpleado = descTipoEmpleado;
 	}
 
 }

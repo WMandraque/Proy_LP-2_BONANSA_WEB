@@ -36,7 +36,7 @@ function fn_agregarGRyFACT() {
 										cadena = cadena+ "<td>"+ json[i].pesoKg+ "</td>";
 										cadena = cadena+ "<td>"+ json[i].numCodGR+ "</td>";
 										cadena = cadena+ "<td>"+ json[i].numCodFT+ "</td>";
-										cadena = cadena + "<td><a class='agregarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ASIGNAR'/></a></td>";
+										cadena = cadena + "<td><a class='eliminarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ELIMINAR'/></a></td>";
 										cadena = cadena + "<td><a class='agregarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ASIGNAR'/></a></td>";
 										$("#tablaDGRT").append(cadena);
 				

@@ -18,8 +18,18 @@ public class GuiaRemisionTransportistaService {
 		return dao.registrarGRT(gRT, idEmpleadoR, idSOR, listadoDGRT, listadoEquipoPersonalTraslado);
 	}
 	
+	public int registrarEntregaMercaderia(String idGrt, String idEmpleadoR) 
+	{
+		return dao.registrarEntregaMercaderia(idGrt, idEmpleadoR);
+	}
+	
 	public ArrayList<GuiaRemisionTransportistaDTO> listarGRT(String idEmpleado) {
 		return dao.listarGRT(idEmpleado);
+	}
+	
+	
+	public GuiaRemisionTransportistaDTO buscarGRT(String idGRT) {
+		return dao.buscarGRT(idGRT);
 	}
 		
 		

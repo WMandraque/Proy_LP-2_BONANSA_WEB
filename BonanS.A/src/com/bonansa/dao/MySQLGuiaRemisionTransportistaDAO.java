@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.SQLType;
 import java.util.ArrayList;
 
@@ -126,7 +127,6 @@ public class MySQLGuiaRemisionTransportistaDAO implements GuiaRemisionTransporti
 				pst=con.prepareStatement(qSql);
 				pst.setString(1, idEmpleado);
 			}
-			System.out.println("3");
 			ResultSet rs=pst.executeQuery();
 			while(rs.next())
 			{			System.out.println("4");
@@ -152,14 +152,13 @@ public class MySQLGuiaRemisionTransportistaDAO implements GuiaRemisionTransporti
 				grt.setDescTipoDocumentoCliDest(rs.getString(18));
 				grt.setNumDocCliDestinatario(rs.getString(19));
 				grt.setDirecClienteDestinatario(rs.getString(20));
-				grt.setFecMinEntrega(rs.getString(21));
-				grt.setFecMaxEntrega(rs.getString(22));
+				grt.setFecMinEntrega(sF.op_formatearFechaMySQL(rs.getString(21)));
+				grt.setFecMaxEntrega(sF.op_formatearFechaMySQL(rs.getString(22)));
 				grt.setIdEstadoGRT(rs.getString(23));
 				grt.setDescEstadoGRT(rs.getString(24));
 				
 				listadoGRT.add(grt);
 			}
-			System.out.println("5");
 
 			
 		} 
@@ -181,6 +180,134 @@ public class MySQLGuiaRemisionTransportistaDAO implements GuiaRemisionTransporti
 		}
 		
 		return listadoGRT;
+	}
+
+	@Override
+	public GuiaRemisionTransportistaDTO buscarGRT(String idGRT) {
+		
+		GuiaRemisionTransportistaDTO regGrt=new GuiaRemisionTransportistaDTO();
+
+		try 
+		{
+			con=MySQLConexion.getConexion();
+			String qSql="select*from vistaBuscarGRT where idGRT=?";
+			pst=con.prepareStatement(qSql);
+			pst.setString(1, idGRT);
+			ResultSet rs=pst.executeQuery();
+			while(rs.next())
+			{
+				regGrt.setIdGRT(rs.getString(1));
+				regGrt.setFecInicioTraslado(sF.op_formatearFechaMySQL(rs.getString(2)));
+				regGrt.setIdVeh(rs.getString(3));
+				regGrt.setPlacaVeh(rs.getString(4));
+				regGrt.setIdEmpleado(rs.getString(5));
+				regGrt.setLicenCondEmpleado(rs.getString(6));
+				regGrt.setIdTipoCliente(rs.getInt(7));
+				regGrt.setNumDocumentoCliRemitente(rs.getString(8));
+				regGrt.setIdCliRemitente(rs.getString(9));
+				regGrt.setNomCliRemitente(rs.getString(10));
+				regGrt.setApePaCliRemitente(rs.getString(11));
+				regGrt.setApeMaCliRemitente(rs.getString(12));
+				regGrt.setDirecCliRemitente(rs.getString(13));
+				regGrt.setIdTipoDocIdCliDestinatario(rs.getInt(14));
+				regGrt.setNumDocCliDestinatario(rs.getString(15));
+				regGrt.setNomCliDestinatario(rs.getString(16));
+				regGrt.setApepaCliDestinatario(rs.getString(17));
+				regGrt.setApemaCliDestinatario(rs.getString(18));
+				regGrt.setDirecClienteDestinatario(rs.getString(19));
+				regGrt.setFecMinEntrega(sF.op_formatearFechaMySQL(rs.getString(20)));
+				regGrt.setFecMaxEntrega(sF.op_formatearFechaMySQL(rs.getString(21)));
+				regGrt.setIdEstadoGRT(rs.getString(22));
+			}
+			rs.close();
+			
+			String qSql2="select*From vistaBuscarListaEquipoTrasladoGRT where idGRT=?";
+			pst=con.prepareStatement(qSql2);
+			pst.setString(1, idGRT);
+			ResultSet rs2=pst.executeQuery();
+			ArrayList<GuiaRemisionTransportistaDTO> listadoEquipoPersonalTraslado=new ArrayList<GuiaRemisionTransportistaDTO>();
+			while(rs2.next())
+			{
+			  GuiaRemisionTransportistaDTO personalTrasladoGRT=new GuiaRemisionTransportistaDTO();
+			  personalTrasladoGRT.setIdEmpleado(rs2.getString(2));
+			  personalTrasladoGRT.setNomEmpleado(rs2.getString(3));
+			  personalTrasladoGRT.setApePaEmpleado(rs2.getString(4));
+			  personalTrasladoGRT.setApeMaEmpleado(rs2.getString(5));
+			  personalTrasladoGRT.setDescTipoEmpleado(rs2.getString(6));
+			  listadoEquipoPersonalTraslado.add(personalTrasladoGRT);
+			}
+			rs2.close();
+			regGrt.setListadoEquipoPersonalTraslado(listadoEquipoPersonalTraslado);
+
+			String qSql3="select*From vistaBuscarListaDetalleGRT where idGRT=?";
+			pst=con.prepareStatement(qSql3);
+			pst.setString(1, idGRT);
+			ResultSet rs3=pst.executeQuery();
+			ArrayList<GuiaRemisionTransportistaDTO> listadoDGRT=new ArrayList<GuiaRemisionTransportistaDTO>();
+			while(rs3.next())
+			{
+				GuiaRemisionTransportistaDTO dGRT=new GuiaRemisionTransportistaDTO();
+				dGRT.setIdGRT(rs3.getString(1));
+				dGRT.setDescTraslado(rs3.getString(2));
+				dGRT.setCantidad(rs3.getInt(3));
+				dGRT.setDescTipoUnidadMedida(rs3.getString(4));
+				dGRT.setPesoKg(rs3.getDouble(5));
+				dGRT.setNumCodGR(rs3.getString(6));
+				dGRT.setNumCodFT(rs3.getString(7));
+				listadoDGRT.add(dGRT);
+			}
+			rs3.close();
+			regGrt.setListadoDGRT(listadoDGRT);
+		
+			
+			
+		} 
+		catch (Exception e) 
+		{
+		System.out.println("Error en buscarGRTDAO: "+e);
+		}
+		finally
+		{
+			try 
+			{
+				if(con!=null){con.close();}
+				if(pst!=null){pst.close();}
+			}
+			catch (Exception e2)
+			{
+				System.out.println("Error al cerrar conexiones: "+e2);
+			}
+		}
+		return regGrt;
+	}
+
+	@Override
+	public int registrarEntregaMercaderia(String idGrt, String idEmpleadoR) 
+	{
+		int r=0;
+		try 
+		{
+			con=MySQLConexion.getConexion();
+			con.setAutoCommit(false);
+			
+			String qSql="{Call usp_registrarEntregaGRT(?, ?)}";
+			cst=con.prepareCall(qSql);
+			cst.setString(1, idGrt);
+			cst.setString(2, idEmpleadoR);
+			r=cst.executeUpdate();
+			
+			con.commit();
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Error en registrarEntregaGRTDAO: "+e);
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return r;
 	}
 
 }

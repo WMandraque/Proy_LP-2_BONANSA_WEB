@@ -92,18 +92,28 @@
 
 			<a href="mpAdministrador.jsp">Inicio</a>
 			
-			  <li class="item2"><a href="#">Gestion de Orden recojo</a>
+			 <li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
+					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 			
 			<li class="item3"><a href="#">Gestion de Transporte</a>
 				<ul>
+				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
+					<li class="subitem2"><a href="#">Eliminar GRT</a></li>
 				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
+					
+				</ul>
+			</li>
+
+
+
+			<li class="item3"><a href="#">Control de Ruta</a>
+				<ul>
 					
 				</ul>
 			</li>

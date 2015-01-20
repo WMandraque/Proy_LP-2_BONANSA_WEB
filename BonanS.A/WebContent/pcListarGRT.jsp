@@ -204,7 +204,7 @@
 															<td class="center">
 																<div class="visible-md visible-lg hidden-sm hidden-xs">
 																	<div class="btn-group">
-																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" onclick="location='gestionaGRT?operacion=buscar&nivel=CONDUCTOR'">
+																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" onclick="location='gestionaGRT?operacion=buscar&nivel=CONDUCTOR&idGRT=${lista.idGRT}'">
 																			<i ></i> <span >Seleccione</span>
 																		</a>
 															

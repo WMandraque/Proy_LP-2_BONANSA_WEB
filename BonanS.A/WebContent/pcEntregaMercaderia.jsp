@@ -15,7 +15,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Gestion de Transporte</title>
+<title>Gestion Recojo y Transporte</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
 <link href="css/icons2.css" rel="stylesheet">
 
 <script language="javascript" type="text/javascript"src="js/jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript"src="js/mylibs/paRegistrarOS.js"></script>
+<script language="javascript" type="text/javascript"src="js/mylibs/pcRegistrarGRT.js"></script>
    
 
 </head>
@@ -85,8 +85,7 @@
 		</div>
 		<nav id="wrapper">
 
-		   
-		   <ul class="menu">
+		<ul class="menu">
 
 			<a href="mpConductor.jsp">Inicio</a>
 
@@ -113,9 +112,7 @@
 
 
 		</ul>
-		 
-		    
-		    
+		                     
 		</nav>
 	</div>
 	</aside> <section id="content" class="container">
@@ -124,7 +121,7 @@
 	<div class="block-area" id="required">
 
 		<!--Titulo  -->
-		<h3 class="block-title">Gestion de Transporte</h3>
+		<h3 class="block-title">Gestion Transporte</h3>
 	</div>
 
 
@@ -134,10 +131,11 @@
 	<div class="block-area" id="required">
 
 		<!-- FORMULARIO  -->
-		<form action="gestionaOrdenRecojo" method="post">
-	    <input type="hidden" name="operacion" value="registrar">
+		<form action="gestionaGRT" method="post">
+		<c:set var="x" value="${requestScope.r_regGrt}"></c:set>
+	    <input type="hidden" name="operacion" value="registrarEntregaMercaderia">
 		<fieldset>
-		<legend class="block-title" style="color: white;">Entrega de Mercaderia</legend>
+		<legend class="block-title" style="color: white;">Registrar Entrega</legend>
 
 
 				<div class="block-area">
@@ -146,9 +144,9 @@
 						<div class="col-md-3 m-b-15">
 							<label style="font-size: 15px;">ID GRT</label> 
 							<input
-							    style="font-size: 16px;
-								type="text" class="input-sm form-control mask-date_time" 
-								
+							    style="font-size: 16px; text-align: center;" 
+								type="text" id="txtIdGRT" name="txtIdGRT" class="input-sm form-control mask-date_time"
+								value="${x.idGRT}"
 							>
 						</div>
 						
@@ -158,143 +156,331 @@
 		                </div>
                      </div>
                  </div>
+					
 
-					<!--  -->
-
+					<!--  DATOS GENERALES DEL GRT-->
 					<br>
 					<hr class="whiter m-t-20" />
                     <div class="block-area">
-						
-							<h3 class="block-title">DESCRIPCION DEL TRASLADO</h3>
-						
-						
-						<br> <br>
+					<h3 class="block-title">DATOS GENERALES</h3>
+					<br><br>
 
 						<!--  -->
 						
 						<div class="row">
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">ID CLIENTE</label> <input
-									type="text" id="txtIdCliente" name="txtIdCliente"
+								<label style="font-size: 12px;">FECHA DE INICIO DEL TRASLADO</label>
+								   <input
+									type="text" id="txtFechaTraslado" name="txtFechaTraslado" id="txtFechaTraslado"
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar ID CLIENTE"
-									required="requerid" maxlength="20"
-									value="${sessionScope.sSOR_idCliente}"
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20" 
+									value="${x.fecInicioTraslado}"
+									>
+							</div>
+							
+							
+						    <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">ID VEHICULO</label> <input
+								    id="txtIdVehiculo" name="txtIdVehiculo"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20" value="${x.idVeh}"
 									>
 							</div>
 							
 							
 						<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">TIPO DE CLIENTE</label> <input
+								<label style="font-size: 12px;">Nº PLACA DEL VEHICULO</label> <input
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="ingresar tipo de cliente"
-									required="requerid" maxlength="20"
-									value="${sessionScope.sSOR_tipoCliente}"
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20" value="${x.placaVeh}"
 									>
 							</div>
 							
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">NOMBRE COMPLETO</label> <input
+								<label style="font-size: 12px;">ID EMPLEADO</label> <input
+								    id="txtIdEmpleado" name="txtIdEmpleado"
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;" placeholder="seleccionar cliente"
+									style="font-size: 16px;" 
 									required="requerid" maxlength="20"
-									value="${sessionScope.sSOR_nombreCompleto}"
+									value="${x.idEmpleado}"
 									>
 							</div>
-                         </div>
-
-						<div class="row">
+							
 							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">DIRECCION DE RECOJO</label> 
-								<libreria:CboDireccionesCliente idCliente="${sessionScope.sSOR_idCliente}"/>
-							</div>
-
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">FECHA DE RECOJO</label> <input
-									type="text" id="txtFechaRecojo" name="txtFechaRecojo"
+								<label style="font-size: 12px;">Nº DE LICENCIA DEL CONDUCTOR</label> <input
 									class="input-sm form-control mask-phone"
-									style="font-size: 16px;"
-									placeholder="ingresar fecha de recojo" required="requerid"
-									value="${sessionScope.s_txtFechaRecojo}"
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20"
+									value="${x.licenCondEmpleado}"
 									>
 							</div>
-
-							<div class="col-md-3 m-b-15">
-								<label style="font-size: 12px;">HORA DE RECOJO</label> 
-								<input
-									type="text" id="txtHoraRecojo" name="txtHoraRecojo"
-									class="input-sm form-control mask-date"
-									style="font-size: 16px;"
-									placeholder="ingresar hora de recojo" required="requerid"
-									value="${sessionScope.s_txtHoraRecojo}"
-									>
-							</div>
-
-
 					</div>	
 					</div>
+					<!--FIN DE LOS DATOS GENERALES DEL GRT  -->
 					
 			
-			<!-- DETALLE DE ORDEN DE RECOJO -->  
+			<!-- CLIENTE REMITENTE -->  
             <br>
 			<hr class="whiter m-t-20" /> 
 			<br><br>                  
             <div class="block-area">
-						<h3 class="block-title">DETALLE DE ORDEN DE RECOJO</h3>
-						<br><br> 
-						<br>
+						<h3 class="block-title">CLIENTE REMITENTE</h3>
+						<br><br>   
+						<div class="row">
+						
+					
+												
+						<div class="col-md-3 m-b-15">
+						<label style="font-size: 12px;">TIPO DE DOCUMENTO</label>	
+						<c:choose>
+						      <c:when test="${x.idTipoCliente=='1'}">
+						      <input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="JURIDICO"
+									>
+						      </c:when>
+						
+						      <c:when test="${x.idTipoCliente=='2'}">
+						            <input
+											type="text" 
+											class="input-sm form-control mask-date"
+											style="font-size: 16px;"
+											value="NATURAL"
+									>
+						       </c:when>
+						       <c:otherwise>
+						       <input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									placeholder="seleccione una orden de recojo"
+								>
+
+						      </c:otherwise>
+						      
+						</c:choose>
+						</div>		
+							
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Nº DE DOCUMENTO</label>
+								<input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.numDocumentoCliRemitente}"
+									>
+							</div>
+							
+							
+						   <div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">ID CLIENTE</label>
+								<input
+									type="text" id="txtIdClienteRemi" name="txtIdClienteRemi"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.idCliRemitente}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">NOMBRE COMPLETO</label>
+								<input
+									type="text" 
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.nomCliRemitente} ${x.apePaCliRemitente} ${x.apeMaCliRemitente}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">DIRECCION</label>
+								<input
+									type="text" id="txtDireccionRemitente" name="txtDireccionRemitente"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.direcCliRemitente}"
+									>
+
+							</div>
+						
+						</div>
+
+						
+						</div>	
+						
+						
+			<!-- Cliente Destinatario -->
+            <br>
+			<hr class="whiter m-t-20" /> 
+			<br><br>                  
+            <div class="block-area">
+						<h3 class="block-title">CLIENTE DESTINATARIO</h3>
+						<br><br>   
+						<div class="row">
+						
+						
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">TIPO DE DOCUMENTO</label>
+								<libreria:CboTipoDocumento idTipoDocumento="${x.idTipoDocIdCliDestinatario}"/>
+							</div>
+						
+						
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">Nº DE DOCUMENTO</label>
+								<input
+									type="text" id="txtNumDocumentoCliDest" name="txtNumDocumentoCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;" value="${x.numDocCliDestinatario}"
+									>
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">NOMBRE</label>
+								<input
+									type="text" id="txtNomCliDestinatario" name="txtNomCliDestinatario"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;" value="${x.nomCliDestinatario}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">A. PATERNO</label>
+								<input
+									type="text" id="txtApePaCliDest" name="txtApePaCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;" value="${x.apepaCliDestinatario}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">A. MATERNO</label>
+								<input
+									type="text" id="txtApeMaCliDest" name="txtApeMaCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;" value="${x.apemaCliDestinatario}"
+									>
+
+							</div>
+							
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">DIRECCION</label>
+								<input
+									type="text" id="txtDireccionCliDest" name="txtDireccionCliDest"
+									class="input-sm form-control mask-date"
+									style="font-size: 16px;"
+									value="${x.direcClienteDestinatario}"
+									>
+
+							</div>
+						
+						</div>
+
+						
+						</div>	
+						
+					
+					
+					<br>
+					<hr class="whiter m-t-20" />
+                    <div class="block-area">
+					<h3 class="block-title">FECHAS DE ENTREGA</h3>	
+					<br><br>
+
+						
+						<div class="row">
+							<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">FECHA MINIMA DE ENTREGA</label>
+								 <input
+									type="text" id="txtFechaMinEntrega" name="txtFechaMinEntrega"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;"
+									required="requerid" maxlength="20" value="${x.fecMinEntrega}" >
+							</div>
+							
+							
+						<div class="col-md-3 m-b-15">
+								<label style="font-size: 12px;">FECHA MAXIMA DE ENTREGA</label> 
+								<input
+								    id="txtFechaMaxEntrega" name="txtFechaMaxEntrega"
+									class="input-sm form-control mask-phone"
+									style="font-size: 16px;" 
+									required="requerid" maxlength="20" value="${x.fecMaxEntrega}"
+									>
+							</div>
+					</div>	
+					</div>	
+						
+						
+						
+			 <!-- EQUIPO PERSONAL DE RECOJO -->
+            <br>
+			<hr class="whiter m-t-20" /> 
+			<br><br>                  
+            <div class="block-area">
+						<h3 class="block-title">EQUIPO PERSONAL DE TRASLADO</h3>
+						<br><br><br>   
 						<div class="row">
 							<table id="tabla" class="table table-bordered table-hover tile">
 								<thead>
 									<tr>
-									    <td>DESCRIPCION DE TRASLADO</td>
-									    <td>CANTIDAD</td>
-										<td>DESCRIPCION DE UNIDAD DE MEDIDA</td>
-										<td>PESO EN KG</td>
-										<td>OPERACION</td>
-
+										<td>ID EMPLEADO</td>
+										<td>TIPO DE EMPLEADO</td>
+										<td>NOMBRE COMPLETO</td>
+									
 									</tr>
 									
-								   <c:forEach items="${sessionScope.listadoDOR}" var="lista">
+									<c:forEach items="${x.listadoEquipoPersonalTraslado}" var="listaPersonalTrasladoGRT">
 									<tr>
-										<td>${lista.descripcionTraslado}</td>
-										<td>${lista.cantidad}</td>
-										<td>${lista.descTipoUnidadMedida }</td>
-										<td>${lista.pesoKg}</td>
-                                        <td><a class='elimina' onclick='fn_eliminar()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>									
-                                   </tr>
-                                  </c:forEach>
+	                                    <td>${listaPersonalTrasladoGRT.idEmpleado}</td>
+	                                    <td>${listaPersonalTrasladoGRT.descTipoEmpleado}</td>
+	                                    <td>${listaPersonalTrasladoGRT.nomEmpleado} ${listaPersonalTrasladoGRT.apePaEmpleado} ${listaPersonalTrasladoGRT.apeMaEmpleado}</td>
+									</tr>	
+									</c:forEach>
+ 
 								</thead>
 							</table>
 						</div>
-                        </div>		
+                        </div>			
+						
 					
             <!-- EQUIPO PERSONAL DE RECOJO -->
             <br>
 			<hr class="whiter m-t-20" /> 
 			<br><br>                  
             <div class="block-area">
-						<h3 class="block-title">EQUIPO DE PERSONAL DE RECOJO</h3>
-						<br><br> 
+						<h3 class="block-title">DESCRIPCION GENERAL DEL TRASLADO</h3>
+						<br><br>   
 						<br>
 						<div class="row">
-							<table id="tablaEquipoPersonal" class="table table-bordered table-hover tile">
+							<table id="tablaDGRT" class="table table-bordered table-hover tile">
 								<thead>
 									<tr>
-										<td>ID EMPLEADO</td>
-										<td>TIPO DE EMPLEADO</td>
-										<td>NOMBRE COMPLETO</td>
-										<td>OPERACION</td>
-
+										<td>DESCRIPCION DE TRASLADO</td>
+										<td>CANTIDAD</td>
+										<td>UNIDAD DE MEDIDA</td>
+										<td>PESO EN KG</td>
+										<td>G. REMITENTE</td>
+										<td>FACTURA</td>
 									</tr>
 									
-									<c:forEach items="${sessionScope.listadoOR_EquipoPersonal}" var="lista">
+									<c:forEach items="${x.listadoDGRT}" var="listaDGRT">
 									<tr>
-										<td>${lista.idEmpleado}</td>
-										<td>${lista.descTipoEmpleado}</td>
-										<td>${lista.nomCompleto }</td>
-                                        <td><a class='eliminaEquipoPersonal' onclick='fn_eliminarEquipoPersonal()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>									</tr>
+									<td>${listaDGRT.descTraslado}</td>
+									<td>${listaDGRT.cantidad}</td>
+									<td>${listaDGRT.descTipoUnidadMedida}</td>
+									<td>${listaDGRT.pesoKg}</td>
+									<td>${listaDGRT.numCodGR}</td>
+									<td>${listaDGRT.numCodFT}</td>
+									</tr>
+										
 									</c:forEach>
  
 								</thead>
@@ -304,43 +490,7 @@
                         
                         
                         
-            <!-- Equipo de vehiculo -->  
-            <br>
-			<hr class="whiter m-t-20" /> 
-			<br><br>                  
-            <div class="block-area">
-						<h3 class="block-title">EQUIPO DE VEHICULO DE RECOJO</h3>
-						<br><br> 
-						<br>
-						<div class="row">
-							<table id="tablaEquipoVehicular" class="table table-bordered table-hover tile">
-								<thead>
-									<tr>
-										<td>ID VEHICULO</td>
-										<td>PLACA DE VEHICULO</td>
-										<td>CATEGORIA DEL VEHICULO</td>
-										<td>OPERACION</td>
-									</tr>
-									
-									
-									
-									<c:forEach items="${sessionScope.listadoOR_EquipoVehicular}" var="lista">
-									<tr>
-										<td>${lista.idVehiculo}</td>
-										<td>${lista.placaVehiculo}</td>
-										<td>${lista.descCatVehiculo }</td>
-										<td><a class='eliminaEquipoVehicular' onclick='fn_eliminarEquipoVehicular()'><input type='button' class='btn btn-sm' value='Eliminar'/></a></td>
-									</tr>
-									</c:forEach>
-									
-
-								</thead>
-							</table>
-						</div>
-                        </div>
-
-                      
-                      
+           
                       
                       <!-- OPERACIONES  -->
                         <br><br><br><br><br><br>
@@ -367,6 +517,7 @@
 		</form>
 		<!--FIN DEL FORMULARIO  -->
 	</div>
+
 	
 	
 	<!-- Fin del contenedor del form --> <!--Chat  -->

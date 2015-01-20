@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.ha.backend.Sender;
+
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 import com.bonansa.beans.GuiaRemisionTransportistaDTO;
 import com.bonansa.beans.SolicitudOrdenRecojoDTO;
 import com.bonansa.services.GuiaRemisionTransportistaService;
 import com.google.gson.Gson;
+import com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe;
 
 /**
  * Servlet implementation class SvGestionaGRT
@@ -39,6 +42,10 @@ public class SvGestionaGRT extends HttpServlet {
 		{
 			registrar(request, response);
 		}
+		if (operacion.equals("registrarEntregaMercaderia")) 
+		{
+			registrarEntregaMercaderia(request, response);
+		}
 		else if(operacion.equals("listar"))
 		{
 		this.listar(request, response);	
@@ -56,17 +63,52 @@ public class SvGestionaGRT extends HttpServlet {
 	
 
 
+	private void registrarEntregaMercaderia(HttpServletRequest request, HttpServletResponse response) 
+	{
+		try 
+		{
+			String idGRT=request.getParameter("txtIdGRT");
+			
+			HttpSession miSesion=request.getSession();
+			String idEmpleadoR=(String)miSesion.getAttribute("idEmpleado");
+			
+			int r=sGRT.registrarEntregaMercaderia(idGRT, idEmpleadoR);
+			
+			if (r>0) 
+			{
+				request.setAttribute("mensaje", "Registro de GRT Actualizado");
+				request.getRequestDispatcher("pcEntregaMercaderia.jsp").forward(request, response);
+			}
+		}
+		catch (Exception e)
+		{
+		System.out.println("Error en registrarEntregaMercaderia SvGestionaGRT: "+e);
+		}
+
+		
+	}
+
+
+
+
 	private void buscar(HttpServletRequest request, HttpServletResponse response) 
 	{
 			try 
 			{
+				String idGRT=request.getParameter("idGRT");
 				
-				System.out.println("Llego para buscar GRT");
+				GuiaRemisionTransportistaDTO regGrt=sGRT.buscarGRT(idGRT);
+				if (regGrt!=null) 
+				{
+					request.setAttribute("r_regGrt", regGrt);
+					request.getRequestDispatcher("pcEntregaMercaderia.jsp").forward(request, response);	
+				}
+				
 				
 			} 
 			catch (Exception e) 
 			{
-				
+				System.out.println("Error en buscar SvGestionaGRT: "+e);
 			}
 		
 	}

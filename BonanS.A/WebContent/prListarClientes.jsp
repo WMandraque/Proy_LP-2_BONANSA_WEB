@@ -185,7 +185,7 @@
 															<td class="center">
 																<div class="visible-md visible-lg hidden-sm hidden-xs">
 																	<div class="btn-group">
-																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" onclick="location='gestionaOrdenRecojo?operacion=buscarCliente&idCliente=${lista.idCliente}&nombreCompleto=${lista.nomCliente} ${lista.apePatCliente} ${lista.apeMatCliente}&tipoCliente=${lista.descTipoCliente}'">
+																		<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" onclick="location='gestionaOrdenRecojo?operacion=buscarCliente&nivel=RECEPCIONISTA&idCliente=${lista.idCliente}&nombreCompleto=${lista.nomCliente} ${lista.apePatCliente} ${lista.apeMatCliente}&tipoCliente=${lista.descTipoCliente}'">
 																			<i ></i><span >Seleccione</span>
 																		</a>
 																	</div>

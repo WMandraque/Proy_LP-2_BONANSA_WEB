@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="WEB-INF/libreria.tld" prefix="libreria"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,7 +34,7 @@
 	src="js/mylibs/paRegistrarCliente.js"></script>
 <script language="javascript" type="text/javascript"
 	src="js/mylibs/gestionaUbigeo.js"></script>
-   
+
 <!-- <script src="js/mylibs/validaciones.js"></script>
  -->
 </head>
@@ -44,12 +44,12 @@
 
 	<div class="media-body">
 		<div class="media" id="top-menu">
-			
+
 			<div id="time" class="pull-right">
 				<span id="hours"></span> : <span id="min"></span> : <span id="sec"></span>
 			</div>
 
-			
+
 		</div>
 	</div>
 	</header>
@@ -61,8 +61,10 @@
 
 	<div class="side-widgets overflow">
 		<!-- Profile Menu -->
-		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">                                                                                                       
-			<a href="" data-toggle="dropdown">                             <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
+		<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+			<a href="" data-toggle="dropdown"> <img
+				class="profile-pic animated"
+				src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
 
 			</a>
 			<ul class="dropdown-menu profile-menu">
@@ -72,17 +74,18 @@
 					class="icon right">&#61815;</i></li>
 				<li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i
 					class="icon right">&#61815;</i></li>
-				<li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+				<li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i
+					class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
 
 			</ul>
 
-                        <h5 class="m-0" style="color: orange;">Nombre completo:</h5>
-                        <h5 class="m-0">${sessionScope.nombreCompleto}</h5>
- 
-                        <br>
-                        
-                        <h5 class="m-0" style="color: orange;">Tipo:</h5>
-                        <h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
+			<h5 class="m-0" style="color: orange;">Nombre completo:</h5>
+			<h5 class="m-0">${sessionScope.nombreCompleto}</h5>
+
+			<br>
+
+			<h5 class="m-0" style="color: orange;">Tipo:</h5>
+			<h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
 
 		</div>
 		<div class="s-widget m-b-25">
@@ -93,45 +96,66 @@
 		<ul class="menu">
 
 			<a href="mpAdministrador.jsp">Inicio</a>
-			
-			
-				<li class="item2"><a href="#">Gestion de Orden recojo</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
-				</ul></li>
-			
-			    <li class="item2"><a href="#">Mantenimiento Clientes</a>
-				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
-				</ul>
-				</li>
-			
 
-			<li class="item2"><a href="#">Mantenimiento de Usuario</a>
+			<li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">RegistrarCliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
+					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar
+							Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Actualizar Solicitud de
+							recojo</a></li>
+					<li class="subitem2"><a href="#">Eliminar Solicitud de
+							recojo</a></li>
+					<li class="subitem2"><a
+						href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar
+							Ordenes de recojo</a></li>
+				</ul></li>
+
+			<li class="item3"><a href="#">Gestion de Transporte</a>
+				<ul>
+					<li class="subitem2"><a href="#">Actualizar GRT</a></li>
+					<li class="subitem2"><a href="#">Eliminar GRT</a></li>
+					<li class="subitem1"><a
+						href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar
+							GRT</a></li>
+
+				</ul></li>
+
+
+
+			<li class="item3"><a href="#">Control de Ruta</a>
+				<ul>
+
+				</ul></li>
+
+			<li class="item2"><a href="#">Mantenimiento Clientes</a>
+				<ul>
+					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar
+							Cliente</a></li>
+					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar
+							Cliente</a></li>
+					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar
+							Cliente</a></li>
+					<li class="subitem3"><a
+						href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
 				</ul></li>
 
 
 			<li class="item3"><a href="#">Mantenimiento Empleados</a>
 				<ul>
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-                    <li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar
+							Empleado</a></li>
+					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar
+							Empleado</a></li>
+					<li class="subitem3"><a
+						href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
 				</ul></li>
-				
-				
-		  <li class="item3"><a href="#">Mantenimiento Usuario</a>
+
+
+			<li class="item3"><a href="#">Mantenimiento Usuario</a>
 				<ul>
+
 					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
 							Usuario</a></li>
 					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
@@ -140,9 +164,8 @@
 							Usuario</a></li>
 					<li class="subitem3"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
-				</ul>
-			</li>
 
+				</ul></li>
 
 			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
 				<ul>
@@ -185,88 +208,93 @@
 
 		<!-- FORMULARIO  -->
 		<form action="gestionaUsuario" method="post">
-		<input type="hidden" name="operacion" value="actualizar">
-		<c:set var="x" value="${requestScope.usuarioX}"/>
+			<input type="hidden" name="operacion" value="actualizar">
+			<c:set var="x" value="${requestScope.usuarioX}" />
 			<fieldset>
 
-				<legend class="block-title" style="color: white;">Actualizar usuario</legend>
+				<legend class="block-title" style="color: white;">Actualizar
+					usuario</legend>
 
 
-				
-					<!--Contenedor de datos generales  -->
+
+				<!--Contenedor de datos generales  -->
 
 
-					<h3 class="block-title">Datos generales</h3>
-					<br><br>
-					
-					<div class="block-area">
-		                   <div class="row">
-		                   	  <div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ID USUARIO</label>
-		                            <input type="text" name="txtIdUsuario" id="txtIdUsuario" class="input-sm form-control mask-date_time" placeholder="ingresar usuario" required="requerid" value="${x.idEmpleado}">
-		                        </div>
-		                        
-		                        
-		                       <div class="col-md-3 m-b-15">
-                                   <br>
-		                           <input type="button" class="btn" value="Buscar Usuario" onclick="location='gestionaUsuario?operacion=listar'">
-		                        </div>
-		                        
-		                   </div>
-		            </div>
-		            
-		            
-	
-		          
-		             <hr class="whiter m-t-20" />
-		                    
-		                    
-		             <div class="block-area">
-		             <div class="row">
-		             
+				<h3 class="block-title">Datos generales</h3>
+				<br>
+				<br>
 
-								
-								<div class="col-md-3 m-b-15">
-		                            <label style="font-size: 12px;">ROL</label>
-		                            <libreria:CboRolUsuario idRol="${x.idRol}"/>
-                               </div> 
-		                   
-		                   
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">CONTRASEÑA</label>
-		                        <input type="password" id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;" placeholder="ingresar contraseña" required="requerid" maxlength="20"
-		                               value="${x.clave}"
-		                         >
-		                        </div>
-		                        
-		                        <div class="col-md-3 m-b-15">
-		                        <label style="font-size: 12px;">ESTADO</label>
-		                        <libreria:cboEstado idEstado="${x.idEstado}"/>
-		                        </div>
-
-
-                       </div>
-                       </div>
-                    
-                      <c:set var="mensaje" value="${requestScope.mensaje}"/>
-				      <c:if test="${mensaje!=null}">
-				                      <div class="block-area" >
-									       <div class="alert alert-success" style="font-size: 20px;">
-									        <center>${mensaje}</center>
-									       </div>
-				                   </div>
-				      </c:if> 
-		            
-					
-						<hr class="whiter m-t-20" />
-						<!--Botones  -->
-						<div class="block-area">
-							<input class="btn btn-sm" type="submit" value="ACTUALIZAR">
-							<input class="btn btn-sm" type="reset" value="LIMPIAR">
+				<div class="block-area">
+					<div class="row">
+						<div class="col-md-3 m-b-15">
+							<label style="font-size: 12px;">ID USUARIO</label> <input
+								type="text" name="txtIdUsuario" id="txtIdUsuario"
+								class="input-sm form-control mask-date_time"
+								placeholder="ingresar usuario" required="requerid"
+								value="${x.idEmpleado}">
 						</div>
 
-					
+
+						<div class="col-md-3 m-b-15">
+							<br> <input type="button" class="btn" value="Buscar Usuario"
+								onclick="location='gestionaUsuario?operacion=listar'">
+						</div>
+
+					</div>
+				</div>
+
+
+
+
+				<hr class="whiter m-t-20" />
+
+
+				<div class="block-area">
+					<div class="row">
+
+
+
+						<div class="col-md-3 m-b-15">
+							<label style="font-size: 12px;">ROL</label>
+							<libreria:CboRolUsuario idRol="${x.idRol}" />
+						</div>
+
+
+						<div class="col-md-3 m-b-15">
+							<label style="font-size: 12px;">CONTRASEÑA</label> <input
+								type="password" id="txtClave" name="txtClave"
+								class="input-sm form-control mask-phone"
+								style="font-size: 16px;" placeholder="ingresar contraseña"
+								required="requerid" maxlength="20" value="${x.clave}">
+						</div>
+
+						<div class="col-md-3 m-b-15">
+							<label style="font-size: 12px;">ESTADO</label>
+							<libreria:cboEstado idEstado="${x.idEstado}" />
+						</div>
+
+
+					</div>
+				</div>
+
+				<c:set var="mensaje" value="${requestScope.mensaje}" />
+				<c:if test="${mensaje!=null}">
+					<div class="block-area">
+						<div class="alert alert-success" style="font-size: 20px;">
+							<center>${mensaje}</center>
+						</div>
+					</div>
+				</c:if>
+
+
+				<hr class="whiter m-t-20" />
+				<!--Botones  -->
+				<div class="block-area">
+					<input class="btn btn-sm" type="submit" value="ACTUALIZAR">
+					<input class="btn btn-sm" type="reset" value="LIMPIAR">
+				</div>
+
+
 
 			</fieldset>
 		</form>
@@ -352,8 +380,8 @@
 					<img class="pull-right" src="img/profile-pics/2.jpg" width="30"
 						alt="" />
 					<div class="media-body">
-						I'm Fine bro <br />Thank you for asking <small>Me - 8 Mins
-							ago</small>
+						I'm Fine bro <br />Thank you for asking <small>Me - 8
+							Mins ago</small>
 					</div>
 				</div>
 
@@ -460,9 +488,9 @@
 	<script src="js/functions.js"></script>
 	<script src="js/depmain.js"></script>
 
-        
-        
-    
+
+
+
 
 </body>
 </html>

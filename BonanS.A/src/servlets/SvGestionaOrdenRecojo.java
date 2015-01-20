@@ -738,6 +738,8 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 			//Capturamos la session actual
 			HttpSession sesionX=request.getSession();
 			
+			String nivel=request.getParameter("nivel");
+			if (nivel==null) {nivel="";}
 			String idCliente=request.getParameter("idCliente");
 			String nombreCompleto=request.getParameter("nombreCompleto");
 			String tipoCliente=request.getParameter("tipoCliente");
@@ -746,7 +748,16 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 			sesionX.setAttribute("sSOR_nombreCompleto", nombreCompleto);
 			sesionX.setAttribute("sSOR_tipoCliente", tipoCliente);
 			
-			request.getRequestDispatcher("prRegistrarSolicitudRecojo.jsp").forward(request, response);
+			if(nivel.equals("ADMINISTRADOR"))
+			{
+				request.getRequestDispatcher("paRegistrarSolicitudRecojo.jsp").forward(request, response);
+			}
+			else if(nivel.equals("RECEPCIONISTA"))
+			{
+				request.getRequestDispatcher("prRegistrarSolicitudRecojo.jsp").forward(request, response);
+
+			}
+			
 			
 
 		} 

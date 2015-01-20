@@ -30,7 +30,7 @@ function fnc_capturarDatosDescripcionTraslado()
 		                 "txtFechaRecojo="+txtFechaRecojo
 		              +  "&txtHoraRecojo="+txtHoraRecojo,
 			success : function() {
-				location.href='gestionaOrdenRecojo?operacion=listarEmpleados';
+				location.href='gestionaEmpleado?operacion=listar';
 			}
 		});
 		
