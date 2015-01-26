@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.bonansa.beans.UsuarioDTO;
 import com.bonansa.services.UsuarioService;
 
+import extras.ServicioEntidades;
+
 /**
  * Servlet implementation class SvGestionaUsuario
  */
@@ -22,6 +24,8 @@ public class SvGestionaUsuario extends HttpServlet {
 
 
 	UsuarioService sUsuario=new UsuarioService();
+	ServicioEntidades servicioEntidad=new ServicioEntidades();
+
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -199,6 +203,15 @@ public class SvGestionaUsuario extends HttpServlet {
 						sesionX.setAttribute("tipoEmpleado", usuarioX.getDescRol());
 						
 						if (usuarioX.getDescRol().equals("ADMINISTRADOR") && usuarioX.getDescEstado().equals("ACTIVO")) {
+							
+							int cantidadLogueos=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where tipo='Loguin' and fecha=curdate()");
+							int cantidadSOR=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%SOR Registrado%' and fecha=curdate()");
+							int cantidadGRT=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%GRT Registrado:%' and fecha=curdate()");
+
+
+							sesionX.setAttribute("s_cantidadLogueos", cantidadLogueos);
+							sesionX.setAttribute("s_cantidadSOR", cantidadSOR);
+							sesionX.setAttribute("s_cantidadGRT", cantidadGRT);
 							request.getRequestDispatcher("mpAdministrador.jsp").forward(request, response);
 						}
 						else if(usuarioX.getDescRol().equals("RECEPCIONISTA") && usuarioX.getDescEstado().equals("ACTIVO")){

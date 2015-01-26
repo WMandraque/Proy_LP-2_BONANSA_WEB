@@ -73,8 +73,7 @@
     <servlet-name>gestionaOrdenRecojo</servlet-name>
     <url-pattern>/gestionaOrdenRecojo</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>gestionaGRT</servlet-name>
     <servlet-class>servlets.SvGestionaGRT</servlet-class>
   </servlet>
@@ -82,4 +81,15 @@
     <servlet-name>gestionaGRT</servlet-name>
     <url-pattern>/gestionaGRT</url-pattern>
   </servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>gestionaServicios</servlet-name>
+    <servlet-class>servlets.SvGestionaServicios</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gestionaServicios</servlet-name>
+    <url-pattern>/gestionaServicios</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

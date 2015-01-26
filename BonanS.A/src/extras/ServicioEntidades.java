@@ -52,6 +52,38 @@ public class ServicioEntidades {
 	
 	
 	
+	public int countQuery(String query)
+	{
+		int cantidad=0;
+		try 
+		{
+			con=MySQLConexion.getConexion();
+			pst=con.prepareStatement(query);
+			ResultSet rs=pst.executeQuery();
+			if(rs.next()) 
+			{
+				cantidad=rs.getInt(1);
+				
+			}
+			rs.close();
+		} 
+		catch (Exception e) 
+		{
+			System.out.println("error en CounterQuery(): "+e);
+		}
+		finally{
+			try {
+				if(con!=null){con.close();}
+				if(pst!=null){pst.close();}
+			} catch (Exception e2) {
+				System.out.println("Error al cerrar conexones: "+e2);
+			}
+		}
+		return cantidad;
+	}
+	
+	
+	
 	
 	
 	

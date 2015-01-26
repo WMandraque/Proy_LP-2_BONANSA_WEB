@@ -267,6 +267,8 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 			String[] direccionRecojo=direccionRecojoUbigeo.split(":");
 			String fechaRecojo=request.getParameter("txtFechaRecojo");
 			String horaRecojo=request.getParameter("txtHoraRecojo");
+			String nivel=request.getParameter("nivel");
+			if (nivel==null) {nivel="";}
 			
 			SolicitudOrdenRecojoDTO ordenRecojoX=new SolicitudOrdenRecojoDTO();
 			ordenRecojoX.setIdCliente(idCliente);
@@ -343,9 +345,18 @@ public class SvGestionaOrdenRecojo extends HttpServlet {
 		    miSesion.removeAttribute("sSOR_idCliente");
 		    miSesion.removeAttribute("sSOR_nombreCompleto");
 		    miSesion.removeAttribute("sSOR_tipoCliente");
+		    
+		    if (nivel.equals("ADMINISTRADOR")) {
+				request.getRequestDispatcher("paRegistrarSolicitudRecojo.jsp").forward(request, response);
+
+			}
+		    else
+		    {
+				request.getRequestDispatcher("prRegistrarSolicitudRecojo.jsp").forward(request, response);
+
+		    }
 	
 			
-			request.getRequestDispatcher("prRegistrarSolicitudRecojo.jsp").forward(request, response);
 			
 			System.out.println("Tamaño de la lista de traslados al finalizar: "+ cp_listadoDOR.size());
 			System.out.println("Tamaño de la lista de personal al finalizar: "+ cp_listadoOR_EquipoPersonal.size());

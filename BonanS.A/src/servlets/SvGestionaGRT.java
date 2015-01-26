@@ -58,9 +58,82 @@ public class SvGestionaGRT extends HttpServlet {
 		{
 		this.agregarGRyFACT(request, response);	
 		}
+		else if (operacion.equals("eliminarGRyFACT")) 
+		{
+		this.eliminarGRyFACT(request, response);	
+		}
 	}
 	
 	
+
+
+	private void eliminarGRyFACT(HttpServletRequest request,HttpServletResponse response) 
+	{
+		
+		try 
+		{
+
+					/**
+					 * Capturamos la session actual
+					 */
+					HttpSession miSesion=request.getSession();
+					/**
+					 * Capturamos el ArrayList de ListadoDGRT a nivel de session y casteamos
+					 */
+					ArrayList<GuiaRemisionTransportistaDTO> listadoDGRT=(ArrayList<GuiaRemisionTransportistaDTO>)miSesion.getAttribute("s_listadoGRT");
+		
+					//Capturamos los datos para actualizar una posicion del ArrayList
+					String descTraslado=request.getParameter("descTraslado");
+					String txtNumGr=request.getParameter("txtNumGr");
+					String txtNumFact=request.getParameter("txtNumFact");
+
+					
+					//Recoremos la lista que capturamos previamente a nivel de sesion
+					for (int i = 0; i < listadoDGRT.size(); i++) 
+					{
+						//Si es igual a la descripcin que capturamos, actualizaremos toda esa fila
+						//Con los numer de gr y facturas.
+						if (listadoDGRT.get(i).getDescTraslado().equals(descTraslado)) 
+						{
+							int    cantidad=listadoDGRT.get(i).getCantidad();
+							int    idTipoUnidadMedida=listadoDGRT.get(i).getIdTipoUnidadMedida();
+							String descTipoUnidadMedida=listadoDGRT.get(i).getDescTipoUnidadMedida();
+							double pesoKg=listadoDGRT.get(i).getPesoKg();
+							
+							
+							GuiaRemisionTransportistaDTO nuevolistadoDGRT=new GuiaRemisionTransportistaDTO();
+							
+							nuevolistadoDGRT.setDescTraslado(descTraslado);
+							nuevolistadoDGRT.setCantidad(cantidad);
+							nuevolistadoDGRT.setDescTipoUnidadMedida(descTipoUnidadMedida);
+							nuevolistadoDGRT.setIdTipoUnidadMedida(idTipoUnidadMedida);
+							nuevolistadoDGRT.setPesoKg(pesoKg);
+
+							
+							listadoDGRT.set(i, nuevolistadoDGRT);
+							
+						}
+						
+						
+						
+					}
+					
+					String json=obJson.toJson(listadoDGRT);
+					PrintWriter out;
+					
+					out = response.getWriter();
+					out.println(json);
+
+			
+		} 
+		catch (Exception e) 
+		{
+		System.out.println("Error en eliminarGRyFACT SvGestionaGRT: "+e);
+		}
+		
+	}
+
+
 
 
 	private void registrarEntregaMercaderia(HttpServletRequest request, HttpServletResponse response) 

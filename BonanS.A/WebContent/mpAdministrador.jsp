@@ -92,16 +92,16 @@
 			 <li class="item2"><a href="#">Gestion de Recojo</a>
 				<ul>
 					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li>
+					<!-- <li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li> -->
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 			
 			<li class="item3"><a href="#">Gestion de Transporte</a>
 				<ul>
-				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
-					<li class="subitem2"><a href="#">Eliminar GRT</a></li>
+<!-- 				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
+					<li class="subitem2"><a href="#">Eliminar GRT</a></li> -->
 				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
 					
 				</ul>
@@ -369,27 +369,27 @@
 		</div>
 	</div>
 
-	<h4 class="page-title">Mensaje de bienvenida....</h4>
+	<h1 class="page-title">Bienvenido Carlos Bonilla</h1>
 	<div class="block-area shortcut-area">
 		<center>
-
-			<a class="shortcut tile" href=""> <img
+            <center>Acciones Principales</center>
+			<a class="shortcut tile" href="paRegistrarCliente.jsp"> <img
 				src="img/shortcuts/money.png" alt=""> <small
-				class="t-overflow">Purchases</small>
-			</a> <a class="shortcut tile" href=""> <img
+				class="t-overflow">Cliente</small>
+			</a> <a class="shortcut tile" href="mpAdRegistrarEmpleado.jsp"> <img
 				src="img/shortcuts/twitter.png" alt=""> <small
-				class="t-overflow">Tweets</small>
-			</a> <a class="shortcut tile" href=""> <img
+				class="t-overflow">Empleado</small>
+			</a> <a class="shortcut tile" href="paRegistrarUsuario.jsp"> <img
 				src="img/shortcuts/calendar.png" alt=""> <small
-				class="t-overflow">Calendario</small>
-			</a> <a class="shortcut tile" href=""> <img
+				class="t-overflow">Vehiculo</small>
+			</a> <a class="shortcut tile" href="paRegistrarUsuario.jsp"> <img
 				src="img/shortcuts/stats.png" alt=""> <small
-				class="t-overflow">Statistics</small>
-			</a> <a class="shortcut tile" href=""> <img
+				class="t-overflow">Usuario</small>
+			</a> <a class="shortcut tile" href="prRegistrarSolicitudRecojo.jsp"> <img
 				src="img/shortcuts/connections.png" alt=""> <small
-				class="t-overflow">Conexion</small>
-			</a> <a class="shortcut tile" href="paLog.jsp"> <img
-				src="img/shortcuts/reports.png" alt=""> <small
+				class="t-overflow">Orden Recojo</small>
+			</a> <a class="shortcut tile" href="gestionaLog?operacion=listar"> <img
+				src="img/shortcuts/reports.png" alt="" > <small
 				class="t-overflow">Log general</small>
 			</a>
 
@@ -402,8 +402,8 @@
 				<div class="tile quick-stats">
 					<div id="stats-line-2" class="pull-left"></div>
 					<div class="data">
-						<h2 data-value="98">0</h2>
-						<small>Tickets Today</small>
+						<h2 data-value="${sessionScope.s_cantidadLogueos}"></h2>
+						<small>N° Logueos Realizados hoy</small>
 					</div>
 				</div>
 			</div>
@@ -412,8 +412,8 @@
 				<div class="tile quick-stats media">
 					<div id="stats-line-3" class="pull-left"></div>
 					<div class="media-body">
-						<h2 data-value="1452">0</h2>
-						<small>Shipments today</small>
+						<h2 data-value="${sessionScope.s_cantidadSOR}">0</h2>
+						<small>N° de Solicitud de Orden Recojo</small>
 					</div>
 				</div>
 			</div>
@@ -424,8 +424,8 @@
 					<div id="stats-line-4" class="pull-left"></div>
 
 					<div class="media-body">
-						<h2 data-value="4896">0</h2>
-						<small>Ordenes del Dia</small>
+						<h2 data-value="${sessionScope.s_cantidadGRT}">0</h2>
+						<small>N° de GRT del dia</small>
 					</div>
 				</div>
 			</div>
@@ -435,7 +435,7 @@
 					<div id="stats-line" class="pull-left"></div>
 					<div class="media-body">
 						<h2 data-value="29356">0</h2>
-						<small>Sitios Visitados Hoy</small>
+						<small>N° de Incidencias del dia</small>
 					</div>
 				</div>
 			</div>
@@ -447,7 +447,7 @@
 			<div class="col-md-8">
 				<!-- Main Chart -->
 				<div class="tile">
-					<h2 class="tile-title">Statistics</h2>
+					<h2 class="tile-title"></h2>
 					<div class="tile-config dropdown">
 						<a data-toggle="dropdown" href="" class="tile-menu"></a>
 						<ul class="dropdown-menu pull-right text-right">
@@ -464,12 +464,12 @@
 							<ul class="list-unstyled">
 								<li class="m-b-10">Ventas Totales 1200 <span
 									class="pull-right text-muted t-s-0"> <i
-										class="fa fa-chevron-up"></i> +12%
+										class="fa fa-chevron-up"></i> +120%
 								</span>
 								</li>
 								<li><small> Local 640 <span
 										class="pull-right text-muted t-s-0"><i
-											class="fa m-l-15 fa-chevron-down"></i> -8%</span>
+											class="fa m-l-15 fa-chevron-down"></i> -80%</span>
 								</small>
 									<div class="progress progress-small">
 										<div class="progress-bar progress-bar-warning"
@@ -478,7 +478,7 @@
 									</div></li>
 								<li><small> Foreign 560 <span
 										class="pull-right text-muted t-s-0"> <i
-											class="fa m-l-15 fa-chevron-up"></i> -3%
+											class="fa m-l-15 fa-chevron-up"></i> -30%
 									</span>
 								</small>
 									<div class="progress progress-small">
@@ -491,194 +491,10 @@
 					</div>
 				</div>
 
-				<!-- Pies -->
-				<div class="tile text-center">
-					<div class="tile-dark p-10">
-						<div class="pie-chart-tiny" data-percent="86">
-							<span class="percent"></span> <span class="pie-title">Nuevos
-								Visitantes <i class="m-l-5 fa fa-retweet"></i>
-							</span>
-						</div>
-						<div class="pie-chart-tiny" data-percent="23">
-							<span class="percent"></span> <span class="pie-title">Bounce
-								Rate <i class="m-l-5 fa fa-retweet"></i>
-							</span>
-						</div>
-						<div class="pie-chart-tiny" data-percent="57">
-							<span class="percent"></span> <span class="pie-title">Correos
-								Enviados <i class="m-l-5 fa fa-retweet"></i>
-							</span>
-						</div>
-						<div class="pie-chart-tiny" data-percent="34">
-							<span class="percent"></span> <span class="pie-title">Estado
-								de Ventas <i class="m-l-5 fa fa-retweet"></i>
-							</span>
-						</div>
-						<div class="pie-chart-tiny" data-percent="81">
-							<span class="percent"></span> <span class="pie-title">New
-								Signups <i class="m-l-5 fa fa-retweet"></i>
-							</span>
-						</div>
-					</div>
-				</div>
 
-				<!--  Recent Postings -->
-				<div class="row">
-					<div class="col-md-6">
-						<div class="tile">
-							<h2 class="tile-title">Recent Postings</h2>
-							<div class="tile-config dropdown">
-								<a data-toggle="dropdown" href="" class="tile-menu"></a>
-								<ul class="dropdown-menu animated pull-right text-right">
-									<li><a href="">Actualizar</a></li>
-									<li><a href="">Ajustes</a></li>
-								</ul>
-							</div>
 
-							<div class="listview narrow">
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/1.jpg" alt="">
-									</div>
-									<div class="media-body">
-										<small class="text-muted">2 Hours ago by Adrien San</small><br />
-										<a class="t-overflow" href="">Cras molestie fermentum
-											nibh, ac semper</a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/2.jpg" alt="">
-									</div>
-									<div class="media-body">
-										<small class="text-muted">5 Hours ago by David Villa</small><br />
-										<a class="t-overflow" href="">Suspendisse in purus ut nibh
-											placerat</a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/3.jpg" alt="">
-									</div>
-									<div class="media-body">
-										<small class="text-muted">On 15/12/2013 by Mitch
-											bradberry</small><br /> <a class="t-overflow" href="">Cras
-											pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/4.jpg" alt="">
-									</div>
-									<div class="media-body">
-										<small class="text-muted">On 14/12/2013 by Mitch
-											bradberry</small><br /> <a class="t-overflow" href="">Cras
-											pulvinar euismod nunc quis gravida. </a>
-
-									</div>
-								</div>
-								<div class="media p-l-5">
-									<div class="pull-left">
-										<img width="40" src="img/profile-pics/5.jpg" alt="">
-									</div>
-									<div class="media-body">
-										<small class="text-muted">On 13/12/2013 by Mitch
-											bradberry</small><br /> <a class="t-overflow" href="">Integer a
-											eros dapibus, vehicula quam accumsan, tincidunt purus</a>
-
-									</div>
-								</div>
-								<div class="media p-5 text-center l-100">
-									<a href=""><small>VIEW ALL</small></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Tasks to do -->
-					<div class="col-md-6">
-						<div class="tile">
-							<h2 class="tile-title">Tareas Realizadas</h2>
-							<div class="tile-config dropdown">
-								<a data-toggle="dropdown" href="" class="tile-menu"></a>
-								<ul class="dropdown-menu pull-right text-right">
-									<li id="todo-add"><a href="">Agregar Nuevo</a></li>
-									<li id="todo-refresh"><a href="">Actualizar</a></li>
-									<li id="todo-clear"><a href="">Limpiar Todo</a></li>
-								</ul>
-							</div>
-
-							<div class="listview todo-list sortable">
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow"> <input type="checkbox">
-											Curabitur quis nisi ut nunc gravida suscipis
-										</label>
-									</div>
-								</div>
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow"> <input type="checkbox">
-											Suscipit at feugiat dewoo
-										</label>
-									</div>
-
-								</div>
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow"> <input type="checkbox">
-											Gravida wendy lorem ipsum seen
-										</label>
-									</div>
-
-								</div>
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow"> <input type="checkbox">
-											Fedrix quis nisi ut nunc gravida suscipit at feugiat purus
-										</label>
-									</div>
-
-								</div>
-							</div>
-
-							<h2 class="tile-title">Completed Tasks</h2>
-
-							<div class="listview todo-list sortable">
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow"> <input type="checkbox"
-											checked="checked"> Motor susbect win latictals bin
-											the woodat cool
-										</label>
-									</div>
-
-								</div>
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow"> <input type="checkbox"
-											checked="checked"> Wendy mitchel susbect win
-											latictals bin the woodat cool
-										</label>
-									</div>
-
-								</div>
-								<div class="media">
-									<div class="checkbox m-0">
-										<label class="t-overflow"> <input type="checkbox"
-											checked="checked"> Latictals bin the woodat cool for
-											the win
-										</label>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
+				
 				<div class="clearfix"></div>
 			</div>
 

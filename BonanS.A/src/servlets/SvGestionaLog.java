@@ -30,10 +30,7 @@ public class SvGestionaLog extends HttpServlet {
 		
 		try {
 			
-			String operacion=request.getParameter("operacion");
-			
-			System.out.println("Llego al servide del log");
-			
+			String operacion=request.getParameter("operacion");			
 			if(operacion.equals("listar")){
 				this.listar(request, response);
 			}

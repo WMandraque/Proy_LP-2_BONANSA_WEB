@@ -520,8 +520,8 @@
 										<td>${lista.pesoKg} Kg</td>
 										<td>${lista.numCodGR}</td>
 										<td>${lista.numCodFT}</td>
-										<td><a class='agregarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ASIGNAR'/></a></td>									
-                                        <td><a class='agregarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ASIGNAR'/></a></td>									
+										<td><a class='agregarGRyFACT' onclick='fn_agregarGRyFACT()'><input type='button' class='btn btn-sm' value='ASIGNAR'/></a></td>
+										<td><a class='eliminarGRyFACT' onclick='fn_eliminarGRyFACT()'><input type='button' class='btn btn-sm' value='ELIMINAR'/></a></td>
 									</c:forEach>
  
 								</thead>
