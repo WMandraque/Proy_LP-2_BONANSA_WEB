@@ -15,7 +15,7 @@
 <meta name="descripcion" content="Violate Responsive Admin Template">
 <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-<title>Registrar Incidencias</title>
+<title>Actualiza Incidencias</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/animate.min.css" rel="stylesheet">
@@ -92,21 +92,21 @@
 
 		<ul class="menu">
 
-			<a href="mpAdministrador.jsp">Inicio</a>
+			<a href="mpAdministrador.jsp"><img width="25" src="img/icon/home.png"> Inicio</a><br><br>
 			
-			 <li class="item2"><a href="#">Gestion de Recojo</a>
-				<ul>
+			 <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li>
+					<!-- <li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li> -->
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 			
-			<li class="item3"><a href="#">Gestion de Transporte</a>
-				<ul>
-				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
-					<li class="subitem2"><a href="#">Eliminar GRT</a></li>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/transporte.png"> Gestion de Transporte</a>
+			<ul class="main-menu mainmenu-menu">
+<!-- 				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
+					<li class="subitem2"><a href="#">Eliminar GRT</a></li> -->
 				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
 					
 				</ul>
@@ -114,14 +114,21 @@
 
 
 
-			<li class="item3"><a href="#">Control de Ruta</a>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					
+					<li class="subitem2"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
+				</ul>
+			</li>
+			
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="25" src="img/icon/chart.png">Reportes Grafico</a>
+				<ul>
+					<li class="subitem2"><a href="paReportesGraficos.jsp">Reportes Graficos</a></li>
 				</ul>
 			</li>
 
-			<li class="item2"><a href="#">Mantenimiento Clientes</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/clientes.png"> Mantenimiento Clientes</a>
+			<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
@@ -129,8 +136,8 @@
 				</ul></li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Empleados</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/empleados.png"> Mantenimiento Empleados</a>
+			<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
@@ -139,8 +146,8 @@
 			</li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Usuario</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/usuario.png"> Mantenimiento Usuario</a>
+			<ul class="main-menu mainmenu-menu">
 
 					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
 							Usuario</a></li>
@@ -153,8 +160,8 @@
 				</ul>
 			</li>
 
-			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/vehiculos.png"> Mantenimiento Vehiculos</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
 							Vehiculo</a></li>
 					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
@@ -166,8 +173,8 @@
 				</ul></li>
 
 
-			<li class="item4"><a href="#">Registro de acciones</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/acciones.png"> Registro de acciones</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
 							de logs</a></li>
 				</ul></li>
@@ -193,11 +200,12 @@
 	<div class="block-area" id="required">
 
 		<!-- FORMULARIO  -->
-		<form action="gestionaUsuario" method="post">
-			<input type="hidden" name="operacion" value="registrar">
+		<form action="gestionaIncidencia" method="post">
+			<input type="hidden" name="operacion" value="actualizar">
+			<input type="hidden" name="nivel" value="ADMINISTRADOR">
 			<fieldset>
 
-				<legend class="block-title" style="color: white;">Registrar Incidencia</legend>
+				<legend class="block-title" style="color: white;">Actualizar Incidencia</legend>
 
 
 				
@@ -208,12 +216,16 @@
 					<br><br>
 					
 					<div class="block-area">
-		                   <div class="row">
+		                   
 		                   	  <div class="col-md-3 m-b-15">
 		                            <label style="font-size: 12px;">ID INCIDENCIAS</label>
-		                            <input type="text" style="font-size: 12px;text-align: center;" name="txtIdUsuario" id="txtIdUsuario" class="input-sm form-control mask-date_time" placeholder=">>AUTOGENERADO<<" required="requerid" readonly="readonly">
+		                            <input type="text" id="txtIdIncidencia" name="txtIdIncidencia" value="${param.idIncidencia}" style="font-size: 16px;" name="txtIdUsuario" id="txtIdUsuario" class="input-sm form-control mask-date_time" required="requerid">
 		                        </div>
-		                   </div>
+		                   
+		                   		<div class="col-md-3 m-b-15">
+                                   <br>
+		                           <input type="button" class="btn" value="Buscar Incidencia" onclick="location='gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR'">
+		                        </div>
 		            </div>
 		            
 		            
@@ -223,7 +235,7 @@
 		                    
 		                    
 		             <div class="block-area">
-		             <div class="row">
+		            
 		             
 
 							
@@ -231,32 +243,38 @@
 		                   
 		                        <div class="col-md-3 m-b-15">
 		                        <label style="font-size: 12px;">ID EMPLEADO</label>
-		                        <input type="password" id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;"  required="requerid" maxlength="20">
+		                        <input type="text" id="txtIdEmpleado" name="txtIdEmpleado"  class="input-sm form-control mask-phone" 
+		                               style="font-size: 16px;" value="${param.idEmpleado}">
 		                        </div>
 		                        
 		                        
 		                        <div class="col-md-3 m-b-15">
 		                        <label style="font-size: 12px;">DIRECCION</label>
-		                        <input type="password" id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;"  required="requerid" maxlength="20">
+		                        <input type="text" id="txtDireccion" name="txtDireccion" class="input-sm form-control mask-phone" 
+		                               style="font-size: 16px;"  required="requerid" maxlength="20" value="${param.direccion}">
 		                        </div>
 
 		                        
 		                        <div class="col-md-3 m-b-15">
 		                        <label style="font-size: 12px;">FECHA</label>
-		                        <input type="password" id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;"  required="requerid" maxlength="20">
+		                        <input type="text"  id="txtFecha" name="txtFecha" class="input-sm form-control mask-phone" 
+		                               style="font-size: 16px;" value="${param.fecha}">
 		                        </div>
 		                        
 		                        <div class="col-md-3 m-b-15">
 		                        <label style="font-size: 12px;">HORA</label>
-		                        <input type="password" id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;"  required="requerid" maxlength="20">
+		                        <input type="text" name="txtHora" id="txtHora" class="input-sm form-control mask-phone" 
+		                               style="font-size: 16px;" value="${param.hora}">
+		                        </div>
+		                        
+		                        
+		                        <div class="col-md-3 m-b-15">
+		                        <label style="font-size: 12px;">ESTADO</label>
+		                        <libreria:CboEstadoIncidencia idEstadoIncidencia="${param.idEstadoIncidencia}"/>
 		                        </div>
 
 
-                       </div>
+                      
                        </div>
                        
                        
@@ -268,8 +286,8 @@
 		             			                        
 		                        <div class="block-area">
 		                        <label style="font-size: 12px;">DESCRIPCION</label>
-		                        <textarea id="txtClave" name="txtClave" class="input-sm form-control mask-phone" 
-		                               style="font-size: 16px;"  required="requerid" maxlength="300"  rows="10" cols="40"></textarea>
+		                        <textarea id="txtDescripcion" name="txtDescripcion" class="input-sm form-control mask-phone" 
+		                                  style="font-size: 16px;"  required="requerid" maxlength="300"  rows="3" cols="40">${param.descripcion}</textarea>
 		                        </div>
 		                        
 		             
@@ -290,7 +308,7 @@
 						<hr class="whiter m-t-20" />
 						<!--Botones  -->
 						<div class="block-area">
-							<input class="btn btn-sm" type="submit" value="REGISTRAR">
+							<input class="btn btn-sm" type="submit" value="ACTUALIZAR">
 							<input class="btn btn-sm" type="reset" value="LIMPIAR">
 						</div>
 

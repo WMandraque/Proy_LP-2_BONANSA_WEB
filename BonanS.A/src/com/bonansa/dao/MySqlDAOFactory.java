@@ -4,6 +4,7 @@ import com.bonansa.beans.SolicitudOrdenRecojoDTO;
 import com.bonansa.interfaces.ClienteDAO;
 import com.bonansa.interfaces.EmpleadoDAO;
 import com.bonansa.interfaces.GuiaRemisionTransportistaDAO;
+import com.bonansa.interfaces.IncidenciaDAO;
 import com.bonansa.interfaces.LogDAO;
 import com.bonansa.interfaces.OrdenRecojoDAO;
 import com.bonansa.interfaces.UsuarioDAO;
@@ -51,6 +52,12 @@ public class MySqlDAOFactory extends DAOFactory {
 	public GuiaRemisionTransportistaDAO getGuiaRemisionTransportistaDAO() {
 		// TODO Auto-generated method stub
 		return new MySQLGuiaRemisionTransportistaDAO();
+	}
+
+	@Override
+	public IncidenciaDAO getIncidenciaDAO() {
+		// TODO Auto-generated method stub
+		return new MySQLIncidenciaDAO();
 	}
 
 }

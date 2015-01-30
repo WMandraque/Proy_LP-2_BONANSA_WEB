@@ -340,6 +340,8 @@ public class SvGestionaGRT extends HttpServlet {
 					String txtNumFact=request.getParameter("txtNumFact");
 
 					
+					System.out.println("Probando: "+txtNumFact+"  "+txtNumGr);
+					
 					//Recoremos la lista que capturamos previamente a nivel de sesion
 					for (int i = 0; i < listadoDGRT.size(); i++) 
 					{

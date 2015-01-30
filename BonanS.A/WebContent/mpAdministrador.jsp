@@ -25,6 +25,7 @@
 <link href="css/generics.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
+<link href="css/menu.css" rel ="stylesheet">
 </head>
 
 <body id="skin-blur-sunset">
@@ -87,10 +88,10 @@
 		<nav id="wrapper">
 		<ul class="menu">
 
-			<a href="mpAdministrador.jsp">Inicio</a>
+			<a href="mpAdministrador.jsp"><img width="25" src="img/icon/home.png"> Inicio</a><br><br>
 			
-			 <li class="item2"><a href="#">Gestion de Recojo</a>
-				<ul>
+			 <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					<!-- <li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li> -->
@@ -98,8 +99,8 @@
 				</ul>
 			</li>
 			
-			<li class="item3"><a href="#">Gestion de Transporte</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/transporte.png"> Gestion de Transporte</a>
+			<ul class="main-menu mainmenu-menu">
 <!-- 				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
 					<li class="subitem2"><a href="#">Eliminar GRT</a></li> -->
 				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
@@ -109,14 +110,21 @@
 
 
 
-			<li class="item3"><a href="#">Control de Ruta</a>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					
+					<li class="subitem2"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
+				</ul>
+			</li>
+			
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="25" src="img/icon/chart.png">Reportes Grafico</a>
+				<ul>
+					<li class="subitem2"><a href="paReportesGraficos.jsp">Reportes Graficos</a></li>
 				</ul>
 			</li>
 
-			<li class="item2"><a href="#">Mantenimiento Clientes</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/clientes.png"> Mantenimiento Clientes</a>
+			<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
@@ -124,8 +132,8 @@
 				</ul></li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Empleados</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/empleados.png"> Mantenimiento Empleados</a>
+			<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
@@ -134,8 +142,8 @@
 			</li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Usuario</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/usuario.png"> Mantenimiento Usuario</a>
+			<ul class="main-menu mainmenu-menu">
 
 					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
 							Usuario</a></li>
@@ -148,8 +156,8 @@
 				</ul>
 			</li>
 
-			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/vehiculos.png"> Mantenimiento Vehiculos</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
 							Vehiculo</a></li>
 					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
@@ -161,8 +169,8 @@
 				</ul></li>
 
 
-			<li class="item4"><a href="#">Registro de acciones</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/acciones.png"> Registro de acciones</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
 							de logs</a></li>
 				</ul></li>
@@ -369,28 +377,28 @@
 		</div>
 	</div>
 
-	<h1 class="page-title">Bienvenido Carlos Bonilla</h1>
+	<marquee behavior="slide"><h4 class="page-title">Bienvenido ${sessionScope.nombreCompleto}</h4></marquee>
 	<div class="block-area shortcut-area">
 		<center>
-            <center>Acciones Principales</center>
-			<a class="shortcut tile" href="paRegistrarCliente.jsp"> <img
-				src="img/shortcuts/money.png" alt=""> <small
-				class="t-overflow">Cliente</small>
-			</a> <a class="shortcut tile" href="mpAdRegistrarEmpleado.jsp"> <img
-				src="img/shortcuts/twitter.png" alt=""> <small
-				class="t-overflow">Empleado</small>
-			</a> <a class="shortcut tile" href="paRegistrarUsuario.jsp"> <img
-				src="img/shortcuts/calendar.png" alt=""> <small
-				class="t-overflow">Vehiculo</small>
-			</a> <a class="shortcut tile" href="paRegistrarUsuario.jsp"> <img
-				src="img/shortcuts/stats.png" alt=""> <small
-				class="t-overflow">Usuario</small>
-			</a> <a class="shortcut tile" href="prRegistrarSolicitudRecojo.jsp"> <img
-				src="img/shortcuts/connections.png" alt=""> <small
-				class="t-overflow">Orden Recojo</small>
-			</a> <a class="shortcut tile" href="gestionaLog?operacion=listar"> <img
-				src="img/shortcuts/reports.png" alt="" > <small
-				class="t-overflow">Log general</small>
+
+			<a class="shortcut tile" href=""> <img
+				src="img/shortcuts/clientes.png" alt=""> <small
+				class="t-overflow">Clientes</small>
+			</a> <a class="shortcut tile" href=""> <img
+				src="img/shortcuts/inicio.png" alt=""> <small
+				class="t-overflow">Inicio</small>
+			</a> <a class="shortcut tile" href=""> <img
+				src="img/shortcuts/tiempo.png" alt=""> <small
+				class="t-overflow">Calendario</small>
+			</a> <a class="shortcut tile" href=""> <img
+				src="img/shortcuts/registro.png" alt=""> <small
+				class="t-overflow">Estado</small>
+			</a> <a class="shortcut tile" href=""> <img
+				src="img/shortcuts/ajustes.png" alt=""> <small
+				class="t-overflow">Ajustes</small>
+			</a> <a class="shortcut tile" href="logueo.jsp"> <img
+				src="img/shortcuts/salir.png" alt=""> <small
+				class="t-overflow">Salir</small>
 			</a>
 
 		</center>
@@ -434,7 +442,7 @@
 				<div class="tile quick-stats media">
 					<div id="stats-line" class="pull-left"></div>
 					<div class="media-body">
-						<h2 data-value="29356">0</h2>
+						<h2 data-value="${sessionScope.s_cantidadIncidencias}">0</h2>
 						<small>N° de Incidencias del dia</small>
 					</div>
 				</div>
@@ -593,109 +601,7 @@
 		</div>
 	</div>
 
-	<div class="chat">
-
-		<!-- Chat List -->
-		<div class="pull-left chat-list">
-			<div class="listview narrow">
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/1.jpg" width="30"
-						alt="">
-					<div class="media-body p-t-5">Alex Bendit</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/2.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">David Volla Watkinson</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/3.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Mitchell Christein</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/4.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Wayne Parnell</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/5.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Melina April</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/6.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Ford Harnson</span>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Chat Area -->
-		<div class="media-body">
-			<div class="chat-header">
-				<a class="btn btn-sm" href=""> <i
-					class="fa fa-circle-o status m-r-5"></i> Chat with Friends
-				</a>
-			</div>
-
-			<div class="chat-body">
-				<div class="media">
-					<img class="pull-right" src="img/profile-pics/1.jpg" width="30"
-						alt="" />
-					<div class="media-body pull-right">
-						Hiiii<br /> How you doing bro? <small>Me - 10 Mins ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-left">
-					<img class="pull-left" src="img/profile-pics/2.jpg" width="30"
-						alt="" />
-					<div class="media-body">
-						I'm doing well buddy. <br />How do you do? <small>David -
-							9 Mins ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-right">
-					<img class="pull-right" src="img/profile-pics/2.jpg" width="30"
-						alt="" />
-					<div class="media-body">
-						I'm Fine bro <br />Thank you for asking <small>Me - 8 Mins
-							ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-right">
-					<img class="pull-right" src="img/profile-pics/2.jpg" width="30"
-						alt="" />
-					<div class="media-body">
-						Any idea for a hangout? <small>Me - 8 Mins ago</small>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="chat-footer media">
-				<i class="chat-list-toggle pull-left fa fa-bars"></i> <i
-					class="pull-right fa fa-picture-o"></i>
-				<div class="media-body">
-					<textarea class="form-control" placeholder="Type something..."></textarea>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	</section> </section>
 
 	<script src="js/jquery.min.js"></script>

@@ -6,6 +6,7 @@ import com.bonansa.beans.SolicitudOrdenRecojoDTO;
 import com.bonansa.interfaces.ClienteDAO;
 import com.bonansa.interfaces.EmpleadoDAO;
 import com.bonansa.interfaces.GuiaRemisionTransportistaDAO;
+import com.bonansa.interfaces.IncidenciaDAO;
 import com.bonansa.interfaces.LogDAO;
 import com.bonansa.interfaces.OrdenRecojoDAO;
 import com.bonansa.interfaces.UsuarioDAO;
@@ -34,6 +35,7 @@ public abstract class DAOFactory implements Serializable {
 	public abstract EmpleadoDAO getEmpleadoDAO();
 	public abstract OrdenRecojoDAO getOrdenRecojoDAO();
 	public abstract GuiaRemisionTransportistaDAO getGuiaRemisionTransportistaDAO();
+	public abstract IncidenciaDAO getIncidenciaDAO();
 	
 	//Metodo estatico que va a retornar la herencia hacia una clase hija
 	public static DAOFactory obtenerDAOFactory(int bd){

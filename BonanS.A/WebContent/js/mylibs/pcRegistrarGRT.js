@@ -44,8 +44,6 @@ function fn_agregarGRyFACT() {
 				}
 		
 		});
-		$("#txtNumGr").val("");
-		$("#txtNumFact").val("");
 	});
 };
 

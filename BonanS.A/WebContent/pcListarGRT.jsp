@@ -90,12 +90,12 @@
                     
             <ul class="menu">
 
-			<a href="mpConductor.jsp">Inicio</a>
+			<a href="mpConductor.jsp"><img width="25" src="img/icon/home.png"> Inicio</a><br><br>
 
-			<li class="item2"><a href="#">Servicio de Recojo y Transporte</a>
+			<li class="item2"><a href="#"><img width="30" src="img/icon/registro.png">Servicio de Recojo y Transporte</a>
 				<ul>
-					 <li class="subitem1"><a href="gestionaOrdenRecojo?operacion=listar&idEmpleado=${sessionScope.idEmpleado}&nivel=condu">Mis Ordenes de recojo</a></li>
-				     <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=CONDUCTOR&idEmpleado=${sessionScope.idEmpleado}">Listar GRT</a></li>
+<%-- 					 <li class="subitem1"><a href="gestionaOrdenRecojo?operacion=listar&idEmpleado=${sessionScope.idEmpleado}&nivel=condu">Mis Ordenes de recojo</a></li>
+ --%>				     <%-- <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=CONDUCTOR&idEmpleado=${sessionScope.idEmpleado}">Listar GRT</a></li> --%>
 					 <li class="subitem2"><a href="pcRegistrarGRT.jsp">Generar Guia de Remision del Transportista</a></li>
 					 <li class="subitem2"><a href="pcEntregaMercaderia.jsp">Entregar Mercaderia</a></li>
 				</ul>
@@ -103,10 +103,10 @@
 			
 			
 
-			<li class="item3"><a href="#">Control de Ruta</a>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					
-				</ul>
+                    <li class="subitem2"><a href="pcRegistrarIncidencias.jsp">Registrar Incidencias</a></li>				
+                </ul>
 			</li>
 
 
@@ -115,10 +115,6 @@
 
 
 		</ul>
-		
-                    
-                    
-          
                 	</nav>
                     </div>
         	</aside>

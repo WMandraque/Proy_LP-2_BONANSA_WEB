@@ -57,51 +57,56 @@
                 <div class="side-widgets overflow">
                     <!-- Profile Menu -->
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-                        <a href="" data-toggle="dropdown">
-                            <img class="profile-pic animated" src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
-                        </a>
-                        <ul class="dropdown-menu profile-menu">
-                            <li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                            <li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                            <li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
-                            <li><a href="gestionaUsuario?operacion=salir">Desconectar</a>
-                            <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>      
-                          </ul>
-                        
-<%--                         <h4 class="m-0" style="color: orange;">Usuario:</h4>
-                        <h4 class="m-0">${sessionScope.idEmpleado}</h4>
-                        <br> --%>
-                        
-                        <h4 class="m-0" style="color: orange;">Nombre completo:</h4>
-                        <h4 class="m-0">${sessionScope.nombreCompleto}</h4>
-                        <br>
-                        
-                        <h4 class="m-0" style="color: orange;">Tipo:</h4>
-                         <h4 class="m-0">${sessionScope.tipoEmpleado}</h4>
-             
-                         
-                    </div>
+			<a href="" data-toggle="dropdown"> <img
+				class="profile-pic animated"
+				src="gestionaEmpleado?operacion=mostrarFoto&idEmpleado=${sessionScope.idEmpleado}">
+			</a>
+			<ul class="dropdown-menu profile-menu">
+				<li><a href="">Mi Perfil</a><i class="icon left">&#61903;</i><i
+					class="icon right">&#61815;</i></li>
+				<li><a href="">Mensajes</a><i class="icon left">&#61903;</i><i
+					class="icon right">&#61815;</i></li>
+				<li><a href="">Ajustes</a><i class="icon left">&#61903;</i><i
+					class="icon right">&#61815;</i></li>
+				<li><a href="gestionaUsuario?operacion=salir">Desconectar</a> <i
+					class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+			</ul>
+
+
+
+
+
+			<h5 class="m-0" style="color: orange;">Nombre completo:</h5>
+			<h5 class="m-0">${sessionScope.nombreCompleto}</h5>
+
+			<br>
+
+			<h5 class="m-0" style="color: orange;">Tipo:</h5>
+			<h5 class="m-0">${sessionScope.tipoEmpleado}</h5>
+
+
+		</div>
                     <div class="s-widget m-b-25">
                         <div id="sidebar-calendar"></div>
                     </div>
                     <nav id="wrapper">
                     <ul class="menu">
 
-			<a href="mpAdministrador.jsp">Inicio</a>
+			<a href="mpAdministrador.jsp"><img width="25" src="img/icon/home.png"> Inicio</a><br><br>
 			
-			 <li class="item2"><a href="#">Gestion de Recojo</a>
-				<ul>
+			 <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li>
+					<!-- <li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
+					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li> -->
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 			
-			<li class="item3"><a href="#">Gestion de Transporte</a>
-				<ul>
-				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
-					<li class="subitem2"><a href="#">Eliminar GRT</a></li>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/transporte.png"> Gestion de Transporte</a>
+			<ul class="main-menu mainmenu-menu">
+<!-- 				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
+					<li class="subitem2"><a href="#">Eliminar GRT</a></li> -->
 				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
 					
 				</ul>
@@ -109,14 +114,21 @@
 
 
 
-			<li class="item3"><a href="#">Control de Ruta</a>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					
+					<li class="subitem2"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
+				</ul>
+			</li>
+			
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="25" src="img/icon/chart.png">Reportes Grafico</a>
+				<ul>
+					<li class="subitem2"><a href="paReportesGraficos.jsp">Reportes Graficos</a></li>
 				</ul>
 			</li>
 
-			<li class="item2"><a href="#">Mantenimiento Clientes</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/clientes.png"> Mantenimiento Clientes</a>
+			<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
 					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
@@ -124,8 +136,8 @@
 				</ul></li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Empleados</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/empleados.png"> Mantenimiento Empleados</a>
+			<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
 					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
@@ -134,8 +146,8 @@
 			</li>
 
 
-			<li class="item3"><a href="#">Mantenimiento Usuario</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/usuario.png"> Mantenimiento Usuario</a>
+			<ul class="main-menu mainmenu-menu">
 
 					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
 							Usuario</a></li>
@@ -148,8 +160,8 @@
 				</ul>
 			</li>
 
-			<li class="item4"><a href="#">Mantenimiento Vehiculos</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/vehiculos.png"> Mantenimiento Vehiculos</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
 							Vehiculo</a></li>
 					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
@@ -161,8 +173,8 @@
 				</ul></li>
 
 
-			<li class="item4"><a href="#">Registro de acciones</a>
-				<ul>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/acciones.png"> Registro de acciones</a>
+				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
 							de logs</a></li>
 				</ul></li>

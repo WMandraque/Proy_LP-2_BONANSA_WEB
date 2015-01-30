@@ -207,14 +207,26 @@ public class SvGestionaUsuario extends HttpServlet {
 							int cantidadLogueos=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where tipo='Loguin' and fecha=curdate()");
 							int cantidadSOR=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%SOR Registrado%' and fecha=curdate()");
 							int cantidadGRT=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%GRT Registrado:%' and fecha=curdate()");
+							int cantidadIncidencias=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%Incidencia Registrada:%' and fecha=curdate()");
 
 
 							sesionX.setAttribute("s_cantidadLogueos", cantidadLogueos);
 							sesionX.setAttribute("s_cantidadSOR", cantidadSOR);
 							sesionX.setAttribute("s_cantidadGRT", cantidadGRT);
+							sesionX.setAttribute("s_cantidadIncidencias", cantidadIncidencias);
 							request.getRequestDispatcher("mpAdministrador.jsp").forward(request, response);
 						}
 						else if(usuarioX.getDescRol().equals("RECEPCIONISTA") && usuarioX.getDescEstado().equals("ACTIVO")){
+							int cantidadLogueos=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where tipo='Loguin' and fecha=curdate()");
+							int cantidadSOR=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%SOR Registrado%' and fecha=curdate()");
+							int cantidadGRT=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%GRT Registrado:%' and fecha=curdate()");
+							int cantidadIncidencias=servicioEntidad.countQuery("Select count(*)From tb_logGeneral where descripcion like'%Incidencia Registrada:%' and fecha=curdate()");
+
+
+							sesionX.setAttribute("s_cantidadLogueos", cantidadLogueos);
+							sesionX.setAttribute("s_cantidadSOR", cantidadSOR);
+							sesionX.setAttribute("s_cantidadGRT", cantidadGRT);
+							sesionX.setAttribute("s_cantidadIncidencias", cantidadIncidencias);
 							
 							request.getRequestDispatcher("mpRecepcionista.jsp").forward(request, response);
 						}

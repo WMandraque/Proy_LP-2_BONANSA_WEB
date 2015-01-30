@@ -88,14 +88,13 @@
                     
                     
                     <ul class="menu">
-
-			<a href="mpRecepcionista.jsp">Inicio</a>
-
-			<li class="item2"><a href="#">Gestion de Recojo</a>
+		
+		
+			<a href="mpRecepcionista.jsp"><img width="25" src="img/icon/home.png"> Inicio</a></li><br><br>
+			
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
 				<ul>
 					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=recep">Listar Ordenes de recojo</a></li>
 <!-- 				<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Clientes</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
@@ -103,10 +102,8 @@
 				</ul>
 			</li>
 			
-			<li class="item3"><a href="#">Gestion de Transporte</a>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/transporte.png"> Gestion de Transporte</a>
 				<ul>
-				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
-					<li class="subitem2"><a href="#">Eliminar GRT</a></li>
 				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=RECEPCIONISTA">Listar GRT</a></li>
 					
 				</ul>
@@ -114,15 +111,14 @@
 
 
 
-			<li class="item3"><a href="#">Control de Ruta</a>
+			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					
+					<li class="subitem2"><a href="paRegistrarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=RECEPCIONISTA">Listar Incidencias</a></li>
 				</ul>
 			</li>
 		</ul>
 		
-                    
-                     
                 	</nav>
                     </div>
         	</aside>
