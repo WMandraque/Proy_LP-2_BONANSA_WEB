@@ -85,16 +85,15 @@
 		<div class="s-widget m-b-25">
 			<div id="sidebar-calendar"></div>
 		</div>
-		<nav id="wrapper">
-		<ul class="menu">
+		<h4 class="tile-title">Menu de Opciones</h4><br><br>
+		<ul class="menu" id="menu">
 
 			<a href="mpAdministrador.jsp"><img width="25" src="img/icon/home.png"> Inicio</a><br><br>
 			
-			 <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
+			    <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
 				<ul class="main-menu mainmenu-menu">
 					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
-					<!-- <li class="subitem2"><a href="#">Actualizar Solicitud de recojo</a></li>
-					<li class="subitem2"><a href="#">Eliminar Solicitud de recojo</a></li> -->
+					 
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
