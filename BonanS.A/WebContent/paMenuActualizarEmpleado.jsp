@@ -196,9 +196,9 @@
 				
 
 
-                     <center>
-						<a href="paActualizarEmpleado.jsp">Empleado</a><br><br><br>
-                        <a href="paActualizarEmpleadoConductor.jsp">Empleado Conductor</a>
+                   <center>
+                       	<a class="opemployes tile" href="paActualizarEmpleado.jsp"><img src="img/shortcuts/cliente.png" alt=""><h4 class="t-overflow">Empleado</h4></a> 
+                       	<a class="opemployes tile" href="paActualizarEmpleadoConductor.jsp"><img src="img/shortcuts/empleado.png" alt=""><h4 class="t-overflow">Empleado Conductor</h4></a>
 					 </center>
                    
 

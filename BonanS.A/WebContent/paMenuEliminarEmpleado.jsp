@@ -194,12 +194,11 @@
 			<fieldset>
 				<legend class="block-title" style="color: white;">Seleccionar tipo de empleado a eliminar</legend>
 				
-
-
                      <center>
-						<a href="paEliminarEmpleado.jsp">Empleado</a><br><br><br>
-                        <a href="paEliminarEmpleadoConductor.jsp">Empleado Conductor</a>
+                       	<a class="opemployes tile" href="paEliminarEmpleado.jsp"><img src="img/shortcuts/cliente.png" alt=""><h4 class="t-overflow">Empleado</h4></a> 
+                       	<a class="opemployes tile" href="paEliminarEmpleadoConductor.jsp"><img src="img/shortcuts/empleado.png" alt=""><h4 class="t-overflow">Empleado Conductor</h4></a>
 					 </center>
+                   
                    
 
 

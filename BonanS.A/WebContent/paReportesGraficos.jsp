@@ -273,7 +273,6 @@
 												<option value="">Seleccione</option>
 												<option value="1">SOR Registrados en 2015</option>
 												<option value="2">SOR por Estado</option>
-												<option value="3">Categorias de Vehiculo</option>
 							
 											</select>
 											</div>

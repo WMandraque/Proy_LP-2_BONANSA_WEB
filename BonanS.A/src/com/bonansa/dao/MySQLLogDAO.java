@@ -24,7 +24,7 @@ public class MySQLLogDAO implements LogDAO {
 		try {
 			
 			con=MySQLConexion.getConexion();
-			String sql="SELECT * FROM tb_logGeneral WHERE fecha > TO_DAYS(CURRENT_DATE()) order by hora desc";
+			String sql="SELECT * FROM tb_logGeneral WHERE fecha > TO_DAYS(CURRENT_DATE()) order by codigo desc";
 			pst=con.prepareStatement(sql);
 			
 			ResultSet rs=pst.executeQuery();

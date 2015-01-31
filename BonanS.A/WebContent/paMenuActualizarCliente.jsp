@@ -194,19 +194,12 @@
 			<fieldset>
 				<legend class="block-title" style="color: white;">Seleccionar tipo de cliente a actualizar</legend>
 				
-
-
+				
+				
                      <center>
-						<a href="paActualizarClienteNatural.jsp">Cliente Natural</a> <br><br><br>
-                        <a href="paActualizarClienteJuridico.jsp">Cliente Juridico</a>
-					 </center>
-                   
-
-
-               
-
-
-			
+                       	<a class="opemployes tile" href="paActualizarClienteNatural.jsp"><img src="img/shortcuts/cliente.png" alt=""><h4 class="t-overflow">Cliente Natural</h4></a> 
+                       	<a class="opemployes tile" href="paActualizarClienteJuridico.jsp"><img src="img/shortcuts/empleado.png" alt=""><h4 class="t-overflow">Cliente Juridico</h4></a>
+					 </center>		
 
 
 			</fieldset>

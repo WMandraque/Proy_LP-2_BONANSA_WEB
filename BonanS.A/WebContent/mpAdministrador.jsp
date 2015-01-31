@@ -90,11 +90,11 @@
 
 			<a href="mpAdministrador.jsp"><img width="25" src="img/icon/home.png"> Inicio</a><br><br>
 			
-			    <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
+			    <li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
 				<ul class="main-menu mainmenu-menu">
-					<li class="primera"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
+					<li class="subitem2 primera"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					 
-					<li class="primera"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
+					<li class="subitem2 primera"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 			
@@ -110,11 +110,12 @@
 
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
-				<ul>
+			<ul class="main-menu mainmenu-menu">
 					<li class="primera"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
 					<li class="primera"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
-				</ul>
+			</ul>
 			</li>
+
 			
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="25" src="img/icon/chart.png">Reportes Grafico</a>
 				<ul>

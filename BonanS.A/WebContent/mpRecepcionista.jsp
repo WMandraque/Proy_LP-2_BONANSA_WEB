@@ -93,17 +93,18 @@
 			<a href="mpRecepcionista.jsp"><img width="25" src="img/icon/home.png"> Inicio</a></li><br><br>
 			
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
-				<ul>
+			<ul class="main-menu mainmenu-menu">
+
 					<li class="subitem1"><a href="prRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=recep">Listar Ordenes de recojo</a></li>
 <!-- 				<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarClientes">Listar Clientes</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarEmpleados">Listar Empleados</a></li>
 					<li class="subitem3"><a href="gestionaOrdenRecojo?operacion=listarVehiculos">Listar Vehiculos</a></li> -->
-				</ul>
-			</li>
+				</ul></li>
 			
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/transporte.png"> Gestion de Transporte</a>
-				<ul>
+				<ul class="main-menu mainmenu-menu">
+
 				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=RECEPCIONISTA">Listar GRT</a></li>
 					
 				</ul>
@@ -112,7 +113,8 @@
 
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
-				<ul>
+							<ul class="main-menu mainmenu-menu">
+
 					<li class="subitem2"><a href="prActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
 					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=RECEPCIONISTA">Listar Incidencias</a></li>
 				</ul>

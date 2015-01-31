@@ -196,12 +196,11 @@
 				
 
 
-                     <center>
-						<a href="paEliminarClienteNatural.jsp">Cliente Natural</a><br><br><br>
-                        <a href="paEliminarClienteJuridico.jsp">Cliente Juridico</a>
-					 </center>
-                   
 
+                     <center>
+                       	<a class="opemployes tile" href="paEliminarClienteNatural.jsp"><img src="img/shortcuts/cliente.png" alt=""><h4 class="t-overflow">Cliente Natural</h4></a> 
+                       	<a class="opemployes tile" href="paEliminarClienteJuridico.jsp"><img src="img/shortcuts/empleado.png" alt=""><h4 class="t-overflow">Cliente Juridico</h4></a>
+					 </center>
 
                
 
