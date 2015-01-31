@@ -92,9 +92,9 @@
 			
 			    <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
 				<ul class="main-menu mainmenu-menu">
-					<li class="subitem1"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
+					<li class="primera"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
 					 
-					<li class="subitem2"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
+					<li class="primera"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 			
@@ -102,7 +102,7 @@
 			<ul class="main-menu mainmenu-menu">
 <!-- 				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
 					<li class="subitem2"><a href="#">Eliminar GRT</a></li> -->
-				    <li class="subitem1"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
+				    <li class="primera"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
 					
 				</ul>
 			</li>
@@ -111,32 +111,32 @@
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					<li class="subitem2"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
-					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
+					<li class="primera"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="primera"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
 				</ul>
 			</li>
 			
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="25" src="img/icon/chart.png">Reportes Grafico</a>
 				<ul>
-					<li class="subitem2"><a href="paReportesGraficos.jsp">Reportes Graficos</a></li>
+					<li class="primera"><a href="paReportesGraficos.jsp">Reportes Graficos</a></li>
 				</ul>
 			</li>
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/clientes.png"> Mantenimiento Clientes</a>
 			<ul class="main-menu mainmenu-menu">
-					<li class="subitem1"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="subitem2"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="subitem3"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
+					<li class="primera"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
+					<li class="primera"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
+					<li class="primera"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
+					<li class="primera"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
 				</ul></li>
 
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/empleados.png"> Mantenimiento Empleados</a>
 			<ul class="main-menu mainmenu-menu">
-					<li class="subitem1"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-					<li class="subitem2"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-					<li class="subitem3"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+					<li class="primera"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
+					<li class="primera"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+					<li class="primera"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
+					<li class="primera"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
 				</ul>
 			</li>
 
@@ -144,12 +144,12 @@
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/usuario.png"> Mantenimiento Usuario</a>
 			<ul class="main-menu mainmenu-menu">
 
-					<li class="subitem1"><a href="paRegistrarUsuario.jsp">Registrar
+					<li class="primera"><a href="paRegistrarUsuario.jsp">Registrar
 							Usuario</a></li>
-					<li class="subitem2"><a href="paActualizarUsuario.jsp">Actualizar
+					<li class="primera"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>
-					<li class="subitem2"><a href="paEliminarUsuario.jsp">Eliminar Usuario</a></li>
-					<li class="subitem3"><a
+					<li class="primera"><a href="paEliminarUsuario.jsp">Eliminar Usuario</a></li>
+					<li class="primera"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
 
 				</ul>
@@ -157,20 +157,20 @@
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/vehiculos.png"> Mantenimiento Vehiculos</a>
 				<ul class="main-menu mainmenu-menu">
-					<li class="subitem1"><a href="paRegistrarVehiculo.jsp">Registrar
+					<li class="primera"><a href="paRegistrarVehiculo.jsp">Registrar
 							Vehiculo</a></li>
-					<li class="subitem2"><a href="paActualizarVehiculo.jsp">Actualizar
+					<li class="primera"><a href="paActualizarVehiculo.jsp">Actualizar
 							Vehiculo</a></li>
-					<li class="subitem2"><a href="paEliminarVehiculo.jsp">Eliminar
+					<li class="primera"><a href="paEliminarVehiculo.jsp">Eliminar
 							Vehiculo</a></li>
-					<li class="subitem3"><a
+					<li class="primera"><a
 						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
 				</ul></li>
 
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/acciones.png"> Registro de acciones</a>
 				<ul class="main-menu mainmenu-menu">
-					<li class="subitem1"><a href="gestionaLog?operacion=listar">Listado
+					<li class="primera"><a href="gestionaLog?operacion=listar">Listado
 							de logs</a></li>
 				</ul></li>
 
@@ -377,25 +377,25 @@
 	</div>
 
 	<marquee behavior="slide"><h4 class="page-title">Bienvenido ${sessionScope.nombreCompleto}</h4></marquee>
-	<div class="block-area shortcut-area">
+		<div class="block-area shortcut-area">
 		<center>
 
-			<a class="shortcut tile" href=""> <img
-				src="img/shortcuts/clientes.png" alt=""> <small
+			<a class="shortcut tile" href="paRegistrarCliente.jsp"> <img
+				src="img/shortcuts/cliente.png" alt=""> <small
 				class="t-overflow">Clientes</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/inicio.png" alt=""> <small
-				class="t-overflow">Inicio</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/tiempo.png" alt=""> <small
-				class="t-overflow">Calendario</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/registro.png" alt=""> <small
-				class="t-overflow">Estado</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/ajustes.png" alt=""> <small
-				class="t-overflow">Ajustes</small>
-			</a> <a class="shortcut tile" href="logueo.jsp"> <img
+			</a> <a class="shortcut tile" href="mpAdRegistrarEmpleado.jsp"> <img
+				src="img/shortcuts/empleado.png" alt=""> <small
+				class="t-overflow">Empleados</small>
+			</a> <a class="shortcut tile" href="paRegistrarUsuario.jsp"> <img
+				src="img/shortcuts/usuario.png" alt=""> <small
+				class="t-overflow">Usuario</small>
+			</a> <a class="shortcut tile" href="paRegistrarVehiculo.jsp"> <img
+				src="img/shortcuts/vehiculo.png" alt=""> <small
+				class="t-overflow">Vehiculos</small>
+			</a> <a class="shortcut tile" href="gestionaLog?operacion=listar"> <img
+				src="img/shortcuts/logs.png" alt=""> <small
+				class="t-overflow">Logs</small>
+			</a> <a class="shortcut tile" href="gestionaUsuario?operacion=salir"> <img
 				src="img/shortcuts/salir.png" alt=""> <small
 				class="t-overflow">Salir</small>
 			</a>

@@ -25,6 +25,8 @@
 <link href="css/generics.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
+<link href="css/menu.css" rel ="stylesheet">
+
 </head>
 <body id="skin-blur-sunset">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
@@ -111,7 +113,7 @@
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					<li class="subitem2"><a href="paRegistrarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="subitem2"><a href="prActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
 					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=RECEPCIONISTA">Listar Incidencias</a></li>
 				</ul>
 			</li>
@@ -318,29 +320,25 @@
 
 	<marquee behavior="slide"><h4 class="page-title">Bienvenido ${sessionScope.nombreCompleto}</h4></marquee>
 	<div class="block-area shortcut-area">
-		<center>
+		<center>	
+	    	<a class="shortcut tile" href="prRegistrarSolicitudRecojo.jsp"> <img
+				src="img/shortcuts/ordenrecojo.png" alt=""> <small
+				class="t-overflow">Recojo</small>
+			</a>
+			<a class="shortcut tile" href="prListarGRT.jsp"> <img
+				src="img/shortcuts/grt.png" alt=""> <small
+				class="t-overflow">GRT</small>
+			</a>
+			<a class="shortcut tile" href="gestionaIncidencia?operacion=listar&nivel=RECEPCIONISTA"> <img
+				src="img/shortcuts/logs.png" alt=""> <small
+				class="t-overflow">Incidencias</small>
+			</a>
 
-			<a class="shortcut tile" href=""> <img
-				src="img/shortcuts/clientes.png" alt=""> <small
-				class="t-overflow">Clientes</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/inicio.png" alt=""> <small
-				class="t-overflow">Inicio</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/tiempo.png" alt=""> <small
-				class="t-overflow">Calendario</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/registro.png" alt=""> <small
-				class="t-overflow">Estado</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/ajustes.png" alt=""> <small
-				class="t-overflow">Ajustes</small>
-			</a> <a class="shortcut tile" href="logueo.jsp"> <img
+			<a class="shortcut tile" href="gestionaUsuario?operacion=salir"> <img
 				src="img/shortcuts/salir.png" alt=""> <small
 				class="t-overflow">Salir</small>
 			</a>
-
-		</center>
+		 </center>
 	</div>
 	<hr class="whiter" />
 	<div class="block-area">

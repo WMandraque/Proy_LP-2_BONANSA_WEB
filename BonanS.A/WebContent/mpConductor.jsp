@@ -25,6 +25,8 @@
 <link href="css/generics.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <link href="css/icons2.css" rel="stylesheet">
+<link href="css/menu.css" rel ="stylesheet">
+
 </head>
 <body id="skin-blur-sunset">
 	<header id="header" class="media"> <a href="" id="menu-toggle"></a>
@@ -310,78 +312,33 @@
 		</div>
 	</div>
 
-	<h4 class="page-title">Mensaje de bienvenida....</h4>
+	<marquee behavior="slide"><h4 class="page-title">Bienvenido ${sessionScope.nombreCompleto}</h4></marquee>
 	<div class="block-area shortcut-area">
 		<center>
-
-			<a class="shortcut tile" href=""> <img
-				src="img/shortcuts/money.png" alt=""> <small
-				class="t-overflow">Purchases</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/twitter.png" alt=""> <small
-				class="t-overflow">Tweets</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/calendar.png" alt=""> <small
-				class="t-overflow">Calendario</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/stats.png" alt=""> <small
-				class="t-overflow">Statistics</small>
-			</a> <a class="shortcut tile" href=""> <img
-				src="img/shortcuts/connections.png" alt=""> <small
-				class="t-overflow">Conexion</small>
-			</a> <a class="shortcut tile" href="paLog.jsp"> <img
-				src="img/shortcuts/reports.png" alt=""> <small
-				class="t-overflow">Log general</small>
+		
+			<a class="shortcut tile" href="gestionaOrdenRecojo?operacion=listar&idEmpleado=${sessionScope.idEmpleado}&nivel=condu"> <img
+				src="img/shortcuts/ordenrecojo.png" alt=""> <small
+				class="t-overflow">Recojo</small>
 			</a>
-
-		</center>
+			
+			<a class="shortcut tile" href="pcRegistrarGRT.jsp"> <img
+				src="img/shortcuts/grt.png" alt=""> <small
+				class="t-overflow">GRT</small>
+			</a>
+			
+			<a class="shortcut tile" href=""> <img
+				src="img/shortcuts/logs.png" alt=""> <small
+				class="t-overflow">Incidencias</small>
+			</a>
+			
+			<a class="shortcut tile" href="gestionaUsuario?operacion=salir"> <img
+				src="img/shortcuts/salir.png" alt=""> <small
+				class="t-overflow">Salir</small>
+			</a>
+		 </center>
 	</div>
 	<hr class="whiter" />
-	<div class="block-area">
-		<div class="row">
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats">
-					<div id="stats-line-2" class="pull-left"></div>
-					<div class="data">
-						<h2 data-value="98">0</h2>
-						<small>Tickets Today</small>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats media">
-					<div id="stats-line-3" class="pull-left"></div>
-					<div class="media-body">
-						<h2 data-value="1452">0</h2>
-						<small>Shipments today</small>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats media">
-
-					<div id="stats-line-4" class="pull-left"></div>
-
-					<div class="media-body">
-						<h2 data-value="4896">0</h2>
-						<small>Ordenes del Dia</small>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3 col-xs-6">
-				<div class="tile quick-stats media">
-					<div id="stats-line" class="pull-left"></div>
-					<div class="media-body">
-						<h2 data-value="29356">0</h2>
-						<small>Sitios Visitados Hoy</small>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<hr class="whiter" />
 	<div class="block-area">
 		<div class="row">
@@ -534,110 +491,7 @@
 		</div>
 	</div>
 
-	<div class="chat">
-
-		<!-- Chat List -->
-		<div class="pull-left chat-list">
-			<div class="listview narrow">
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/1.jpg" width="30"
-						alt="">
-					<div class="media-body p-t-5">Alex Bendit</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/2.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">David Volla Watkinson</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/3.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Mitchell Christein</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/4.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Wayne Parnell</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/5.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Melina April</span>
-					</div>
-				</div>
-				<div class="media">
-					<img class="pull-left" src="img/profile-pics/6.jpg" width="30"
-						alt="">
-					<div class="media-body">
-						<span class="t-overflow p-t-5">Ford Harnson</span>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Chat Area -->
-		<div class="media-body">
-			<div class="chat-header">
-				<a class="btn btn-sm" href=""> <i
-					class="fa fa-circle-o status m-r-5"></i> Chat with Friends
-				</a>
-			</div>
-
-			<div class="chat-body">
-				<div class="media">
-					<img class="pull-right" src="img/profile-pics/1.jpg" width="30"
-						alt="" />
-					<div class="media-body pull-right">
-						Hiiii<br /> How you doing bro? <small>Me - 10 Mins ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-left">
-					<img class="pull-left" src="img/profile-pics/2.jpg" width="30"
-						alt="" />
-					<div class="media-body">
-						I'm doing well buddy. <br />How do you do? <small>David -
-							9 Mins ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-right">
-					<img class="pull-right" src="img/profile-pics/2.jpg" width="30"
-						alt="" />
-					<div class="media-body">
-						I'm Fine bro <br />Thank you for asking <small>Me - 8 Mins
-							ago</small>
-					</div>
-				</div>
-
-				<div class="media pull-right">
-					<img class="pull-right" src="img/profile-pics/2.jpg" width="30"
-						alt="" />
-					<div class="media-body">
-						Any idea for a hangout? <small>Me - 8 Mins ago</small>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="chat-footer media">
-				<i class="chat-list-toggle pull-left fa fa-bars"></i> <i
-					class="pull-right fa fa-picture-o"></i>
-				<div class="media-body">
-					<textarea class="form-control" placeholder="Type something..."></textarea>
-				</div>
-			</div>
-		</div>
-	</div>
-	</section> </section>
+		</section> </section>
 
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Library -->

@@ -28,6 +28,8 @@
         <link href="css/generics.css" rel="stylesheet">
         <link href="css/app.css" rel="stylesheet">
         <link href="css/icons2.css" rel="stylesheet">
+        <link href="css/menu.css" rel ="stylesheet">
+        
     </head>
 <body id="skin-blur-sunset">
         <header id="header" class="media">
@@ -114,7 +116,7 @@
 
 			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
 				<ul>
-					<li class="subitem2"><a href="paRegistrarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="subitem2"><a href="prActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
 					<li class="subitem2"><a href="gestionaIncidencia?operacion=listar&nivel=RECEPCIONISTA">Listar Incidencias</a></li>
 				</ul>
 			</li>
