@@ -95,87 +95,85 @@
 
 			<a href="mpAdministrador.jsp"><img width="25" src="img/icon/home.png"> Inicio</a><br><br>
 			
-			    <li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
+			    <li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/recojo.png"> Gestion de Recojo</a>
 				<ul class="main-menu mainmenu-menu">
-					<li class="primera"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
-					 
-					<li class="primera"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
+					<li class="subitem2 primera"><a href="paRegistrarSolicitudRecojo.jsp">Registrar Solicitud de recojo</a></li>
+					<li class="subitem2 primera"><a href="gestionaOrdenRecojo?operacion=listar&nivel=admin">Listar Ordenes de recojo</a></li>
 				</ul>
 			</li>
 			
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/transporte.png"> Gestion de Transporte</a>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/transporte.png"> Gestion de Transporte</a>
 			<ul class="main-menu mainmenu-menu">
-<!-- 				    <li class="subitem2"><a href="#">Actualizar GRT</a></li>
-					<li class="subitem2"><a href="#">Eliminar GRT</a></li> -->
-				    <li class="primera"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
+				    <li class="subitem2 primera"><a href="gestionaGRT?operacion=listar&nivel=ADMINISTRADOR">Listar GRT</a></li>
 					
 				</ul>
 			</li>
 
 
 
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
-				<ul>
-					<li class="primera"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
-					<li class="primera"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
-				</ul>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/ruta.png"> Control de Ruta</a>
+			<ul class="main-menu mainmenu-menu">
+					<li class="subitem2 primera"><a href="paActualizarIncidencias.jsp">Actualizar Incidencias</a></li>
+					<li class="subitem2 primera"><a href="gestionaIncidencia?operacion=listar&nivel=ADMINISTRADOR">Listar Incidencias</a></li>
+			</ul>
 			</li>
+
 			
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="25" src="img/icon/chart.png">Reportes Grafico</a>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="25" src="img/icon/chart.png">Reportes Grafico</a>
 				<ul>
-					<li class="primera"><a href="paReportesGraficos.jsp">Reportes Graficos</a></li>
+					<li class="subitem2 primera"><a href="paReportesGraficos.jsp">Reportes Graficos</a></li>
 				</ul>
 			</li>
 
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/clientes.png"> Mantenimiento Clientes</a>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/clientes.png"> Mantenimiento Clientes</a>
 			<ul class="main-menu mainmenu-menu">
-					<li class="primera"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
-					<li class="primera"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
-					<li class="primera"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
-					<li class="primera"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
+					<li class="subitem2 primera"><a href="paRegistrarCliente.jsp">Registrar Cliente</a></li>
+					<li class="subitem2 primera"><a href="paMenuActualizarCliente.jsp">Actualizar Cliente</a></li>
+					<li class="subitem2 primera"><a href="paMenuEliminarCliente.jsp">Eliminar Cliente</a></li>
+					<li class="subitem2 primera"><a href="gestionaCliente?operacion=listar">Listar Cliente</a></li>
 				</ul></li>
 
 
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/empleados.png"> Mantenimiento Empleados</a>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/empleados.png"> Mantenimiento Empleados</a>
 			<ul class="main-menu mainmenu-menu">
-					<li class="primera"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
-					<li class="primera"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
-					<li class="primera"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
-					<li class="primera"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
+					<li class="subitem2 primera"><a href="mpAdRegistrarEmpleado.jsp">Registrar Empleado</a></li>
+					<li class="subitem2 primera"><a href="paMenuActualizarEmpleado.jsp">Actualizar Empleado</a></li>
+					<li class="subitem2 primera"><a href="paMenuEliminarEmpleado.jsp">Eliminar Empleado</a></li>
+					<li class="subitem2 primera"><a href="gestionaEmpleado?operacion=listar">Listar Empleado</a></li>
 				</ul>
 			</li>
 
 
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/usuario.png"> Mantenimiento Usuario</a>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/usuario.png"> Mantenimiento Usuario</a>
 			<ul class="main-menu mainmenu-menu">
 
-					<li class="primera"><a href="paRegistrarUsuario.jsp">Registrar
+					<li class="subitem2 primera"><a href="paRegistrarUsuario.jsp">Registrar
 							Usuario</a></li>
-					<li class="primera"><a href="paActualizarUsuario.jsp">Actualizar
+					<li class="subitem2 primera"><a href="paActualizarUsuario.jsp">Actualizar
 							Usuario</a></li>
-					<li class="primera"><a href="paEliminarUsuario.jsp">Eliminar Usuario</a></li>
-					<li class="primera"><a
+					<li class="subitem2 primera"><a href="paEliminarUsuario.jsp">Eliminar Usuario</a></li>
+					<li class="subitem2 primera"><a
 						href="gestionaUsuario?operacion=listar">Listar Usuario</a></li>
 
 				</ul>
 			</li>
 
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/vehiculos.png"> Mantenimiento Vehiculos</a>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/vehiculos.png"> Mantenimiento Vehiculos</a>
 				<ul class="main-menu mainmenu-menu">
-					<li class="primera"><a href="paRegistrarVehiculo.jsp">Registrar
+					<li class="subitem2 primera"><a href="paRegistrarVehiculo.jsp">Registrar
 							Vehiculo</a></li>
-					<li class="primera"><a href="paActualizarVehiculo.jsp">Actualizar
+					<li class="subitem2 primera"><a href="paActualizarVehiculo.jsp">Actualizar
 							Vehiculo</a></li>
-					<li class="primera"><a href="paEliminarVehiculo.jsp">Eliminar
+					<li class="subitem2 primera"><a href="paEliminarVehiculo.jsp">Eliminar
 							Vehiculo</a></li>
-					<li class="primera"><a
+					<li class="subitem2 primera"><a
 						href="gestionaVehiculo?operacion=listar">Listar Vehiculos</a></li>
 				</ul></li>
 
 
-			<li class="nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/acciones.png"> Registro de acciones</a>
+			<li class="item2 nivel1 s-widget m-b-25"><a href="#"><img width="30" src="img/icon/acciones.png"> Registro de acciones</a>
 				<ul class="main-menu mainmenu-menu">
-					<li class="primera"><a href="gestionaLog?operacion=listar">Listado
+					<li class="subitem2 primera"><a href="gestionaLog?operacion=listar">Listado
 							de logs</a></li>
 				</ul></li>
 
